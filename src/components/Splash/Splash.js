@@ -27,12 +27,9 @@ class Splash extends Component {
     const quote = quoteObj.quote;
     const author = quoteObj.author;
 
-    this.setState ({
-      quote: quote,
-      author: author
-    })
-
+    this.setState ({ quote, author })
   }
+
   render() {
 
     return (
