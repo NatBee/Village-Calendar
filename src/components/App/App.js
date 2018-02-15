@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom'; 
+import { Route, Link } from 'react-router-dom'; 
 import Splash from '../Splash/Splash';
 // import Nav from '../../containers/Nav/Nav';
 import CalendarDisplay from '../../containers/CalendarDisplay/CalendarDisplay';
@@ -10,7 +10,9 @@ class App extends Component {
     return (
       <div className='App'>
         <h1>VILLAGE</h1>
-        <Route exact path='/' component={ Splash } />
+        <Link to="/login">Log in to Your Village Calendar</Link>
+        <Link to="/register">Create Your Village Calendar</Link>
+        <Route exact path='/' component={ App } />
         <Route exact path='/login' component={ Splash } />
         <Route exact path='/register' component={ Splash } />
         <Route exact path='/calendar' component= { CalendarDisplay } />
