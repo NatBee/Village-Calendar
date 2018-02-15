@@ -14,11 +14,6 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
-var provider = new firebase.auth.GoogleAuthProvider();
-provider.addScope('https://www.googleapis.com/auth/calendar');
-provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
-
 class LogIn extends Component {
   constructor(props) {
     super(props);
@@ -30,25 +25,35 @@ class LogIn extends Component {
 
 
   googleSignIn = () => {
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      // ...
-    }).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
-    }); 
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/calendar');
+    provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
+
+    firebase.auth().signInWithRedirect(provider);
 
     this.setState({signedIn: true})
   }   
+
+  redirect = () => {
+    firebase.auth().getRedirectResult().then(function(result) {
+      if (result.credential) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+    // ...
+    }
+  // The signed-in user info.
+    var user = result.user;
+    }).catch(function(error) {
+  // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  // The email of the user's account used.
+    var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+  // ...
+    });
+  }
 
   googleSignOut = () => {
     firebase.auth().signOut().then(function() {
