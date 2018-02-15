@@ -30,7 +30,6 @@ class LogIn extends Component {
       provider.addScope('https://www.googleapis.com/auth/calendar');
       provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
       firebase.auth().signInWithRedirect(provider);
-      this.redirectResult();
 
       this.setState({signedIn: true});
     } else {
@@ -42,17 +41,14 @@ class LogIn extends Component {
 
   }   
 
-  redirectResult = () => {
-    debugger;
-    firebase.auth().getRedirectResult().then(function(result) {
-      const user = result.user;
-      if(user) {
-      // const token = result.credential.accessToken;
-      console.log(user)
-      } else if(firebase.auth().currentUser) {
-        console.log(user)
+  redirectResult = async () => {
+    // debugger;
+    await firebase.auth().getRedirectResult().then(function(result) {
+      if(result.credential) {
+        const token = result.credential.accessToken;
       }
 
+      const user = result.user;
       // if (result.credential) {
     // This gives you a Google Access Token. You can use it to access the Google API.
     // ...
@@ -67,27 +63,27 @@ class LogIn extends Component {
   // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
   // ...
+
+    if(errorCode === 'auth/account-exists-with-different-credential') {
+      alert('already signed up')
+    //how do I handle multiple auth providers and link user's accounts
+    //here
+    } else {
+      console.error(error)
+    }
     });
   }
 
-  googleSignOut = () => {
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-    }).catch(function(error) {
-      // An error happened.
-    });
 
-    this.setState({signedIn: false})
-  }
 
   buttonDisplay = () => {
     if(this.state.signedIn === false) {
       return(
-        <button className="login" onClick={this.toggleGoogleSignIn()}>Login</button>
+        <button className="login" onClick={this.toggleGoogleSignIn}>Login</button>
       )
     } else {
       return (
-        <button className="logout" onClick={this.toggleGoogleSignIn()}>Sign Out</button>
+        <button className="logout" onClick={this.toggleGoogleSignIn}>Sign Out</button>
       )
     }
   }
