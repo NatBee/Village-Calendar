@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import './LogIn.css';
+import { logInUser } from '../../actions/index';
+import { logOutUser } from '../../actions/index';
+import { connect } from 'react-redux';
+
+
 var firebase = require("firebase/app");
 require("firebase/auth");
 require("firebase/database");
@@ -14,32 +19,46 @@ var config = {
   messagingSenderId: "184201738089"
 };
 firebase.initializeApp(config);
-
 class LogIn extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      signedIn: false
+      user: null
     }
   }
-
   toggleGoogleSignIn = () => {
+
     if(!firebase.auth().currentUser) {
       var provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/calendar');
       provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
-      firebase.auth().signInWithRedirect(provider);
 
-      this.setState({signedIn: true});
-    } else {
-      firebase.auth().signOut();
+      const auth = firebase.auth()
 
-      this.setState({signedIn: false})
-    }
-// debugger
+      auth.signInWithPopup(provider)
+      .then((result) => {
+      const user = result.user;
+      this.setState({
+       user
+      });
+      // firebase.auth().signInWithRedirect(provider);
+      })
+      // return this.props.logInUser(user)
+console.log(this.props);
 
-  }   
+      // this.setState({user});
+    } 
+  }
+
+
+  signOut = () => {
+    firebase.auth().signOut();
+      this.setState({user: null})
+  }
+
+
+ 
 
   redirectResult = async () => {
     // debugger;
@@ -77,18 +96,19 @@ class LogIn extends Component {
 
 
   buttonDisplay = () => {
-    if(this.state.signedIn === false) {
+    if(!this.state.user) {
       return(
         <button className="login" onClick={this.toggleGoogleSignIn}>Login</button>
       )
     } else {
       return (
-        <button className="logout" onClick={this.toggleGoogleSignIn}>Sign Out</button>
+        <button className="logout" onClick={this.signOut}>Sign Out</button>
       )
     }
   }
 
   render() {
+    console.log(this.state.user)
     return (
       <div>
         {this.buttonDisplay()}
@@ -97,7 +117,16 @@ class LogIn extends Component {
   }
 }
 
-export default LogIn;
+export const mapStateToProps = (store) => ({
+  user: store.user
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  logInUser: (user) => dispatch(logInUser(user)),
+  logOutUser: (user) => dispatch(logOutUser(user))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
 
 
 
