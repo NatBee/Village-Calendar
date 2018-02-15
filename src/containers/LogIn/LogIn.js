@@ -4,7 +4,6 @@ import { logInUser } from '../../actions/index';
 import { logOutUser } from '../../actions/index';
 import { connect } from 'react-redux';
 
-
 var firebase = require("firebase/app");
 require("firebase/auth");
 require("firebase/database");
@@ -19,6 +18,7 @@ var config = {
   messagingSenderId: "184201738089"
 };
 firebase.initializeApp(config);
+
 class LogIn extends Component {
   constructor(props) {
     super(props);
@@ -27,8 +27,9 @@ class LogIn extends Component {
       user: null
     }
   }
-  toggleGoogleSignIn = () => {
 
+  logIn = () => {
+console.log(this.props)
     if(!firebase.auth().currentUser) {
       var provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/calendar');
@@ -43,7 +44,7 @@ class LogIn extends Component {
        user
       });
       // firebase.auth().signInWithRedirect(provider);
-      })
+      });
       // return this.props.logInUser(user)
 console.log(this.props);
 
@@ -52,7 +53,7 @@ console.log(this.props);
   }
 
 
-  signOut = () => {
+  logOut = () => {
     firebase.auth().signOut();
       this.setState({user: null})
   }
@@ -98,11 +99,11 @@ console.log(this.props);
   buttonDisplay = () => {
     if(!this.state.user) {
       return(
-        <button className="login" onClick={this.toggleGoogleSignIn}>Login</button>
+        <button className="login" onClick={this.logIn}>Log In</button>
       )
     } else {
       return (
-        <button className="logout" onClick={this.signOut}>Sign Out</button>
+        <button className="logout" onClick={this.logOut}>Log Out</button>
       )
     }
   }
