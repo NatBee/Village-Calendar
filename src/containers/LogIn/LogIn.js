@@ -3,7 +3,8 @@ import './LogIn.css';
 var firebase = require("firebase/app");
 require("firebase/auth");
 require("firebase/database");
-    // Initialize Firebase
+
+      // Initialize Firebase
 var config = {
   apiKey: "AIzaSyABnqZAeuir1PknSFNc09FQofJ9OzfglHQ",
   authDomain: "village-calendar-app.firebaseapp.com",
@@ -23,26 +24,40 @@ class LogIn extends Component {
     }
   }
 
+  toggleGoogleSignIn = () => {
+    if(!firebase.auth().currentUser) {
+      var provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('https://www.googleapis.com/auth/calendar');
+      provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
+      firebase.auth().signInWithRedirect(provider);
+      this.redirectResult();
 
-  googleSignIn = () => {
-    var provider = new firebase.auth.GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/calendar');
-    provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
+      this.setState({signedIn: true});
+    } else {
+      firebase.auth().signOut();
 
-    firebase.auth().signInWithRedirect(provider);
+      this.setState({signedIn: false})
+    }
+// debugger
 
-    this.setState({signedIn: true})
   }   
 
-  redirect = () => {
+  redirectResult = () => {
+    debugger;
     firebase.auth().getRedirectResult().then(function(result) {
-      if (result.credential) {
+      const user = result.user;
+      if(user) {
+      // const token = result.credential.accessToken;
+      console.log(user)
+      } else if(firebase.auth().currentUser) {
+        console.log(user)
+      }
+
+      // if (result.credential) {
     // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
     // ...
-    }
+    
   // The signed-in user info.
-    var user = result.user;
     }).catch(function(error) {
   // Handle Errors here.
     var errorCode = error.code;
@@ -65,12 +80,23 @@ class LogIn extends Component {
     this.setState({signedIn: false})
   }
 
+  buttonDisplay = () => {
+    if(this.state.signedIn === false) {
+      return(
+        <button className="login" onClick={this.toggleGoogleSignIn()}>Login</button>
+      )
+    } else {
+      return (
+        <button className="logout" onClick={this.toggleGoogleSignIn()}>Sign Out</button>
+      )
+    }
+  }
+
   render() {
     return (
-      <form>
-        <button className="login">{this.googleSignIn()}</button>
-        <button className="logout">{this.googleSignOut()}</button>
-      </form>
+      <div>
+        {this.buttonDisplay()}
+      </div>
     )
   }
 }
