@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './LogIn.css';
 import { logInUser } from '../../actions/index';
 import { logOutUser } from '../../actions/index';
+import { userFetchData } from '../../actions/index';
 import { connect } from 'react-redux';
 
 var firebase = require("firebase/app");
@@ -28,76 +29,33 @@ class LogIn extends Component {
     }
   }
 
-  logIn = () => {
-console.log(this.props)
-    if(!firebase.auth().currentUser) {
+  logIn = async () => {
+
+   
       var provider = new firebase.auth.GoogleAuthProvider();
       provider.addScope('https://www.googleapis.com/auth/calendar');
-      provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
-
+      // this.props.userFetchData(provider);
       const auth = firebase.auth()
 
-      auth.signInWithPopup(provider)
-      .then((result) => {
-      const user = result.user;
-      this.setState({
-       user
-      });
-      // firebase.auth().signInWithRedirect(provider);
-      });
-      // return this.props.logInUser(user)
-console.log(this.props);
 
-      // this.setState({user});
+      const authentication = await auth.signInWithPopup(provider)
+     
+console.log(authentication);
+      this.props.logInUser(authentication);
+      
+     
     } 
-  }
+ 
 
 
   logOut = () => {
     firebase.auth().signOut();
-      this.setState({user: null})
+      const user = this.props.user;
+      this.props.logOutUser(user);
   }
-
-
- 
-
-  redirectResult = async () => {
-    // debugger;
-    await firebase.auth().getRedirectResult().then(function(result) {
-      if(result.credential) {
-        const token = result.credential.accessToken;
-      }
-
-      const user = result.user;
-      // if (result.credential) {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    // ...
-    
-  // The signed-in user info.
-    }).catch(function(error) {
-  // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  // The email of the user's account used.
-    var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-  // ...
-
-    if(errorCode === 'auth/account-exists-with-different-credential') {
-      alert('already signed up')
-    //how do I handle multiple auth providers and link user's accounts
-    //here
-    } else {
-      console.error(error)
-    }
-    });
-  }
-
-
 
   buttonDisplay = () => {
-    if(!this.state.user) {
+    if(this.props.user.user === undefined) {
       return(
         <button className="login" onClick={this.logIn}>Log In</button>
       )
@@ -109,7 +67,7 @@ console.log(this.props);
   }
 
   render() {
-    console.log(this.state.user)
+    console.log(this.props.user)
     return (
       <div>
         {this.buttonDisplay()}
@@ -124,7 +82,8 @@ export const mapStateToProps = (store) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   logInUser: (user) => dispatch(logInUser(user)),
-  logOutUser: (user) => dispatch(logOutUser(user))
+  logOutUser: (user) => dispatch(logOutUser(user)),
+  // userFetchData: (provider) => dispatch(userFetchData(provider))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
