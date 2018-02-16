@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import './LogIn.css';
 import { logInUser } from '../../actions/index';
 import { logOutUser } from '../../actions/index';
-import { userFetchData } from '../../actions/index';
 import { connect } from 'react-redux';
 
 var firebase = require("firebase/app");
 require("firebase/auth");
 require("firebase/database");
 
-      // Initialize Firebase
 var config = {
   apiKey: "AIzaSyABnqZAeuir1PknSFNc09FQofJ9OzfglHQ",
   authDomain: "village-calendar-app.firebaseapp.com",
@@ -30,23 +28,12 @@ class LogIn extends Component {
   }
 
   logIn = async () => {
-
-   
-      var provider = new firebase.auth.GoogleAuthProvider();
-      provider.addScope('https://www.googleapis.com/auth/calendar');
-      // this.props.userFetchData(provider);
-      const auth = firebase.auth()
-
-
-      const authentication = await auth.signInWithPopup(provider)
-     
-console.log(authentication);
-      this.props.logInUser(authentication);
-      
-     
-    } 
- 
-
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/calendar');
+    const auth = firebase.auth()
+    const authentication = await auth.signInWithPopup(provider)
+    this.props.logInUser(authentication);
+  } 
 
   logOut = () => {
     firebase.auth().signOut();
@@ -67,7 +54,6 @@ console.log(authentication);
   }
 
   render() {
-    console.log(this.props.user)
     return (
       <div>
         {this.buttonDisplay()}
@@ -82,8 +68,7 @@ export const mapStateToProps = (store) => ({
 
 export const mapDispatchToProps = (dispatch) => ({
   logInUser: (user) => dispatch(logInUser(user)),
-  logOutUser: (user) => dispatch(logOutUser(user)),
-  // userFetchData: (provider) => dispatch(userFetchData(provider))
+  logOutUser: (user) => dispatch(logOutUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
