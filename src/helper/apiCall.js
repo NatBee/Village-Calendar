@@ -12,29 +12,21 @@ import { apiKey, webClient } from './apiKey';
 //calendar.calendar.list.get
 
 export const listUpcomingEvents = async () => {
-
-  gapi.client.init({
-    'apiKey': apiKey,
-    'clientId': webClient
-  }).then(() => {
-    return gapi.client.request({
-      'path': 'https://www.googleapis.com/calendar/v3/users/me/calendarList',
-    })
-  }).then((response) => {
-    console.log(response.result)
-  }, (reason) => {
-    console.log('Error: ' + reason.result.error.message)
-  });
-
-  gapi.load('client', start);
-
-//   const initialFetch = await fetch('https://www.googleapis.com/calendar/v3/users/me/calendarList'
-// )
-//   const result = await initialFetch.json();
-
-//   console.log(result)
-  // console.log(webClient)
-  //calendar.events.list
+  
+  const calendarId = 'nataliesbarron%40gmail.com';
+  
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
+  try{
+    console.log(url);
+  
+    const initialFetch = await fetch(url);
+    const result = await initialFetch.json();
+   
+    console.log(initialFetch)
+    console.log(result)
+  } catch(error) {
+    throw error
+  }
 }
 
  //adds an event

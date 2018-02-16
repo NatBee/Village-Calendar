@@ -7,6 +7,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { config } from '../../helper/apiKey';
 import { listUpcomingEvents } from '../../helper/apiCall';
+import asyncLoader from 'react-async-loader';
 
 firebase.initializeApp(config);
 
@@ -19,6 +20,10 @@ class LogIn extends Component {
     }
   }
 
+  componentDidMount() {
+
+  }
+
   logIn = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/calendar');
@@ -26,7 +31,7 @@ class LogIn extends Component {
     const authentication = await auth.signInWithPopup(provider)
     console.log(authentication)
     this.props.logInUser(authentication);
-    listUpcomingEvents();
+    await listUpcomingEvents();
     //add fetch for upcoming calendar events
     //add calendar events to store 
     //add redirect to calendarDisplay
