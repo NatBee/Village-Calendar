@@ -1,2 +1,0 @@
-//SET VILLAGE
-//SET USER

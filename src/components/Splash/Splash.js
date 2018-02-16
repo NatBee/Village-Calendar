@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { quotes } from '../../assets/quotes';
-// import Register from '../../containers/Register/Register';
-// import LogIn from '../../containers/LogIn/LogIn';
+import Register from '../../containers/Register/Register';
+import LogIn from '../../containers/LogIn/LogIn';
 import './Splash.css';
+import { Link } from 'react-router-dom';
 
 class Splash extends Component {
   constructor(props) {
@@ -30,12 +31,29 @@ class Splash extends Component {
     this.setState ({ quote, author })
   }
 
+  renderContainer = () => {
+    const route = this.props.location.pathname;
+    if(route === "/") {
+      return (
+        <div>
+          <Link to="/login">Log In</Link>
+          <Link to="/register">Create Your Village</Link>
+        </div>
+      )
+    } else if(route === "/login") {
+      return <LogIn /> 
+    } else {
+      return <Register />
+    }
+  }
+
   render() {
 
     return (
       <div>
         <h3>{ this.state.quote }</h3>
         <h4>{ this.state.author }</h4>
+        { this.renderContainer()}
       </div>
     )
   }

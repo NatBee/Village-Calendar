@@ -1,0 +1,48 @@
+[debug] [2018-02-15T02:05:14.533Z] ----------------------------------------------------------------------
+[debug] [2018-02-15T02:05:14.535Z] Command:       /usr/local/Cellar/node/8.6.0/bin/node /usr/local/bin/firebase serve
+[debug] [2018-02-15T02:05:14.535Z] CLI Version:   3.17.4
+[debug] [2018-02-15T02:05:14.535Z] Platform:      darwin
+[debug] [2018-02-15T02:05:14.535Z] Node Version:  v8.6.0
+[debug] [2018-02-15T02:05:14.536Z] Time:          Wed Feb 14 2018 19:05:14 GMT-0700 (MST)
+[debug] [2018-02-15T02:05:14.536Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-15T02:05:14.545Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-15T02:05:14.546Z] > authorizing via signed-in user
+[debug] [2018-02-15T02:05:14.547Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-02-15T02:05:14.547Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/6FowF2ocMw7uOJ7bMnq7moqdGRsFQABkyKIGW_WnTv0',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Feb 14 2018 19:05:14 GMT-0700 (MST)
+[debug] [2018-02-15T02:05:14.703Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-15T02:05:14.719Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/village-calendar-app  
+  
+ Wed Feb 14 2018 19:05:14 GMT-0700 (MST)
+[debug] [2018-02-15T02:05:15.066Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-15T02:05:15.067Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/village-calendar-app/tokens  
+  
+ Wed Feb 14 2018 19:05:15 GMT-0700 (MST)
+[debug] [2018-02-15T02:05:15.404Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/nataliebarron/turing/fe_mod3/village'...
+[info] 
+[debug] [2018-02-15T02:05:15.408Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/village-calendar-app  
+  
+ Wed Feb 14 2018 19:05:15 GMT-0700 (MST)
+[debug] [2018-02-15T02:05:15.662Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-15T02:05:15.662Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/184201738089/clients/_:getWebAppConfig  
+  
+ Wed Feb 14 2018 19:05:15 GMT-0700 (MST)
+[debug] [2018-02-15T02:05:16.303Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-15T02:05:16.319Z] TypeError: Cannot read property 'public' of undefined
+    at Server.<anonymous> (/usr/local/lib/node_modules/firebase-tools/lib/serve/hosting.js:34:17)
+    at Object.onceWrapper (events.js:314:30)
+    at emitNone (events.js:105:13)
+    at Server.emit (events.js:207:7)
+    at emitListeningNT (net.js:1371:10)
+    at _combinedTickCallback (internal/process/next_tick.js:135:11)
+    at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[error] 
+[error] Error: An unexpected error has occurred.
