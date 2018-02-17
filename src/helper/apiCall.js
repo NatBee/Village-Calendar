@@ -15,7 +15,6 @@ export const exchangeOAuth2Token = async (authentication) => {
       console.log(response);
       console.log(response["aud"]);
       if (xhr.status === 200 && response["aud"] === webClient) {
-        console.log('doing it')
         localStorage.setItem('ouath2-access-token', JSON.stringify(accessToken));
       } else {
         console.log('There was an error processing the token')
@@ -34,7 +33,7 @@ export const exchangeOAuth2Token = async (authentication) => {
   //returns specific calendar from acct
   //calendar.calendar.list.get
 
-export const loadUpcomingEvents = async () => {
+export const getUpcomingEvents = async () => {
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   if(storedAccessToken) {
     const xhr = new XMLHttpRequest();
@@ -43,7 +42,21 @@ export const loadUpcomingEvents = async () => {
     const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
     xhr.open('GET', url);
     xhr.onreadystatechange = (e) => {
-      console.log(xhr.response);
+      // const response = xhr.response;
+      const response = xhr.response ? JSON.parse(xhr.response) : ''
+      const events = [];
+      // debugger;
+      if(response) {
+        response.items.map((event) => {
+          events.push({
+            start: event.start.date || event.start.dateTime,
+            end: event.end.date || event.end.dateTime,
+            title: event.summary,
+          })
+        })
+        console.log(events);
+        return events
+      }
     };
     xhr.send(null);
   }
