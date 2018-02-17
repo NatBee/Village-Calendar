@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { quotes } from '../../assets/quotes';
 import Register from '../../containers/Register/Register';
-import LogIn from '../../containers/LogIn/LogIn';
 import './Splash.css';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { logInUser } from '../../actions/index';
 import { logOutUser } from '../../actions/index';
 import { connect } from 'react-redux';
@@ -49,9 +48,11 @@ class Splash extends Component {
     console.log(authentication)
     this.props.logInUser(authentication);
     exchangeOAuth2Token(authentication);
+    this.props.history.push('/calendar')
     //add fetch for upcoming calendar events
     //add calendar events to store 
     //add redirect to calendarDisplay
+
   } 
 
   eventsList = () => {
@@ -86,9 +87,7 @@ class Splash extends Component {
           <button onClick={this.eventsList}>Events</button>
         </div>
       )
-    } else if(route === "/login") {
-      return <LogIn /> 
-    } else {
+    } else if(route === "/register") {
       return <Register />
     }
   }
