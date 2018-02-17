@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { quotes } from '../../assets/quotes';
 import Register from '../../containers/Register/Register';
 import './Splash.css';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logInUser } from '../../actions/index';
-import { logOutUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -48,31 +47,17 @@ class Splash extends Component {
     console.log(authentication)
     this.props.logInUser(authentication);
     exchangeOAuth2Token(authentication);
-    this.props.history.push('/calendar')
-    //add fetch for upcoming calendar events
-    //add calendar events to store 
-    //add redirect to calendarDisplay
-
+    this.props.history.push('/calendar');
   } 
 
   eventsList = () => {
     loadUpcomingEvents();
   }
 
-  logOut = () => {
-    firebase.auth().signOut();
-      const user = this.props.user;
-      this.props.logOutUser(user);
-  }
-
   buttonDisplay = () => {
     if(this.props.user.user === undefined) {
       return(
         <button className="login" onClick={this.logIn}>Log In</button>
-      )
-    } else {
-      return (
-        <button className="logout" onClick={this.logOut}>Log Out</button>
       )
     }
   }
@@ -93,7 +78,6 @@ class Splash extends Component {
   }
 
   render() {
-
     return (
       <div>
         <h3>{ this.state.quote }</h3>
@@ -109,8 +93,7 @@ export const mapStateToProps = (store) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  logInUser: (user) => dispatch(logInUser(user)),
-  logOutUser: (user) => dispatch(logOutUser(user))
+  logInUser: (user) => dispatch(logInUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
