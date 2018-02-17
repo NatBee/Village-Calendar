@@ -40,7 +40,8 @@ export const listUpcomingEvents = async () => {
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   if(storedAccessToken) {
     const xhr = new XMLHttpRequest();
-    const calendarId = 'nataliesbarron%40gmail.com';
+    const calendarId = 'primary';
+    // const calendarId = 'nataliesbarron%40gmail.com';
     const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
     xhr.open('GET', url);
     xhr.onreadystatechange = (e) => {

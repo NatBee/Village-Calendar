@@ -10,5 +10,4 @@ export const logOutUser = (user) => ({
 
 export const loadCalenderEvents = () => ({
   type: 'LOAD_EVENTS',
-  
 })
