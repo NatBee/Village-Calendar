@@ -1,6 +1,6 @@
 import { apiKey, webClient, clientID } from './apiKey';
 
-export const exchangeOAuth2Token = (authentication) => {
+export const exchangeOAuth2Token = async (authentication) => {
   console.log(authentication.credential.accessToken)
   const accessToken = authentication.credential.accessToken;
   const endPoint = `https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`;
@@ -10,9 +10,8 @@ export const exchangeOAuth2Token = (authentication) => {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', endPoint);
     console.log(xhr)
-    xhr.onreadystatechange = function(e) {
-    // debugger;
-      const response = JSON.parse(xhr.response);
+    xhr.onreadystatechange = await function(e) {
+      const response = xhr.response ? JSON.parse(xhr.response) : ''
       console.log(response);
       console.log(response["aud"]);
       if (xhr.status === 200 && response["aud"] === webClient) {
