@@ -8,6 +8,7 @@ export const logOutUser = (user) => ({
   user
 });
 
-export const loadCalenderEvents = () => ({
+export const loadUpcomingEvents = (events) => ({
   type: 'LOAD_EVENTS',
-})
+  events
+});

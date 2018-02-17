@@ -3,6 +3,6 @@ import { calendarEventReducer } from './calendarEventReducer/calendarEventReduce
 import { logInReducer } from './logInReducer/logInReducer';
 
 export const rootReducer = combineReducers({
-  calendar: calendarEventReducer,
+  events: calendarEventReducer,
   user: logInReducer
 })

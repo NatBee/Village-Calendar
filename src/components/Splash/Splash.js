@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { config } from '../../helper/apiKey';
-import { exchangeOAuth2Token, loadUpcomingEvents } from '../../helper/apiCall';
+import { exchangeOAuth2Token } from '../../helper/apiCall';
 import asyncLoader from 'react-async-loader';
 
 firebase.initializeApp(config);
@@ -44,15 +44,10 @@ class Splash extends Component {
     provider.addScope('https://www.googleapis.com/auth/calendar');
     const auth = firebase.auth()
     const authentication = await auth.signInWithPopup(provider)
-    console.log(authentication)
     this.props.logInUser(authentication);
     exchangeOAuth2Token(authentication);
     this.props.history.push('/calendar');
   } 
-
-  eventsList = () => {
-    loadUpcomingEvents();
-  }
 
   buttonDisplay = () => {
     if(this.props.user.user === undefined) {
@@ -68,8 +63,7 @@ class Splash extends Component {
       return (
         <div>
           {this.buttonDisplay()}
-          <Link to="/register">Create Your Village</Link>
-          <button onClick={this.eventsList}>Events</button>
+          <Link to="/register">Create Your Village</Link>  
         </div>
       )
     } else if(route === "/register") {
