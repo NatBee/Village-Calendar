@@ -1,19 +1,19 @@
 import { apiKey, webClient, clientID } from './apiKey';
 
 export const exchangeOAuth2Token = async (authentication) => {
-  console.log(authentication.credential.accessToken)
+  // console.log(authentication.credential.accessToken)
   const accessToken = authentication.credential.accessToken;
   const endPoint = `https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`;
-  console.log(endPoint)
+  // console.log(endPoint)
 
   if(accessToken) {
     const xhr = new XMLHttpRequest();
     xhr.open('POST', endPoint);
-    console.log(xhr)
+    // console.log(xhr)
     xhr.onreadystatechange = await function(e) {
       const response = xhr.response ? JSON.parse(xhr.response) : ''
-      console.log(response);
-      console.log(response["aud"]);
+      // console.log(response);
+      // console.log(response["aud"]);
       if (xhr.status === 200 && response["aud"] === webClient) {
         localStorage.setItem('ouath2-access-token', JSON.stringify(accessToken));
       } else {
@@ -35,30 +35,34 @@ export const exchangeOAuth2Token = async (authentication) => {
 
 export const getUpcomingEvents = async () => {
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  const calendarId = 'primary';
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
   if(storedAccessToken) {
-    const xhr = new XMLHttpRequest();
-    const calendarId = 'primary';
-    // const calendarId = 'nataliesbarron%40gmail.com';
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
-    xhr.open('GET', url);
-    xhr.onreadystatechange = (e) => {
-      // const response = xhr.response;
-      const response = xhr.response ? JSON.parse(xhr.response) : ''
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'storedAccessToken'
+        }
+      });
+      // console.log(response)
+      const eventList = await response.json();
+      // console.log(eventList)
       const events = [];
-      // debugger;
-      if(response) {
-        response.items.map((event) => {
-          events.push({
-            start: event.start.date || event.start.dateTime,
-            end: event.end.date || event.end.dateTime,
-            title: event.summary,
-          })
+      eventList.items.map(event => {
+        events.push({
+          start: event.start.date || event.start.dateTime,
+          end: event.end.date || event.end.dateTime,
+          title: event.summary,
         })
-        console.log(events);
-        return events
-      }
-    };
-    xhr.send(null);
+        
+      })
+      // console.log(events)
+      return events;
+    } catch (error) {
+      throw Error;
+    }
   }
 }
 

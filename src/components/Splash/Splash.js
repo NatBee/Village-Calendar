@@ -44,7 +44,6 @@ class Splash extends Component {
     provider.addScope('https://www.googleapis.com/auth/calendar');
     const auth = firebase.auth()
     const authentication = await auth.signInWithPopup(provider)
-    console.log(authentication)
     this.props.logInUser(authentication);
     exchangeOAuth2Token(authentication);
     this.props.history.push('/calendar');

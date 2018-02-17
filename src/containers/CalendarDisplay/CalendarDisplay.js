@@ -13,18 +13,15 @@ class CalendarDisplay extends Component {
 
   async componentDidMount() {
     const events = await getUpcomingEvents(); 
-    //maybe try to set it in state or figure out why redux not working
-console.log(events)
     this.props.loadUpcomingEvents(events);
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <h1>Calendar</h1>
         <button onClick={this.eventsList}>Events</button>
-        <BigCalendar style={{height: '420px'}} events={[]} />
+        <BigCalendar style={{height: '420px'}} events={this.props.events} />
       </div>
     )
   }
