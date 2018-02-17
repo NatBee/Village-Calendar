@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { config } from '../../helper/apiKey';
-import { listUpcomingEvents } from '../../helper/apiCall';
+import { exchangeOAuth2Token, listUpcomingEvents } from '../../helper/apiCall';
 import asyncLoader from 'react-async-loader';
 
 firebase.initializeApp(config);
@@ -31,7 +31,8 @@ class LogIn extends Component {
     const authentication = await auth.signInWithPopup(provider)
     console.log(authentication)
     this.props.logInUser(authentication);
-    await listUpcomingEvents();
+    exchangeOAuth2Token(authentication);
+    // await listUpcomingEvents();
     //add fetch for upcoming calendar events
     //add calendar events to store 
     //add redirect to calendarDisplay

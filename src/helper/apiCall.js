@@ -1,4 +1,30 @@
-import { apiKey, webClient } from './apiKey';
+import { apiKey, webClient, clientID } from './apiKey';
+
+export const exchangeOAuth2Token = (authentication) => {
+  console.log(authentication.credential.accessToken)
+  const accessToken = authentication.credential.accessToken;
+  const endPoint = `https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`;
+  console.log(endPoint)
+
+  if(accessToken) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', endPoint);
+    console.log(xhr)
+    xhr.onreadystatechange = function(e) {
+    // debugger;
+      const response = JSON.parse(xhr.response);
+      console.log(response);
+      console.log(response["aud"]);
+      if (xhr.status === 200 && response["aud"] === webClient) {
+        console.log('doing it')
+        localStorage.setItem('ouath2-access-token', JSON.stringify(accessToken));
+      } else {
+        console.log('There was an error processing the token')
+        }
+    }
+      xhr.send(null)
+  }
+}
 
 //login
 
