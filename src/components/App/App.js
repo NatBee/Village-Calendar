@@ -11,7 +11,6 @@ class App extends Component {
       <div className='App'>
         <h1>VILLAGE</h1>
         <Route exact path='/' component={ Splash } />
-        <Route exact path='/login' component={ Splash } />
         <Route exact path='/register' component={ Splash } />
         <Route exact path='/calendar' component= { CalendarDisplay } />
       </div>

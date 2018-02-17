@@ -25,18 +25,16 @@ export const exchangeOAuth2Token = async (authentication) => {
   }
 }
 
-//login
-
-//return list of calendars in google acct
-//calendar.calendar.list.list
 
 //add a new calendar to acct
 //calendar.calendar.list.insert
 
-//returns specific calendar from acct
-//calendar.calendar.list.get
+//if can get calendar ID from theis call continue
+//else need to do next step to get calendar ID
+  //returns specific calendar from acct
+  //calendar.calendar.list.get
 
-export const listUpcomingEvents = async () => {
+export const loadUpcomingEvents = async () => {
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   if(storedAccessToken) {
     const xhr = new XMLHttpRequest();
