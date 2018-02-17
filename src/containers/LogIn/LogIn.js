@@ -3,19 +3,12 @@ import './LogIn.css';
 import { logInUser } from '../../actions/index';
 import { logOutUser } from '../../actions/index';
 import { connect } from 'react-redux';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { config } from '../../helper/apiKey';
+import { exchangeOAuth2Token, listUpcomingEvents } from '../../helper/apiCall';
+import asyncLoader from 'react-async-loader';
 
-var firebase = require("firebase/app");
-require("firebase/auth");
-require("firebase/database");
-
-var config = {
-  apiKey: "AIzaSyABnqZAeuir1PknSFNc09FQofJ9OzfglHQ",
-  authDomain: "village-calendar-app.firebaseapp.com",
-  databaseURL: "https://village-calendar-app.firebaseio.com",
-  projectId: "village-calendar-app",
-  storageBucket: "",
-  messagingSenderId: "184201738089"
-};
 firebase.initializeApp(config);
 
 class LogIn extends Component {
@@ -27,12 +20,22 @@ class LogIn extends Component {
     }
   }
 
+  componentDidMount() {
+
+  }
+
   logIn = async () => {
-    var provider = new firebase.auth.GoogleAuthProvider();
+    const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/calendar');
     const auth = firebase.auth()
     const authentication = await auth.signInWithPopup(provider)
+    console.log(authentication)
     this.props.logInUser(authentication);
+    exchangeOAuth2Token(authentication);
+    // await listUpcomingEvents();
+    //add fetch for upcoming calendar events
+    //add calendar events to store 
+    //add redirect to calendarDisplay
   } 
 
   logOut = () => {
