@@ -1,37 +1,28 @@
 import { apiKey, webClient, clientID } from './apiKey';
 
 export const exchangeOAuth2Token = async (authentication) => {
-  // console.log(authentication.credential.accessToken)
   const accessToken = authentication.credential.accessToken;
   const endPoint = `https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`;
-  // console.log(endPoint)
-
   if(accessToken) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', endPoint);
-    // console.log(xhr)
-    xhr.onreadystatechange = await function(e) {
-      const response = xhr.response ? JSON.parse(xhr.response) : ''
-      // console.log(response);
-      // console.log(response["aud"]);
-      if (xhr.status === 200 && response["aud"] === webClient) {
-        localStorage.setItem('ouath2-access-token', JSON.stringify(accessToken));
-      } else {
-        console.log('There was an error processing the token')
+    try{
+      const response = await fetch(endPoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'accessToken'
         }
+      });
+
+      const token = await response.json();
+
+      if(token) {
+        localStorage.setItem('ouath2-access-token', JSON.stringify(accessToken));
+      }
+    } catch (error) {
+      throw Error;
     }
-      xhr.send(null)
   }
 }
-
-
-//add a new calendar to acct
-//calendar.calendar.list.insert
-
-//if can get calendar ID from theis call continue
-//else need to do next step to get calendar ID
-  //returns specific calendar from acct
-  //calendar.calendar.list.get
 
 export const getUpcomingEvents = async () => {
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
@@ -65,6 +56,15 @@ export const getUpcomingEvents = async () => {
     }
   }
 }
+
+
+//add a new calendar to acct
+//calendar.calendar.list.insert
+
+//if can get calendar ID from theis call continue
+//else need to do next step to get calendar ID
+  //returns specific calendar from acct
+  //calendar.calendar.list.get
 
  //adds an event
  //calendar.events.insert
