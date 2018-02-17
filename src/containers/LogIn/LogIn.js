@@ -32,11 +32,14 @@ class LogIn extends Component {
     console.log(authentication)
     this.props.logInUser(authentication);
     exchangeOAuth2Token(authentication);
-    // await listUpcomingEvents();
     //add fetch for upcoming calendar events
     //add calendar events to store 
     //add redirect to calendarDisplay
   } 
+
+  eventsList = () => {
+    listUpcomingEvents();
+  }
 
   logOut = () => {
     firebase.auth().signOut();
@@ -60,6 +63,7 @@ class LogIn extends Component {
     return (
       <div>
         {this.buttonDisplay()}
+        <button onClick={this.eventsList}>Events</button>
       </div>
     )
   }

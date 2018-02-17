@@ -37,20 +37,16 @@ export const exchangeOAuth2Token = async (authentication) => {
 //calendar.calendar.list.get
 
 export const listUpcomingEvents = async () => {
-  
-  const calendarId = 'nataliesbarron%40gmail.com';
-  
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`;
-  try{
-    console.log(url);
-  
-    const initialFetch = await fetch(url);
-    const result = await initialFetch.json();
-   
-    console.log(initialFetch)
-    console.log(result)
-  } catch(error) {
-    throw error
+  const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  if(storedAccessToken) {
+    const xhr = new XMLHttpRequest();
+    const calendarId = 'nataliesbarron%40gmail.com';
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
+    xhr.open('GET', url);
+    xhr.onreadystatechange = (e) => {
+      console.log(xhr.response);
+    };
+    xhr.send(null);
   }
 }
 
