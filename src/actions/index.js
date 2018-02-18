@@ -27,3 +27,13 @@ export const removeToken = (token) => ({
   type: 'REMOVE_TOKEN',
   token
 })
+
+export const setCalendarID = (calendarID) => ({
+  type: 'SET_CALENDAR_ID',
+  calendarID
+})
+
+export const removeCalendarID = (calendarID) => ({
+  type: 'REMOVE_CALENDAR_ID',
+  calendarID
+})

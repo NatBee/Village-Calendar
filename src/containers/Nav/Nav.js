@@ -1,12 +1,48 @@
 import React, { Component } from 'react';
-import { logOutUser, removeAllEvents, removeToken } from '../../actions/index';
+import { logOutUser, removeAllEvents, removeToken, logInUser, setToken } from '../../actions/index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Nav.css';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { config } from '../../helper/apiKey';
+
+firebase.initializeApp(config);
+
 
 class Nav extends Component {
+
+  logIn = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/calendar');
+    const auth = firebase.auth()
+    const authentication = await auth.signInWithPopup(provider)
+    this.props.logInUser(authentication);
+    const token = authentication.credential.accessToken;
+    localStorage.setItem('ouath2-access-token', JSON.stringify(token));
+    this.props.setToken(token);
+    this.pageDirect()
+  } 
+
+  pageDirect = () => {
+    if(this.props.history.location.pathname === '/') {
+      this.props.history.push('/calendar');
+    } else {
+      this.props.history.push('/register');
+    }
+  } 
+
+  buttonDisplay = () => {
+    if(this.props.user.user === undefined) {
+      return(
+        <button className="login" onClick={this.logIn}>Google Log In</button>
+      )
+    } else {
+      return(
+        <button onClick={this.logOut}>Log Out</button>
+      )
+    }
+  }
 
   logOut = () => {
     firebase.auth().signOut();
@@ -17,23 +53,24 @@ class Nav extends Component {
     this.props.history.push('/');
   }
 
-  logOutButton = () => {
-    if(this.props.user.user !== undefined) {
-      return (
-        <button onClick={this.logOut}>Log Out</button>
-      )
-    }
-  }
+  // logOutButton = () => {
+  //   if(this.props.user.user !== undefined) {
+  //     return (
+        
+  //     )
+  //   }
+  // }
 
   render() {
     return(
       <div>
         <h1>VILLAGE</h1>
-        {this.logOutButton()}
+        {this.buttonDisplay()}
       </div>
     )
   }
 }
+
   export const mapStateToProps = (store) => ({
     user: store.user,
     events: store.events,
@@ -43,7 +80,9 @@ class Nav extends Component {
   export const mapDispatchToProps = (dispatch) => ({
     logOutUser: (user) => dispatch(logOutUser(user)),
     removeAllEvents: (events) => dispatch(removeAllEvents(events)),
-    removeToken: (token) => dispatch(removeToken(token))
+    removeToken: (token) => dispatch(removeToken(token)),
+    logInUser: (user) => dispatch(logInUser(user)),
+    setToken: (token) => dispatch(setToken(token))
   })
 
 
