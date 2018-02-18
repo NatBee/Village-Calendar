@@ -20,7 +20,6 @@ class CalendarDisplay extends Component {
     return (
       <div>
         <h1>Calendar</h1>
-        <button onClick={this.eventsList}>Events</button>
         <BigCalendar style={{height: '420px'}} events={this.props.events} />
       </div>
     )
