@@ -3,7 +3,7 @@ export const logInUser = (user) => ({
   user
 });
 
-export const logOutUser = (user) => ({
+export const logOutUser = (user, events) => ({
   type: 'LOG_OUT_USER',
   user
 });
@@ -17,3 +17,9 @@ export const setToken = (token) => ({
   type: 'SET_TOKEN',
   token
 })
+
+export const removeAllEvents = (events) => ({
+  type: 'REMOVE_EVENTS',
+  events
+})
+
