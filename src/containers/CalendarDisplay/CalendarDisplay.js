@@ -12,15 +12,14 @@ BigCalendar.momentLocalizer(moment);
 class CalendarDisplay extends Component {
 
   async componentDidMount() {
-    const events = await getUpcomingEvents(); 
-    this.props.loadUpcomingEvents(events);
+    const events = await getUpcomingEvents(this.props.token); 
+    await this.props.loadUpcomingEvents(events);
   }
 
   render() {
     return (
       <div>
         <h1>Calendar</h1>
-        <button onClick={this.eventsList}>Events</button>
         <BigCalendar style={{height: '420px'}} events={this.props.events} />
       </div>
     )
