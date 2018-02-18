@@ -12,3 +12,8 @@ export const loadUpcomingEvents = (events) => ({
   type: 'LOAD_EVENTS',
   events
 });
+
+export const setToken = (token) => ({
+  type: 'SET_TOKEN',
+  token
+})
