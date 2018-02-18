@@ -13,12 +13,17 @@ export const loadUpcomingEvents = (events) => ({
   events
 });
 
+export const removeAllEvents = (events) => ({
+  type: 'REMOVE_EVENTS',
+  events
+})
+
 export const setToken = (token) => ({
   type: 'SET_TOKEN',
   token
 })
 
-export const removeAllEvents = (events) => ({
-  type: 'REMOVE_EVENTS',
-  events
+export const removeToken = (token) => ({
+  type: 'REMOVE_TOKEN',
+  token
 })
