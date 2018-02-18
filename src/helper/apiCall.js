@@ -1,4 +1,28 @@
-export const getUpcomingEvents = async (token) => {
+import { apiKey, webClient, clientID } from './apiKey';
+
+export const exchangeOAuth2Token = async (authentication) => {
+  const accessToken = authentication.credential.accessToken;
+  const endPoint = `https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=${accessToken}`;
+  if(accessToken) {
+    try{
+      const response = await fetch(endPoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'accessToken'
+        }
+      });
+      const token = await response.json();
+      if(token) {
+        localStorage.setItem('ouath2-access-token', JSON.stringify(accessToken));
+      }
+    } catch (error) {
+      throw Error;
+    }
+  }
+}
+
+export const getUpcomingEvents = async () => {
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   const calendarId = 'primary';
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
