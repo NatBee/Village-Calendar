@@ -1,4 +1,7 @@
+
+
 export const getUpcomingEvents = async () => {
+
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   console.log(storedAccessToken)
   const calendarId = 'primary';
@@ -31,9 +34,37 @@ export const getUpcomingEvents = async () => {
   }
 }
 
-
 //add a new calendar to acct
 //calendar.calendar.list.insert
+
+export const createNewCalendar = async () => {
+  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  console.log(token);
+  const url = `https://www.googleapis.com/calendar/v3/calendars?fields=id%2Csummary&access_token=${token}`;
+
+  if(token) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'storedAccessToken'
+        },
+        body: JSON.stringify({
+          summary: 'Village App Calendar',
+          id: ''
+        })
+      });
+      console.log(response)
+      const calendarResponse = await response.json();
+      const calendarID = calendarResponse.id
+      console.log(calendarID);
+      return calendarID
+    } catch (error) {
+      throw Error;
+    }
+  }
+}
 
 //if can get calendar ID from theis call continue
 //else need to do next step to get calendar ID
