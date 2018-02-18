@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { logOutUser } from '../../actions/index';
+import { logOutUser, removeAllEvents } from '../../actions/index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Nav.css';
@@ -12,6 +12,7 @@ class Nav extends Component {
     firebase.auth().signOut();
     const user = this.props.user;
     this.props.logOutUser(user);
+    this.props.removeAllEvents(this.props.events)
     this.props.history.push('/');
   }
 
@@ -33,11 +34,13 @@ class Nav extends Component {
   }
 }
   export const mapStateToProps = (store) => ({
-    user: store.user
+    user: store.user,
+    events: store.events
   })
 
   export const mapDispatchToProps = (dispatch) => ({
-    logOutUser: (user) => dispatch(logOutUser(user))
+    logOutUser: (user) => dispatch(logOutUser(user)),
+    removeAllEvents: (events) => dispatch(removeAllEvents(events))
   })
 
 

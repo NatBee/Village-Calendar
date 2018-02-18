@@ -12,9 +12,7 @@ export const exchangeOAuth2Token = async (authentication) => {
           'Authorization': 'accessToken'
         }
       });
-
       const token = await response.json();
-
       if(token) {
         localStorage.setItem('ouath2-access-token', JSON.stringify(accessToken));
       }
@@ -37,9 +35,7 @@ export const getUpcomingEvents = async () => {
           'Authorization': 'storedAccessToken'
         }
       });
-      // console.log(response)
       const eventList = await response.json();
-      // console.log(eventList)
       const events = [];
       eventList.items.map(event => {
         events.push({
@@ -49,7 +45,6 @@ export const getUpcomingEvents = async () => {
         })
         
       })
-      // console.log(events)
       return events;
     } catch (error) {
       throw Error;
