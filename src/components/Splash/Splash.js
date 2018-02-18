@@ -3,11 +3,12 @@ import { quotes } from '../../assets/quotes';
 import Register from '../../containers/Register/Register';
 import './Splash.css';
 import { Link } from 'react-router-dom';
-import { logInUser, setToken } from '../../actions/index';
+import { logInUser } from '../../actions/index';
 import { connect } from 'react-redux';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { config } from '../../helper/apiKey';
+import { exchangeOAuth2Token } from '../../helper/apiCall';
 import asyncLoader from 'react-async-loader';
 
 firebase.initializeApp(config);
@@ -44,11 +45,7 @@ class Splash extends Component {
     const auth = firebase.auth()
     const authentication = await auth.signInWithPopup(provider)
     this.props.logInUser(authentication);
-
-    const token = authentication.credential.accessToken
-    localStorage.setItem('ouath2-access-token', JSON.stringify(token))
-    this.props.setToken(token);
-
+    exchangeOAuth2Token(authentication);
     this.props.history.push('/calendar');
   } 
 
@@ -86,13 +83,11 @@ class Splash extends Component {
 }
 
 export const mapStateToProps = (store) => ({
-  user: store.user,
-  token: store.token
+  user: store.user
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  logInUser: (user) => dispatch(logInUser(user)),
-  setToken: (token) => dispatch(setToken(token))
+  logInUser: (user) => dispatch(logInUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
