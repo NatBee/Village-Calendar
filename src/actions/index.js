@@ -13,6 +13,11 @@ export const loadUpcomingEvents = (events) => ({
   events
 });
 
+export const setToken = (token) => ({
+  type: 'SET_TOKEN',
+  token
+})
+
 export const removeAllEvents = (events) => ({
   type: 'REMOVE_EVENTS',
   events
