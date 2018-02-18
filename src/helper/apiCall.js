@@ -1,9 +1,5 @@
-
-
 export const getUpcomingEvents = async () => {
-
   const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  console.log(storedAccessToken)
   const calendarId = 'primary';
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
   if(storedAccessToken) {
@@ -15,9 +11,7 @@ export const getUpcomingEvents = async () => {
           'Authorization': 'storedAccessToken'
         }
       });
-      console.log(response)
       const eventList = await response.json();
-      console.log(eventList)
       const events = [];
       eventList.items.map(event => {
         events.push({
@@ -33,9 +27,6 @@ export const getUpcomingEvents = async () => {
     }
   }
 }
-
-//add a new calendar to acct
-//calendar.calendar.list.insert
 
 export const createNewCalendar = async () => {
   const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
@@ -55,10 +46,8 @@ export const createNewCalendar = async () => {
           id: ''
         })
       });
-      console.log(response)
       const calendarResponse = await response.json();
-      const calendarID = calendarResponse.id
-      console.log(calendarID);
+      const calendarID = calendarResponse.id;
       return calendarID
     } catch (error) {
       throw Error;

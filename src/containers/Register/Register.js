@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import './Register.css';
 import { createNewCalendar } from '../../helper/apiCall';
+import { setCalendarID } from '../../actions/index';
+import { connect } from 'react-redux';
 
 class Register extends Component {
 
   createCalendar = async () => {
-    await createNewCalendar();
+    const newCalendarID = await createNewCalendar();
+    await this.props.setCalendarID(newCalendarID);
   }
 
   render() {
@@ -23,4 +26,12 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export const mapStateToProps = (store) => ({
+  calendarID: store.calendarID
+})
+
+export const mapDispatchToProps = (dispatch) => ({
+  setCalendarID: (calendarID) => dispatch(setCalendarID(calendarID))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
