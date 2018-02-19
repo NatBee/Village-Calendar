@@ -31,6 +31,11 @@ class Register extends Component {
     e.preventDefault();
     await addUsersToCalendar(this.props.calendarID, this.state.email, this.state.name);
     await this.props.addPeopleToVillage({[this.state.name]: this.state.email});
+    this.inputName.value = '';
+    this.inputEmail.value = '';
+  }
+
+  goToCalendar = () => {
     this.props.history.push('/calendar')
   }
 
@@ -45,10 +50,12 @@ class Register extends Component {
             <button onClick={this.createCalendar}>Create Calendar</button>
             <li>Add people to your village</li>
               <form onSubmit={this.addUsers}>
-                <input type='text' placeholder='friend' name='name' onChange={this.handleChange}/>
-                <input type='text' placeholder='friend@gmail.com' name='email' onChange={this.handleChange}/>
+                <input type='text' placeholder='friend' ref={el => this.inputName = el} name='name' onChange={this.handleChange}/>
+                <input type='text' placeholder='friend@gmail.com' ref={el => this.inputEmail = el} name='email' onChange={this.handleChange}/>
                <button>Add Users</button>
               </form>
+            <li>Go to Calendar</li>
+            <button onClick={this.goToCalendar}>Calendar</button>
           </ol>
       </div>
     )
