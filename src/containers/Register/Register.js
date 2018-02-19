@@ -24,7 +24,7 @@ class Register extends Component {
   }
 
   addUsers = async () => {
-    await addUsersToCalendar(this.props.calendarID, this.state.email)
+    await addUsersToCalendar(this.props.calendarID, this.state.email);
   }
 
   render() {
@@ -37,8 +37,8 @@ class Register extends Component {
             <li>Create Village Calendar</li>
             <button onClick={this.createCalendar}>Create Calendar</button>
             <li>Add people to your village</li>
-            <input type='text' placeholder='friend@gmail.com' onChange={this.handleChange}/>
-            <button onClick={this.addUsers}>Add Users</button>
+              <input type='text' placeholder='friend@gmail.com' onChange={this.handleChange}/>
+              <button onClick={this.addUsers}>Add Users</button>
           </ol>
       </div>
     )
