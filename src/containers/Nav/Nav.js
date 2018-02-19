@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { logOutUser, removeAllEvents, removeToken, logInUser, setToken } from '../../actions/index';
+import { logOutUser, removeAllEvents, removeToken, logInUser, setToken, removeCalendarID, removeVillageList } from '../../actions/index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Nav.css';
@@ -50,6 +50,8 @@ class Nav extends Component {
     this.props.logOutUser(user);
     this.props.removeAllEvents(this.props.events);
     this.props.removeToken(this.props.token);
+    this.props.removeCalendarID(this.props.calendarID);
+    this.props.removeVillageList(this.props.village);
     this.props.history.push('/');
   }
 
@@ -74,7 +76,9 @@ class Nav extends Component {
   export const mapStateToProps = (store) => ({
     user: store.user,
     events: store.events,
-    token: store.token
+    token: store.token,
+    calendarID: store.calendarID,
+    village: store.village
   })
 
   export const mapDispatchToProps = (dispatch) => ({
@@ -82,7 +86,9 @@ class Nav extends Component {
     removeAllEvents: (events) => dispatch(removeAllEvents(events)),
     removeToken: (token) => dispatch(removeToken(token)),
     logInUser: (user) => dispatch(logInUser(user)),
-    setToken: (token) => dispatch(setToken(token))
+    setToken: (token) => dispatch(setToken(token)),
+    removeCalendarID: (calendarID) => dispatch(removeCalendarID(calendarID)),
+    removeVillageList: (village) => dispatch(removeVillageList(village))
   })
 
 

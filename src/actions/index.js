@@ -42,3 +42,8 @@ export const addPeopleToVillage = (village) => ({
   type: 'ADD_PEOPLE_TO_VILLAGE',
   village
 })
+
+export const removeVillageList = (village) => ({
+  type: 'REMOVE_VILLAGE_LIST',
+  village
+})
