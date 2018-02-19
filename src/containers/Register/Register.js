@@ -3,6 +3,7 @@ import './Register.css';
 import { createNewCalendar, addUsersToCalendar } from '../../helper/apiCall';
 import { setCalendarID, addPeopleToVillage } from '../../actions/index';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 class Register extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class Register extends Component {
     e.preventDefault();
     await addUsersToCalendar(this.props.calendarID, this.state.email, this.state.name);
     await this.props.addPeopleToVillage({[this.state.name]: this.state.email});
+    this.props.history.push('/calendar')
   }
 
   render() {
@@ -63,4 +65,4 @@ export const mapDispatchToProps = (dispatch) => ({
   addPeopleToVillage: (village) => dispatch(addPeopleToVillage(village))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
