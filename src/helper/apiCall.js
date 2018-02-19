@@ -76,9 +76,7 @@ export const addUsersToCalendar = async (id, email) => {
           }
         })
       });
-      console.log(response)
       const result = await response.json();
-      console.log(result)
       return result
     } catch (error) {
       throw Error;
