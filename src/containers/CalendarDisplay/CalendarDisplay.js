@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { loadUpcomingEvents } from '../../actions/index';
 
 BigCalendar.momentLocalizer(moment);
+const allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
 
 class CalendarDisplay extends Component {
 
@@ -16,11 +17,26 @@ class CalendarDisplay extends Component {
     this.props.loadUpcomingEvents(events);
   }
 
+  editEvent = () => {
+    console.log('were editing')
+  }
+
+  addEvent = () => {
+    console.log('were adding events')
+  }
+
   render() {
     return (
       <div>
         <h1>Calendar</h1>
-        <BigCalendar style={{height: '420px'}} events={this.props.events} />
+        <BigCalendar 
+          style={{height: '420px'}} 
+          events={this.props.events} 
+          selectable
+          views={['month', 'day', 'week','agenda']}
+          onSelectEvent={this.editEvent}
+          onSelectSlot={this.addEvent}
+        />
       </div>
     )
   }
