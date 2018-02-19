@@ -54,10 +54,10 @@ export const createNewCalendar = async () => {
   }
 }
 
-export const addUsersToCalendar = async (id) => {
+export const addUsersToCalendar = async (id, email) => {
   const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   const calendarID = id
-  // const userEmail = email
+  const userEmail = email
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/acl?fields=etag%2Cid%2Ckind%2Crole%2Cscope&access_token=${token}`;
 
   if(token) {
@@ -72,7 +72,7 @@ export const addUsersToCalendar = async (id) => {
           role: 'writer',
           scope: {
             type: 'group',
-            value: 'nataliesbarron@gmail.com'
+            value: email
           }
         })
       });

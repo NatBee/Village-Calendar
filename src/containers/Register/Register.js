@@ -5,15 +5,26 @@ import { setCalendarID } from '../../actions/index';
 import { connect } from 'react-redux';
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: ''
+    }
+  }
 
   createCalendar = async () => {
     const newCalendarID = await createNewCalendar();
     await this.props.setCalendarID(newCalendarID);
   }
 
+  handleChange = (e) => {
+    const email = e.target.value;
+    this.setState({ email })
+  }
+
   addUsers = async () => {
-    // console.log('hi')
-    await addUsersToCalendar(this.props.calendarID )
+    await addUsersToCalendar(this.props.calendarID, this.state.email)
   }
 
   render() {
@@ -26,7 +37,7 @@ class Register extends Component {
             <li>Create Village Calendar</li>
             <button onClick={this.createCalendar}>Create Calendar</button>
             <li>Add people to your village</li>
-            <input type='text' placeholder='friend@gmail.com'/>
+            <input type='text' placeholder='friend@gmail.com' onChange={this.handleChange}/>
             <button onClick={this.addUsers}>Add Users</button>
           </ol>
       </div>
