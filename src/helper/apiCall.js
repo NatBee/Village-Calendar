@@ -30,7 +30,6 @@ export const getUpcomingEvents = async () => {
 
 export const createNewCalendar = async () => {
   const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  console.log(token);
   const url = `https://www.googleapis.com/calendar/v3/calendars?fields=id%2Csummary&access_token=${token}`;
 
   if(token) {
@@ -49,6 +48,36 @@ export const createNewCalendar = async () => {
       const calendarResponse = await response.json();
       const calendarID = calendarResponse.id;
       return calendarID
+    } catch (error) {
+      throw Error;
+    }
+  }
+}
+
+export const addUsersToCalendar = async (id, email) => {
+  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  const calendarID = id
+  const userEmail = email
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/acl?fields=etag%2Cid%2Ckind%2Crole%2Cscope&access_token=${token}`;
+
+  if(token) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'storedAccessToken'
+        },
+        body: JSON.stringify({
+          role: 'writer',
+          scope: {
+            type: 'group',
+            value: email
+          }
+        })
+      });
+      const result = await response.json();
+      return result
     } catch (error) {
       throw Error;
     }
