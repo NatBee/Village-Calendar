@@ -3,10 +3,12 @@ import { calendarEventReducer } from './calendarEventReducer/calendarEventReduce
 import { logInReducer } from './logInReducer/logInReducer';
 import { tokenReducer } from './tokenReducer/tokenReducer';
 import { calendarIDReducer } from './calendarIDReducer/calendarIDReducer';
+import { villageReducer } from './villageReducer/villageReducer';
 
 export const rootReducer = combineReducers({
   events: calendarEventReducer,
   user: logInReducer,
   token: tokenReducer,
-  calendarID: calendarIDReducer
+  calendarID: calendarIDReducer,
+  village: villageReducer
 })

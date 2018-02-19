@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Register.css';
 import { createNewCalendar, addUsersToCalendar } from '../../helper/apiCall';
-import { setCalendarID } from '../../actions/index';
+import { setCalendarID, addPeopleToVillage } from '../../actions/index';
 import { connect } from 'react-redux';
 
 class Register extends Component {
@@ -9,6 +9,7 @@ class Register extends Component {
     super(props);
 
     this.state = {
+      name: '',
       email: ''
     }
   }
@@ -19,12 +20,16 @@ class Register extends Component {
   }
 
   handleChange = (e) => {
-    const email = e.target.value;
-    this.setState({ email })
+    e.preventDefault();
+    const field = e.target.name;
+    const value = e.target.value;
+    this.setState({ [field]: value})
   }
 
-  addUsers = async () => {
-    await addUsersToCalendar(this.props.calendarID, this.state.email);
+  addUsers = async (e) => {
+    e.preventDefault();
+    await addUsersToCalendar(this.props.calendarID, this.state.email, this.state.name);
+    await this.props.addPeopleToVillage({[this.state.name]: this.state.email});
   }
 
   render() {
@@ -37,8 +42,11 @@ class Register extends Component {
             <li>Create Village Calendar</li>
             <button onClick={this.createCalendar}>Create Calendar</button>
             <li>Add people to your village</li>
-              <input type='text' placeholder='friend@gmail.com' onChange={this.handleChange}/>
-              <button onClick={this.addUsers}>Add Users</button>
+              <form onSubmit={this.addUsers}>
+                <input type='text' placeholder='friend' name='name' onChange={this.handleChange}/>
+                <input type='text' placeholder='friend@gmail.com' name='email' onChange={this.handleChange}/>
+               <button>Add Users</button>
+              </form>
           </ol>
       </div>
     )
@@ -46,11 +54,13 @@ class Register extends Component {
 }
 
 export const mapStateToProps = (store) => ({
-  calendarID: store.calendarID
+  calendarID: store.calendarID,
+  village: store.village
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  setCalendarID: (calendarID) => dispatch(setCalendarID(calendarID))
+  setCalendarID: (calendarID) => dispatch(setCalendarID(calendarID)),
+  addPeopleToVillage: (village) => dispatch(addPeopleToVillage(village))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);
