@@ -86,11 +86,9 @@ export const addUsersToCalendar = async (id, email) => {
   }
 }
 
-export const addEventToCalendar = async (id, time, title, summary, location) => {
+export const addEventToCalendar = async (id, time, state) => {
   const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   const calendarID = id;
-  const startTime = time.startTime;
-  const endTime = time.endTime;
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?fields=email%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${token}`;
   if(token) {
     try {
@@ -101,15 +99,15 @@ export const addEventToCalendar = async (id, time, title, summary, location) => 
           'Authorization': 'token'
         },
         body: JSON.stringify({
-          description: summary,
+          description: state.summary,
           end: {
-            dateTime: endTime
+            dateTime: time.endTime
           },
           start: {
-            dateTime: startTime
+            dateTime: time.startTime
           },
-          summary: title,
-          location: location,
+          summary: state.title,
+          location: state.location,
           reminders: {
             useDefault: false,
             overrides: [

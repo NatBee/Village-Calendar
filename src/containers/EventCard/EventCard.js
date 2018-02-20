@@ -18,14 +18,11 @@ class EventCard extends Component {
     e.preventDefault();
     const field = e.target.name;
     const value = e.target.value;
-    this.setState({ [field]: value })
+    this.setState({ [field]: value });
   }
 
   addEvent = async (e) => {
-    const title = this.state.title;
-    const summary = this.state.summary;
-    const location = this.state.location;
-    await addEventToCalendar(this.props.calendarID, this.props.time, title, summary, location);
+    await addEventToCalendar(this.props.calendarID, this.props.time, this.state);
   }
 
   render() {
@@ -33,9 +30,24 @@ class EventCard extends Component {
       <div>
         <h1>Event</h1>
         <form onSubmit={this.addEvent}>
-          <input type='text' name='title' placeholder='Event title' onChange={this.handleChange} />
-          <input type='text' name='location' placeholder='Event location' onChange={this.handleChange} />
-          <input type='text' name='summary' placeholder='Event Description' onChange={this.handleChange} />
+          <input 
+            type='text' 
+            name='title' 
+            placeholder='Event title' 
+            onChange={this.handleChange} 
+          />
+          <input 
+            type='text' 
+            name='location' 
+            placeholder='Event location' 
+            onChange={this.handleChange} 
+          />
+          <input 
+            type='text' 
+            name='summary' 
+            placeholder='Event Description' 
+            onChange={this.handleChange} 
+          />
           <button>Submit</button>
         </form>
       </div>
