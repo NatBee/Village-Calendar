@@ -47,3 +47,8 @@ export const removeVillageList = (village) => ({
   type: 'REMOVE_VILLAGE_LIST',
   village
 })
+
+export const setTimeAddEvent = (time) => ({
+  type: 'SET_TIME',
+  time
+})
