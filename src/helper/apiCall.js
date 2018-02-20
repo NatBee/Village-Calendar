@@ -12,12 +12,14 @@ export const getUpcomingEvents = async () => {
         }
       });
       const eventList = await response.json();
+      console.log(eventList)
       const events = [];
       eventList.items.map(event => {
         events.push({
           start: event.start.date || event.start.dateTime,
           end: event.end.date || event.end.dateTime,
           title: event.summary,
+          eventID: event.id
         })
         
       })
