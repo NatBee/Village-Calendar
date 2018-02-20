@@ -33,9 +33,6 @@ class EditEventCard extends Component {
   }
 
   editEvent = (e) => {
-    e.preventDefault();
-
-    // editEventOnCalendar(this.props.calendarID, this.props.event.eventID, this.state.title, this.state.start, this.state.end, this.state.description);
     editEventOnCalendar(this.props.calendarID, this.props.event.eventID, this.state);
   }
 

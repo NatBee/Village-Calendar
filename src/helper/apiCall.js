@@ -12,7 +12,6 @@ export const getUpcomingEvents = async () => {
         }
       });
       const eventList = await response.json();
-      console.log(eventList);
       const events = [];
       eventList.items.map(event => {
         events.push({
@@ -120,9 +119,7 @@ export const addEventToCalendar = async (id, time, title, summary, location) => 
           }
         })
       });
-      console.log(response)
       const result = await response.json();
-      console.log(result)
       return result
     } catch (error) {
       throw Error;
@@ -184,51 +181,10 @@ export const editEventOnCalendar = async (calendarID, eventID, state) => {
           }
         })
       });
-      console.log(response)
       const result = await response.json();
-      console.log(result)
       return result
     } catch (error) {
       throw Error;
     }
   }
 }
-
-//if can get calendar ID from theis call continue
-//else need to do next step to get calendar ID
-  //returns specific calendar from acct
-  //calendar.calendar.list.get
-
- //adds an event
- //calendar.events.insert
-
-//deletes an event
- //calendar.events.delete
-
- //updates an event
- //calendar.events.update
-
-//returns an event
- //calendar.events.get
-
- //imports an event to another calendar
- //calendar.events.import
-
-
-
-//registration
-
-
-
-// giveAccessControl = () => {
-//   //calendar.acl.insert
-// }
-
-// removeAccessControl = () => {
-//   //calendar.acl.delete
-// }
-
-// listAccessControl = () => {
-//   //calendar.acl.list
-// }
-
