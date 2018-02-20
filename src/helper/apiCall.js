@@ -130,8 +130,23 @@ export const addEventToCalendar = async (id, time, title, summary, email, locati
   }
 } 
 
-export const deleteEventFromCalendar = () => {
-
+export const deleteEventFromCalendar = async (calendarID, eventID) => {
+  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events/${eventID}?access_token=${token}`;
+  if(token) {
+    try {
+      const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'token'
+        },
+      });
+      return response;
+    } catch (error) {
+      throw Error;
+    }
+  }
 }
 
 //if can get calendar ID from theis call continue

@@ -6,8 +6,11 @@ import { deleteEventFromCalendar } from '../../helper/apiCall';
 class EditEventCard extends Component {
 
   deleteEvent = (e) => {
-    e.preventDefault();
-    deleteEventFromCalendar()
+    deleteEventFromCalendar(this.props.calendarID, this.props.event.eventID)
+  }
+
+  editEvent = (e) => {
+    
   }
 
 
@@ -20,7 +23,7 @@ class EditEventCard extends Component {
           <input type='text' placeholder={this.props.event.start}/>
           <input type='text' placeholder={this.props.event.end}/>
           <input type='text' placeholder={this.props.event.description}/>
-          <button>Edit</button>
+          <button onClick={this.editEvent}>Edit</button>
           <button onClick={this.deleteEvent}>Delete</button>
         </form>
       </div>
@@ -29,7 +32,8 @@ class EditEventCard extends Component {
 }
 
 export const mapStateToProps = (store) => ({
-  event: store.event
+  event: store.event,
+  calendarID: store.calendarID
 })
 
 export default connect(mapStateToProps)(EditEventCard);
