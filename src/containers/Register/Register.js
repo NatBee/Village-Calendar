@@ -16,7 +16,7 @@ class Register extends Component {
   }
 
   createCalendar = async () => {
-    const newCalendarID = await createNewCalendar();
+    const newCalendarID = await createNewCalendar(this.props);
     await this.props.setCalendarID(newCalendarID);
   }
 
@@ -29,7 +29,7 @@ class Register extends Component {
 
   addUsers = async (e) => {
     e.preventDefault();
-    await addUsersToCalendar(this.props.calendarID, this.state.email, this.state.name);
+    await addUsersToCalendar(this.props, this.state);
     await this.props.addPeopleToVillage({[this.state.name]: this.state.email});
     this.inputName.value = '';
     this.inputEmail.value = '';
@@ -64,7 +64,8 @@ class Register extends Component {
 
 export const mapStateToProps = (store) => ({
   calendarID: store.calendarID,
-  village: store.village
+  village: store.village,
+  token: store.token
 })
 
 export const mapDispatchToProps = (dispatch) => ({

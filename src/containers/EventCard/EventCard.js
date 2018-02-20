@@ -22,7 +22,7 @@ class EventCard extends Component {
   }
 
   addEvent = async (e) => {
-    await addEventToCalendar(this.props.calendarID, this.props.time, this.state);
+    await addEventToCalendar(this.props, this.state);
   }
 
   render() {
@@ -58,7 +58,8 @@ class EventCard extends Component {
 export const mapStateToProps = (store) => ({
   time: store.time,
   calendarID: store.calendarID,
-  user: store.user
+  user: store.user,
+  token: store.token
 })
 
 export default connect(mapStateToProps)(EventCard);
