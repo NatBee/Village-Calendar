@@ -5,8 +5,9 @@ import './CalendarDisplay.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { getUpcomingEvents } from '../../helper/apiCall';
 import { connect } from 'react-redux';
-import { loadUpcomingEvents, setTimeAddEvent } from '../../actions/index';
+import { loadUpcomingEvents, setTimeAddEvent, setEvent, removeEvent } from '../../actions/index';
 import EventCard from '../EventCard/EventCard';
+import EditEventCard from '../EditEventCard/EditEventCard';
 
 BigCalendar.momentLocalizer(moment);
 
@@ -15,7 +16,7 @@ class CalendarDisplay extends Component {
     super(props);
 
     this.state = {
-      eventCard: false
+      eventCard: 'calendar'
     }
   }
 
@@ -24,8 +25,9 @@ class CalendarDisplay extends Component {
     this.props.loadUpcomingEvents(events);
   }
 
-  editEvent = () => {
-    console.log('were editing')
+  editEvent = (event) => {
+    this.props.setEvent(event);
+    this.setState({eventCard: 'edit'})
   }
 
   addEventCard = (start, end) => {
@@ -34,24 +36,28 @@ class CalendarDisplay extends Component {
       endTime: end    
     };
     this.props.setTimeAddEvent(time);
-    this.setState({eventCard: true})
+    this.setState({eventCard: 'add'})
   }
 
   display = () => {
-    if(this.state.eventCard === false) {
+    if(this.state.eventCard === 'calendar') {
       return (
         <BigCalendar 
           style={{height: '420px'}} 
           events={this.props.events} 
           selectable
           views={['month', 'day', 'week','agenda']}
-          onSelectEvent={this.editEvent}
+          onSelectEvent={event => this.editEvent(event)}
           onSelectSlot={slotInfo => this.addEventCard(slotInfo.start.toISOString(), slotInfo.end.toISOString())}
         />
       )
-    } else {
+    } else if(this.state.eventCard === 'add') {
       return (
         <EventCard/>
+      )
+    } else {
+      return (
+        <EditEventCard/>
       )
     }
   }
@@ -70,12 +76,15 @@ class CalendarDisplay extends Component {
 export const mapStateToProps = (store) => ({
   events: store.events,
   time: store.time,
-  calendarID: store.calendarID
+  calendarID: store.calendarID,
+  event: store.event
 })
 
 export const mapDispatchToProps = (dispatch) => ({
   loadUpcomingEvents: (events) => dispatch(loadUpcomingEvents(events)),
-  setTimeAddEvent: (time) => dispatch(setTimeAddEvent(time))
+  setTimeAddEvent: (time) => dispatch(setTimeAddEvent(time)),
+  setEvent: (event) => dispatch(setEvent(event)),
+  removeEvent: (event) => dispatch(removeEvent(event))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalendarDisplay);

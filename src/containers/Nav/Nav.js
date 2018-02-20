@@ -27,6 +27,8 @@ class Nav extends Component {
   pageDirect = () => {
     if(this.props.history.location.pathname === '/') {
       this.props.history.push('/calendar');
+    } else if(this.props.history.location.pathname === '/calendar') {
+      this.props.history.push('/calendar')
     } else {
       this.props.history.push('/register');
     }

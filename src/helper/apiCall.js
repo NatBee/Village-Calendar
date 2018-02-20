@@ -12,13 +12,14 @@ export const getUpcomingEvents = async () => {
         }
       });
       const eventList = await response.json();
-      console.log(eventList)
+      console.log(eventList);
       const events = [];
       eventList.items.map(event => {
         events.push({
           start: event.start.date || event.start.dateTime,
           end: event.end.date || event.end.dateTime,
           title: event.summary,
+          description: event.description,
           eventID: event.id
         })
         
@@ -128,6 +129,10 @@ export const addEventToCalendar = async (id, time, title, summary, email, locati
     }
   }
 } 
+
+export const deleteEventFromCalendar = () => {
+
+}
 
 //if can get calendar ID from theis call continue
 //else need to do next step to get calendar ID

@@ -52,3 +52,13 @@ export const setTimeAddEvent = (time) => ({
   type: 'SET_TIME',
   time
 })
+
+export const setEvent = (event) => ({
+  type: "SET_EVENT",
+  event
+})
+
+export const removeEvent = (event) => ({
+  type: 'REMOVE_EVENT',
+  event
+})
