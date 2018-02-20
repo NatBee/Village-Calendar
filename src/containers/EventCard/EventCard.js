@@ -24,9 +24,8 @@ class EventCard extends Component {
   addEvent = async (e) => {
     const title = this.state.title;
     const summary = this.state.summary;
-    const location = this.state.location
-    const email = this.props.user.additionalUserInfo.profile.email
-    await addEventToCalendar(this.props.calendarID, this.props.time, title, summary, email, location);
+    const location = this.state.location;
+    await addEventToCalendar(this.props.calendarID, this.props.time, title, summary, location);
   }
 
   render() {

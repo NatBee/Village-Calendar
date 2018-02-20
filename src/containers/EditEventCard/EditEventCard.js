@@ -1,16 +1,42 @@
 import React, { Component } from 'react';
 import './EditEventCard.css';
 import { connect } from 'react-redux';
-import { deleteEventFromCalendar } from '../../helper/apiCall';
+import { deleteEventFromCalendar, editEventOnCalendar } from '../../helper/apiCall';
 
 class EditEventCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+
+  componentDidMount = () => {
+    const title = this.props.event.title || '';
+    const start = this.props.event.start || '';
+    const end = this.props.event.end || '';
+    const description = this.props.event.description || '';
+    const location = this.props.event.location || '';
+    this.setState({
+      title, start, end, description, location
+    })
+  }
 
   deleteEvent = (e) => {
     deleteEventFromCalendar(this.props.calendarID, this.props.event.eventID)
   }
 
+  handleChange = (e) => {
+    e.preventDefault();
+    const field = e.target.name;
+    const value = e.target.value;
+    this.setState({ [field]: value });
+  }
+
   editEvent = (e) => {
-    
+    e.preventDefault();
+
+    // editEventOnCalendar(this.props.calendarID, this.props.event.eventID, this.state.title, this.state.start, this.state.end, this.state.description);
+    editEventOnCalendar(this.props.calendarID, this.props.event.eventID, this.state);
   }
 
 
@@ -19,10 +45,11 @@ class EditEventCard extends Component {
       <div>
         <h1>Edit Event</h1>
         <form>
-          <input type='text' placeholder={this.props.event.title}/>
-          <input type='text' placeholder={this.props.event.start}/>
-          <input type='text' placeholder={this.props.event.end}/>
-          <input type='text' placeholder={this.props.event.description}/>
+          <input type='text' name='title' value={this.state.title} onChange={this.handleChange} />
+          <input type='text' name='start' value={this.state.start} onChange={this.handleChange} />
+          <input type='text' name='end' value={this.state.end} onChange={this.handleChange} />
+          <input type='text' name='description' value={this.state.description} onChange={this.handleChange} />
+          <input type='text' name='location' value={this.state.location} onChange={this.handleChange} />
           <button onClick={this.editEvent}>Edit</button>
           <button onClick={this.deleteEvent}>Delete</button>
         </form>

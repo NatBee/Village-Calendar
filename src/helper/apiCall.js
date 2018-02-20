@@ -1,14 +1,14 @@
 export const getUpcomingEvents = async () => {
-  const storedAccessToken = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   const calendarId = 'primary';
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${storedAccessToken}`;
-  if(storedAccessToken) {
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${token}`;
+  if(token) {
     try {
       const response = await fetch(url, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'storedAccessToken'
+          'Authorization': 'token'
         }
       });
       const eventList = await response.json();
@@ -20,7 +20,8 @@ export const getUpcomingEvents = async () => {
           end: event.end.date || event.end.dateTime,
           title: event.summary,
           description: event.description,
-          eventID: event.id
+          eventID: event.id,
+          location: event.location
         })
         
       })
@@ -41,7 +42,7 @@ export const createNewCalendar = async () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'storedAccessToken'
+          'Authorization': 'token'
         },
         body: JSON.stringify({
           summary: 'Village App Calendar',
@@ -68,7 +69,7 @@ export const addUsersToCalendar = async (id, email) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'storedAccessToken'
+          'Authorization': 'token'
         },
         body: JSON.stringify({
           role: 'writer',
@@ -86,19 +87,19 @@ export const addUsersToCalendar = async (id, email) => {
   }
 }
 
-export const addEventToCalendar = async (id, time, title, summary, email, location) => {
+export const addEventToCalendar = async (id, time, title, summary, location) => {
   const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   const calendarID = id;
   const startTime = time.startTime;
   const endTime = time.endTime;
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?fields=attendees%2Femail%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${token}`;
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?fields=email%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${token}`;
   if(token) {
     try {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'storedAccessToken'
+          'Authorization': 'token'
         },
         body: JSON.stringify({
           description: summary,
@@ -110,9 +111,6 @@ export const addEventToCalendar = async (id, time, title, summary, email, locati
           },
           summary: title,
           location: location,
-          attendees: [
-            {email: email}
-          ],
           reminders: {
             useDefault: false,
             overrides: [
@@ -122,7 +120,9 @@ export const addEventToCalendar = async (id, time, title, summary, email, locati
           }
         })
       });
+      console.log(response)
       const result = await response.json();
+      console.log(result)
       return result
     } catch (error) {
       throw Error;
@@ -143,6 +143,51 @@ export const deleteEventFromCalendar = async (calendarID, eventID) => {
         },
       });
       return response;
+    } catch (error) {
+      throw Error;
+    }
+  }
+}
+
+export const editEventOnCalendar = async (calendarID, eventID, state) => {
+  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  console.log(calendarID);
+  console.log(eventID);
+  console.log(state);
+  console.log(state.description);
+
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events/${eventID}?fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${token}`;
+  if(token) {
+    try {
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'token'
+        },
+        body: JSON.stringify({
+          description: state.description,
+          end: {
+            dateTime: state.end
+          },
+          start: {
+            dateTime: state.start
+          },
+          summary: state.title,
+          location: state.location,
+          reminders: {
+            useDefault: false,
+            overrides: [
+              {method: 'email', 'minutes': 24 * 60},
+              {method: 'popup', 'minutes': 10}
+            ]
+          }
+        })
+      });
+      console.log(response)
+      const result = await response.json();
+      console.log(result)
+      return result
     } catch (error) {
       throw Error;
     }
