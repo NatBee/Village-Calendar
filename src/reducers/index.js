@@ -4,11 +4,13 @@ import { logInReducer } from './logInReducer/logInReducer';
 import { tokenReducer } from './tokenReducer/tokenReducer';
 import { calendarIDReducer } from './calendarIDReducer/calendarIDReducer';
 import { villageReducer } from './villageReducer/villageReducer';
+import { timeReducer } from './timeReducer/timeReducer';
 
 export const rootReducer = combineReducers({
   events: calendarEventReducer,
   user: logInReducer,
   token: tokenReducer,
   calendarID: calendarIDReducer,
-  village: villageReducer
+  village: villageReducer,
+  time: timeReducer
 })

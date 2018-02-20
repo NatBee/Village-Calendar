@@ -13,7 +13,7 @@ class App extends Component {
         <Nav/>
         <Route exact path='/' component={ Splash } />
         <Route exact path='/register' component={ Register } />
-        <Route exact path='/calendar' component= { CalendarDisplay } />
+        <Route exact path='/calendar' component={ CalendarDisplay } />
       </div>
     );
   }

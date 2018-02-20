@@ -56,8 +56,7 @@ export const createNewCalendar = async () => {
 
 export const addUsersToCalendar = async (id, email) => {
   const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  const calendarID = id
-  const userEmail = email
+  const calendarID = id;
   const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/acl?fields=etag%2Cid%2Ckind%2Crole%2Cscope&access_token=${token}`;
 
   if(token) {
@@ -83,6 +82,50 @@ export const addUsersToCalendar = async (id, email) => {
     }
   }
 }
+
+export const addEventToCalendar = async (id, time, title, summary, email, location) => {
+  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
+  const calendarID = id;
+  const startTime = time.startTime;
+  const endTime = time.endTime;
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?fields=attendees%2Femail%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${token}`;
+  if(token) {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'storedAccessToken'
+        },
+        body: JSON.stringify({
+          description: summary,
+          end: {
+            dateTime: endTime
+          },
+          start: {
+            dateTime: startTime
+          },
+          summary: title,
+          location: location,
+          attendees: [
+            {email: email}
+          ],
+          reminders: {
+            useDefault: false,
+            overrides: [
+              {method: 'email', 'minutes': 24 * 60},
+              {method: 'popup', 'minutes': 10}
+            ]
+          }
+        })
+      });
+      const result = await response.json();
+      return result
+    } catch (error) {
+      throw Error;
+    }
+  }
+} 
 
 //if can get calendar ID from theis call continue
 //else need to do next step to get calendar ID
