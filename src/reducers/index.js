@@ -5,6 +5,7 @@ import { tokenReducer } from './tokenReducer/tokenReducer';
 import { calendarIDReducer } from './calendarIDReducer/calendarIDReducer';
 import { villageReducer } from './villageReducer/villageReducer';
 import { timeReducer } from './timeReducer/timeReducer';
+import { eventReducer } from './eventReducer/eventReducer';
 
 export const rootReducer = combineReducers({
   events: calendarEventReducer,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
   token: tokenReducer,
   calendarID: calendarIDReducer,
   village: villageReducer,
-  time: timeReducer
+  time: timeReducer,
+  event: eventReducer
 })
