@@ -21,10 +21,6 @@ class EditEventCard extends Component {
     })
   }
 
-  deleteEvent = (e) => {
-    deleteEventFromCalendar(this.props.calendarID, this.props.event.eventID)
-  }
-
   handleChange = (e) => {
     e.preventDefault();
     const field = e.target.name;
@@ -32,8 +28,12 @@ class EditEventCard extends Component {
     this.setState({ [field]: value });
   }
 
-  editEvent = (e) => {
-    editEventOnCalendar(this.props.calendarID, this.props.event.eventID, this.state);
+  deleteEvent = () => {
+    deleteEventFromCalendar(this.props)
+  }
+
+  editEvent = () => {
+    editEventOnCalendar(this.props, this.state);
   }
 
 
@@ -57,7 +57,8 @@ class EditEventCard extends Component {
 
 export const mapStateToProps = (store) => ({
   event: store.event,
-  calendarID: store.calendarID
+  calendarID: store.calendarID,
+  token: store.token
 })
 
 export default connect(mapStateToProps)(EditEventCard);

@@ -1,15 +1,18 @@
-export const getUpcomingEvents = async () => {
-  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  const calendarId = 'primary';
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?access_token=${token}`;
+const rootUrl = 'https://www.googleapis.com/calendar/v3/calendars';
+const headers = {
+  'Content-Type': 'application/json',
+  'Authorization': 'token'
+}
+
+export const getUpcomingEvents = async (id) => {
+  const calendarId = id;
+  const token = JSON.parse(localStorage.getItem('ouath2-access-token'));
+  const url = `${rootUrl}/${calendarId}/events?access_token=${token}`;
   if(token) {
     try {
       const response = await fetch(url, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'token'
-        }
+        headers: headers
       });
       const eventList = await response.json();
       const events = [];
@@ -31,18 +34,15 @@ export const getUpcomingEvents = async () => {
   }
 }
 
-export const createNewCalendar = async () => {
-  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  const url = `https://www.googleapis.com/calendar/v3/calendars?fields=id%2Csummary&access_token=${token}`;
+export const createNewCalendar = async (props) => {
+  const token = props.token;
+  const url = `${rootUrl}?fields=id%2Csummary&access_token=${token}`;
 
   if(token) {
     try {
       const response = await fetch(url, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'token'
-        },
+        headers: headers,
         body: JSON.stringify({
           summary: 'Village App Calendar',
           id: ''
@@ -57,24 +57,21 @@ export const createNewCalendar = async () => {
   }
 }
 
-export const addUsersToCalendar = async (id, email) => {
-  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  const calendarID = id;
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/acl?fields=etag%2Cid%2Ckind%2Crole%2Cscope&access_token=${token}`;
+export const addUsersToCalendar = async (props, state) => {
+  const token = props.token;
+  const fields = 'fields=etag%2Cid%2Ckind%2Crole%2Cscope'
+  const url = `${rootUrl}/${props.calendarID}/acl?${fields}&access_token=${token}`;
 
   if(token) {
     try {
       const response = await fetch(url, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'token'
-        },
+        headers: headers,
         body: JSON.stringify({
           role: 'writer',
           scope: {
             type: 'group',
-            value: email
+            value: state.email
           }
         })
       });
@@ -86,25 +83,22 @@ export const addUsersToCalendar = async (id, email) => {
   }
 }
 
-export const addEventToCalendar = async (id, time, state) => {
-  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  const calendarID = id;
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events?fields=email%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${token}`;
+export const addEventToCalendar = async (props, state) => {
+  const token = props.token;
+  const fields = 'fields=email%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
+  const url = `${rootUrl}/${props.calendarID}/events?${fields}&access_token=${token}`;
   if(token) {
     try {
       const response = await fetch(url, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'token'
-        },
+        headers: headers,
         body: JSON.stringify({
           description: state.summary,
           end: {
-            dateTime: time.endTime
+            dateTime: props.time.endTime
           },
           start: {
-            dateTime: time.startTime
+            dateTime: props.time.startTime
           },
           summary: state.title,
           location: state.location,
@@ -125,17 +119,15 @@ export const addEventToCalendar = async (id, time, state) => {
   }
 } 
 
-export const deleteEventFromCalendar = async (calendarID, eventID) => {
-  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events/${eventID}?access_token=${token}`;
+
+export const deleteEventFromCalendar = async (props) => {
+  const token = props.token
+  const url = `${rootUrl}/${props.calendarID}/events/${props.event.eventID}?access_token=${token}`;
   if(token) {
     try {
       const response = await fetch(url, {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'token'
-        },
+        headers: headers,
       });
       return response;
     } catch (error) {
@@ -144,22 +136,15 @@ export const deleteEventFromCalendar = async (calendarID, eventID) => {
   }
 }
 
-export const editEventOnCalendar = async (calendarID, eventID, state) => {
-  const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
-  console.log(calendarID);
-  console.log(eventID);
-  console.log(state);
-  console.log(state.description);
-
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events/${eventID}?fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${token}`;
+export const editEventOnCalendar = async (props, state) => {
+  const token = props.token
+  const fields = 'fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
+  const url = `${rootUrl}/${props.calendarID}/events/${props.event.eventID}?${fields}&access_token=${token}`;
   if(token) {
     try {
       const response = await fetch(url, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'token'
-        },
+        headers: headers,
         body: JSON.stringify({
           description: state.description,
           end: {

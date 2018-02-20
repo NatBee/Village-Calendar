@@ -77,7 +77,8 @@ export const mapStateToProps = (store) => ({
   events: store.events,
   time: store.time,
   calendarID: store.calendarID,
-  event: store.event
+  event: store.event,
+  token: store.token
 })
 
 export const mapDispatchToProps = (dispatch) => ({
