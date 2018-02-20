@@ -9,7 +9,8 @@ class EventCard extends Component {
 
     this.state = {
       title: '',
-      summary: ''
+      summary: '',
+      location: ''
     }
   }
 
@@ -21,11 +22,11 @@ class EventCard extends Component {
   }
 
   addEvent = async (e) => {
-    e.preventDefault();
     const title = this.state.title;
     const summary = this.state.summary;
+    const location = this.state.location
     const email = this.props.user.additionalUserInfo.profile.email
-    await addEventToCalendar(this.props.calendarID, this.props.time, title, summary, email);
+    await addEventToCalendar(this.props.calendarID, this.props.time, title, summary, email, location);
   }
 
   render() {
@@ -34,6 +35,7 @@ class EventCard extends Component {
         <h1>Event</h1>
         <form onSubmit={this.addEvent}>
           <input type='text' name='title' placeholder='Event title' onChange={this.handleChange} />
+          <input type='text' name='location' placeholder='Event location' onChange={this.handleChange} />
           <input type='text' name='summary' placeholder='Event Description' onChange={this.handleChange} />
           <button>Submit</button>
         </form>

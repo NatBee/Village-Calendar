@@ -83,7 +83,7 @@ export const addUsersToCalendar = async (id, email) => {
   }
 }
 
-export const addEventToCalendar = async (id, time, title, summary, email) => {
+export const addEventToCalendar = async (id, time, title, summary, email, location) => {
   const token = JSON.parse(localStorage.getItem('ouath2-access-token')) 
   const calendarID = id;
   const startTime = time.startTime;
@@ -106,7 +106,7 @@ export const addEventToCalendar = async (id, time, title, summary, email) => {
             dateTime: startTime
           },
           summary: title,
-          location: '800 Howard St., San Francisco, CA 94103',
+          location: location,
           attendees: [
             {email: email}
           ],
@@ -119,9 +119,7 @@ export const addEventToCalendar = async (id, time, title, summary, email) => {
           }
         })
       });
-      console.log(response)
       const result = await response.json();
-      console.log(result)
       return result
     } catch (error) {
       throw Error;
