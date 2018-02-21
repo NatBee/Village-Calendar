@@ -17,7 +17,7 @@ export const mockData = {
   ],
   token: 'token_number',
   calendarID: 'calendarID',
-  village: [{natalie: 'nataliesmontoya@gmail.com'}],
+  village: {natalie: 'nataliesmontoya@gmail.com'},
   time: {
     startTime: "2018-02-28T19:00:00.000Z", 
     endTime: "2018-02-28T20:00:00.000Z"
