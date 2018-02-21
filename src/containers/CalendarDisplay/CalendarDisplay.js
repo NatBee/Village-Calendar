@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { loadUpcomingEvents, setTimeAddEvent, setEvent, removeEvent } from '../../actions/index';
 import EventCard from '../EventCard/EventCard';
 import EditEventCard from '../EditEventCard/EditEventCard';
+import PropTypes from 'prop-types';
 
 BigCalendar.momentLocalizer(moment);
 
@@ -87,5 +88,21 @@ export const mapDispatchToProps = (dispatch) => ({
   setEvent: (event) => dispatch(setEvent(event)),
   removeEvent: (event) => dispatch(removeEvent(event))
 })
+ 
+CalendarDisplay.propTypes = {
+  events: PropTypes.array,
+  time: PropTypes.object,
+  calendarID: PropTypes.string,
+  event: PropTypes.object,
+  token: PropTypes.string,
+  loadUpcomingEvents: PropTypes.func,
+  setTimeAddEvent: PropTypes.func,
+  setEvent: PropTypes.func,
+  removeEvent: PropTypes.func,
+  getUpcomingEvents: PropTypes.func,
+  editEvent: PropTypes.func,
+  addEventCard: PropTypes.func,
+  display: PropTypes.func,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(CalendarDisplay);

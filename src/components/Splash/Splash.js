@@ -3,6 +3,7 @@ import { quotes } from '../../assets/quotes';
 import Register from '../../containers/Register/Register';
 import './Splash.css';
 import { Link } from 'react-router-dom';
+import Proptypes from 'prop-types';
 
 class Splash extends Component {
   constructor(props) {
@@ -53,6 +54,12 @@ class Splash extends Component {
       </div>
     )
   }
+}
+
+Splash.propTypes = {
+  randomNumber: Proptypes.func,
+  quoteDisplay: Proptypes.func,
+  location: Proptypes.object.isRequired,
 }
 
 export default Splash;

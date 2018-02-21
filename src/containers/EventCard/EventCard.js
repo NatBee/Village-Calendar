@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './EventCard.css';
 import { addEventToCalendar } from '../../helper/apiCall';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class EventCard extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class EventCard extends Component {
     this.setState({ [field]: value });
   }
 
-  addEvent = async (e) => {
+  addEvent = async () => {
     await addEventToCalendar(this.props, this.state);
   }
 
@@ -61,5 +62,15 @@ export const mapStateToProps = (store) => ({
   user: store.user,
   token: store.token
 })
+
+EventCard.propTypes = {
+  time: PropTypes.object,
+  calendarID: PropTypes.string,
+  user: PropTypes.object,
+  token: PropTypes.string,
+  handleChange: PropTypes.func,
+  addEvent: PropTypes.func,
+  addEventToCalendar: PropTypes.func,
+}
 
 export default connect(mapStateToProps)(EventCard);
