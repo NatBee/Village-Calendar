@@ -1,6 +1,3 @@
-//SET VILLAGE
-
-
 export const logInReducer = (state={}, action) => {
   switch(action.type) {
     case 'LOG_IN_USER':
