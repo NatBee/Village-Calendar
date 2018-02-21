@@ -16,13 +16,13 @@ class Nav extends Component {
   logIn = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/calendar');
-    const auth = firebase.auth()
-    const authentication = await auth.signInWithPopup(provider)
+    const auth = firebase.auth();
+    const authentication = await auth.signInWithPopup(provider);
     this.props.logInUser(authentication);
     const token = authentication.credential.accessToken;
     localStorage.setItem('ouath2-access-token', JSON.stringify(token));
     this.props.setToken(token);
-    this.pageDirect()
+    this.pageDirect();
   } 
 
   pageDirect = () => {

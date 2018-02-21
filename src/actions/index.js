@@ -3,7 +3,7 @@ export const logInUser = (user) => ({
   user
 });
 
-export const logOutUser = (user, events) => ({
+export const logOutUser = (user) => ({
   type: 'LOG_OUT_USER',
   user
 });
