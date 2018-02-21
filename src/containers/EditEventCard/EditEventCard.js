@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './EditEventCard.css';
 import { connect } from 'react-redux';
 import { deleteEventFromCalendar, editEventOnCalendar } from '../../helper/apiCall';
+import PropTypes from 'prop-types';
 
 class EditEventCard extends Component {
   constructor(props) {
@@ -60,5 +61,16 @@ export const mapStateToProps = (store) => ({
   calendarID: store.calendarID,
   token: store.token
 })
+
+EditEventCard.propTypes = {
+  event: PropTypes.object,
+  calendarID: PropTypes.string,
+  token: PropTypes.string,
+  handleChange: PropTypes.func,
+  deleteEvent: PropTypes.func,
+  editEvent: PropTypes.func,
+  deleteEventFromCalendar: PropTypes.func,
+  editEventOnCalendar: PropTypes.func,
+}
 
 export default connect(mapStateToProps)(EditEventCard);

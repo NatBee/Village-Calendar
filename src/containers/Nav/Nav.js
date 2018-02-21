@@ -6,6 +6,7 @@ import './Nav.css';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { config } from '../../helper/apiKey';
+import PropTypes from 'prop-types';
 
 firebase.initializeApp(config);
 
@@ -57,14 +58,6 @@ class Nav extends Component {
     this.props.history.push('/');
   }
 
-  // logOutButton = () => {
-  //   if(this.props.user.user !== undefined) {
-  //     return (
-        
-  //     )
-  //   }
-  // }
-
   render() {
     return(
       <div>
@@ -75,23 +68,44 @@ class Nav extends Component {
   }
 }
 
-  export const mapStateToProps = (store) => ({
-    user: store.user,
-    events: store.events,
-    token: store.token,
-    calendarID: store.calendarID,
-    village: store.village
-  })
+export const mapStateToProps = (store) => ({
+  user: store.user,
+  events: store.events,
+  token: store.token,
+  calendarID: store.calendarID,
+  village: store.village
+})
 
-  export const mapDispatchToProps = (dispatch) => ({
-    logOutUser: (user) => dispatch(logOutUser(user)),
-    removeAllEvents: (events) => dispatch(removeAllEvents(events)),
-    removeToken: (token) => dispatch(removeToken(token)),
-    logInUser: (user) => dispatch(logInUser(user)),
-    setToken: (token) => dispatch(setToken(token)),
-    removeCalendarID: (calendarID) => dispatch(removeCalendarID(calendarID)),
-    removeVillageList: (village) => dispatch(removeVillageList(village))
-  })
+export const mapDispatchToProps = (dispatch) => ({
+  logOutUser: (user) => dispatch(logOutUser(user)),
+  removeAllEvents: (events) => dispatch(removeAllEvents(events)),
+  removeToken: (token) => dispatch(removeToken(token)),
+  logInUser: (user) => dispatch(logInUser(user)),
+  setToken: (token) => dispatch(setToken(token)),
+  removeCalendarID: (calendarID) => dispatch(removeCalendarID(calendarID)),
+  removeVillageList: (village) => dispatch(removeVillageList(village))
+})
+
+Nav.propTypes = {
+  user: PropTypes.object,
+  events: PropTypes.array,
+  token: PropTypes.string,
+  calendarID: PropTypes.string,
+  village: PropTypes.array,
+  logOutUser: PropTypes.func,
+  removeAllEvents: PropTypes.func,
+  removeToken: PropTypes.func,
+  logInUser: PropTypes.func,
+  setToken: PropTypes.func,
+  removeCalendarID: PropTypes.func,
+  removeVillageList: PropTypes.func,
+  login: PropTypes.func,
+  pageDirect: PropTypes.func,
+  buttonDisplay: PropTypes.func,
+  logOut: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object.isRequired,
+}  
 
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));

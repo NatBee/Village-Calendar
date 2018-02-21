@@ -25,7 +25,7 @@ export const getUpcomingEvents = async (id) => {
           eventID: event.id,
           location: event.location
         })
-        
+        return events
       })
       return events;
     } catch (error) {

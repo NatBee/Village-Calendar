@@ -4,6 +4,7 @@ import { createNewCalendar, addUsersToCalendar } from '../../helper/apiCall';
 import { setCalendarID, addPeopleToVillage } from '../../actions/index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Register extends Component {
   constructor(props) {
@@ -72,5 +73,20 @@ export const mapDispatchToProps = (dispatch) => ({
   setCalendarID: (calendarID) => dispatch(setCalendarID(calendarID)),
   addPeopleToVillage: (village) => dispatch(addPeopleToVillage(village))
 })
+
+Register.propTypes = {
+  calendarID: PropTypes.string,
+  village: PropTypes.array,
+  token: PropTypes.string,
+  setCalendarID: PropTypes.func,
+  addPeopleToVillage: PropTypes.func,
+  createCalendar: PropTypes.func,
+  createNewCalendar: PropTypes.func,
+  handleChange: PropTypes.func,
+  addUsers: PropTypes.func,
+  addUsersToCalendar: PropTypes.func,
+  goToCalendar: PropTypes.func,
+  history: PropTypes.object,
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
