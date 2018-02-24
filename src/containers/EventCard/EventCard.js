@@ -3,6 +3,7 @@ import './EventCard.css';
 import { addEventToCalendar } from '../../helper/apiCall';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 class EventCard extends Component {
   constructor(props) {
@@ -22,8 +23,14 @@ class EventCard extends Component {
     this.setState({ [field]: value });
   }
 
-  addEvent = async () => {
+  addEvent = async (e) => {
+    e.preventDefault();
     await addEventToCalendar(this.props, this.state);
+    this.props.history.push('/calendar')
+  }
+
+  goBack = () => {
+    this.props.history.push('/calendar')
   }
 
   render() {
@@ -51,6 +58,7 @@ class EventCard extends Component {
           />
           <button>Submit</button>
         </form>
+        <button onClick={this.goBack}>Cancel</button>
       </div>
     )
   }
@@ -73,4 +81,4 @@ EventCard.propTypes = {
   addEventToCalendar: PropTypes.func,
 }
 
-export default connect(mapStateToProps)(EventCard);
+export default withRouter(connect(mapStateToProps)(EventCard));

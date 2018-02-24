@@ -1,65 +1,59 @@
 import React, { Component } from 'react';
-import { quotes } from '../../assets/quotes';
-import Register from '../../containers/Register/Register';
 import './Splash.css';
-import { Link } from 'react-router-dom';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
+import BigCalendar from 'react-big-calendar';
+import { mockData } from '../../mockData';
 
 class Splash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: '',
-      author: ''
+      clicked: false
     }
   }
 
-  componentDidMount() {
-    this.randomNumber();
-  }
-  
-  randomNumber = () => {
-    const randomIndex = Math.floor(Math.random() * Math.floor(9));
-    this.quoteDisplay(randomIndex);
+  handleClick = () => {
+    this.setState({clicked: true});
   }
 
-  quoteDisplay = (index) => {
-    const quoteObj = quotes[index];
-    const quote = quoteObj.quote;
-    const author = quoteObj.author;
-
-    this.setState ({ quote, author })
-  }
-
-
-  renderContainer = () => {
-    const route = this.props.location.pathname;
-    if(route === "/") {
+  loginAlert = () => {
+    if(this.state.clicked === true) {
       return (
-        <div>
-          <Link to="/register">Create Your Village</Link>  
-        </div>
+        <h1>Please log in to start planning!</h1>
       )
-    } else if(route === "/register") {
-      return <Register />
+    } else {
+      return (
+        <h1>Welcome to Village Calendar</h1>
+      )
     }
   }
 
   render() {
     return (
       <div>
-        <h3>{ this.state.quote }</h3>
-        <h4>{ this.state.author }</h4>
-        { this.renderContainer()}
+        {this.loginAlert()}
+          <BigCalendar 
+            style={ {height: '420px'} }    
+            events={ mockData.events } 
+            views={{
+              month: true,
+              day: true
+            }}
+            defaultDate={ new Date(Date.now()) }
+            onSelectEvent={ this.handleClick }
+            onSelectSlot={ this.handleClick }
+            onView={ this.handleClick }
+            onNavigate={ this.handleClick }
+          /> 
       </div>
     )
   }
 }
 
 Splash.propTypes = {
-  randomNumber: Proptypes.func,
-  quoteDisplay: Proptypes.func,
-  location: Proptypes.object.isRequired,
+  clicked: PropTypes.string,
+  handleClick: PropTypes.func,
+  loginAlert: PropTypes.func,
 }
 
 export default Splash;

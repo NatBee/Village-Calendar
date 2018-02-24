@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 
 firebase.initializeApp(config);
 
-
 class Nav extends Component {
 
   logIn = async () => {
@@ -27,7 +26,7 @@ class Nav extends Component {
 
   pageDirect = () => {
     if(this.props.history.location.pathname === '/') {
-      this.props.history.push('/calendar');
+      this.props.history.push('/register');
     } else if(this.props.history.location.pathname === '/calendar') {
       this.props.history.push('/calendar')
     } else {
@@ -42,7 +41,9 @@ class Nav extends Component {
       )
     } else {
       return(
-        <button onClick={this.logOut}>Log Out</button>
+        <div>
+          <button onClick={this.logOut}>Log Out</button>
+        </div>
       )
     }
   }
