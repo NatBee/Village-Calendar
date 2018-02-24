@@ -42,6 +42,10 @@ class EditEventCard extends Component {
     this.props.history.push('/calendar');
   }
 
+  cancel = () => {
+    this.props.history.push('/calendar')
+  }
+
   render() {
     return(
       <div>
@@ -55,6 +59,7 @@ class EditEventCard extends Component {
           <button onClick={this.editEvent}>Edit</button>
           <button onClick={this.deleteEvent}>Delete</button>
         </form>
+        <button onClick={this.cancel}>Cancel</button>
       </div>
     )
   }
