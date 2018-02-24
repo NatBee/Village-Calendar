@@ -4,5 +4,5 @@ export const config = {
   databaseURL: "https://village-calendar-app.firebaseio.com",
   projectId: "village-calendar-app",
   storageBucket: "",
-  messagingSenderId: "184201738089"
+  messagingSenderId: "184201738089",
 };
