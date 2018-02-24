@@ -9,6 +9,7 @@ import { loadUpcomingEvents, setTimeAddEvent, setEvent, removeEvent } from '../.
 import EventCard from '../EventCard/EventCard';
 import EditEventCard from '../EditEventCard/EditEventCard';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 BigCalendar.momentLocalizer(moment);
 
@@ -32,6 +33,7 @@ class CalendarDisplay extends Component {
   }
 
   addEventCard = (start, end) => {
+    this.props.history.push('/addevent')
     const time = {  
       startTime: start,
       endTime: end    
@@ -109,4 +111,4 @@ CalendarDisplay.propTypes = {
   display: PropTypes.func,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CalendarDisplay);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CalendarDisplay));

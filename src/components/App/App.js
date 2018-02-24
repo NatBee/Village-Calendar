@@ -4,6 +4,7 @@ import Splash from '../Splash/Splash';
 import Nav from '../../containers/Nav/Nav';
 import CalendarDisplay from '../../containers/CalendarDisplay/CalendarDisplay';
 import Register from '../../containers/Register/Register';
+import EventCard from '../../containers/EventCard/EventCard';
 import './App.css';
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
         <Route exact path='/' component={ Splash } />
         <Route exact path='/register' component={ Register } />
         <Route exact path='/calendar' component={ CalendarDisplay } />
+        <Route exact path='/addevent' component={ EventCard } />
       </div>
     );
   }
