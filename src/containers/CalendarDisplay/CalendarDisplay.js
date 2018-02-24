@@ -34,13 +34,13 @@ class CalendarDisplay extends Component {
   }
 
   addEventCard = (start, end) => {
-    this.props.history.push('/addevent')
     const time = {  
       startTime: start,
       endTime: end    
     };
     this.props.setTimeAddEvent(time);
     this.setState({eventCard: 'add'})
+    this.props.history.push('/addevent')
   }
 
   display = () => {
