@@ -4,50 +4,51 @@ import Register from '../../containers/Register/Register';
 import './Splash.css';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
-import moment from 'moment';
 import BigCalendar from 'react-big-calendar';
 import { mockData } from '../../mockData';
 
-BigCalendar.momentLocalizer(moment);
-
 class Splash extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     quote: '',
-  //     author: ''
-  //   }
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false
+    }
+  }
 
-  // componentDidMount() {
-  //   this.randomNumber();
-  // }
-  
-  // randomNumber = () => {
-  //   const randomIndex = Math.floor(Math.random() * Math.floor(9));
-  //   this.quoteDisplay(randomIndex);
-  // }
+  handleClick = () => {
+    this.setState({clicked: true});
+  }
 
-  // quoteDisplay = (index) => {
-  //   const quoteObj = quotes[index];
-  //   const quote = quoteObj.quote;
-  //   const author = quoteObj.author;
-
-  //   this.setState ({ quote, author })
-  // }
-
+  loginAlert = () => {
+    if(this.state.clicked === true) {
+      return (
+          <h1>Please log in to start planning!</h1>
+      )
+    } else {
+      return (
+        <h1>Welcome to Village Calendar</h1>
+      )
+    }
+  }
 
   renderContainer = () => {
     const route = this.props.location.pathname;
     const events = mockData.events;
     if(route === "/") {
       return (
-        <div>
-          <BigCalendar 
-            style={{height: '420px'}}    
-            events={events} 
-          />  
-        </div>
+        <BigCalendar 
+          style={ {height: '420px'} }    
+          events={ events } 
+          views={{
+            month: true,
+            day: true
+          }}
+          defaultDate={ new Date(Date.now()) }
+          onSelectEvent={ this.handleClick }
+          onSelectSlot={ this.handleClick }
+          onView={ this.handleClick }
+          onNavigate={ this.handleClick }
+        />  
       )
     } else if(route === "/register") {
       return <Register />
@@ -57,7 +58,10 @@ class Splash extends Component {
   render() {
     return (
       <div>
-        { this.renderContainer()}
+        {this.loginAlert()}
+        <div>
+          { this.renderContainer() } 
+        </div>
       </div>
     )
   }

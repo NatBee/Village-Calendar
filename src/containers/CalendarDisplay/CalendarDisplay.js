@@ -47,7 +47,11 @@ class CalendarDisplay extends Component {
           style={{height: '420px'}} 
           events={this.props.events} 
           selectable
-          views={['month', 'day', 'week','agenda']}
+          views={{
+              month: true,
+              day: true
+          }}
+          defaultDate={new Date(Date.now())}
           onSelectEvent={event => this.editEvent(event)}
           onSelectSlot={slotInfo => this.addEventCard(slotInfo.start.toISOString(), slotInfo.end.toISOString())}
         />
