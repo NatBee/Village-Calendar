@@ -12,6 +12,13 @@ firebase.initializeApp(config);
 
 class Nav extends Component {
 
+  componentDidMount = () => {
+    const token = JSON.parse(localStorage.getItem('ouath2-access-token'));
+    if(token) {
+      this.props.setToken(token)
+    }
+  }
+
   logIn = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/calendar');
@@ -35,7 +42,7 @@ class Nav extends Component {
   } 
 
   buttonDisplay = () => {
-    if(this.props.user.user === undefined) {
+    if(this.props.token === '') {
       return(
         <button className="login" onClick={this.logIn}>Google Log In</button>
       )
@@ -56,6 +63,7 @@ class Nav extends Component {
     this.props.removeToken(this.props.token);
     this.props.removeCalendarID(this.props.calendarID);
     this.props.removeVillageList(this.props.village);
+    localStorage.clear();
     this.props.history.push('/');
   }
 
