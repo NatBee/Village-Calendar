@@ -3,6 +3,7 @@ import './EditEventCard.css';
 import { connect } from 'react-redux';
 import { deleteEventFromCalendar, editEventOnCalendar } from '../../helper/apiCall';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 class EditEventCard extends Component {
   constructor(props) {
@@ -29,14 +30,17 @@ class EditEventCard extends Component {
     this.setState({ [field]: value });
   }
 
-  deleteEvent = () => {
-    deleteEventFromCalendar(this.props)
+  deleteEvent = async (e) => {
+    e.preventDefault();
+    await deleteEventFromCalendar(this.props);
+    this.props.history.push('/calendar')
   }
 
-  editEvent = () => {
-    editEventOnCalendar(this.props, this.state);
+  editEvent = async (e) => {
+    e.preventDefault();
+    await editEventOnCalendar(this.props, this.state);
+    this.props.history.push('/calendar');
   }
-
 
   render() {
     return(
@@ -73,4 +77,4 @@ EditEventCard.propTypes = {
   editEventOnCalendar: PropTypes.func,
 }
 
-export default connect(mapStateToProps)(EditEventCard);
+export default withRouter(connect(mapStateToProps)(EditEventCard));

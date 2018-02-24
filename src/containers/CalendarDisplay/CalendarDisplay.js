@@ -28,6 +28,7 @@ class CalendarDisplay extends Component {
   }
 
   editEvent = (event) => {
+    this.props.history.push('/editevent')
     this.props.setEvent(event);
     this.setState({eventCard: 'edit'})
   }
