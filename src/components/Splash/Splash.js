@@ -4,40 +4,49 @@ import Register from '../../containers/Register/Register';
 import './Splash.css';
 import { Link } from 'react-router-dom';
 import Proptypes from 'prop-types';
+import moment from 'moment';
+import BigCalendar from 'react-big-calendar';
+import { mockData } from '../../mockData';
+
+BigCalendar.momentLocalizer(moment);
 
 class Splash extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quote: '',
-      author: ''
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     quote: '',
+  //     author: ''
+  //   }
+  // }
 
-  componentDidMount() {
-    this.randomNumber();
-  }
+  // componentDidMount() {
+  //   this.randomNumber();
+  // }
   
-  randomNumber = () => {
-    const randomIndex = Math.floor(Math.random() * Math.floor(9));
-    this.quoteDisplay(randomIndex);
-  }
+  // randomNumber = () => {
+  //   const randomIndex = Math.floor(Math.random() * Math.floor(9));
+  //   this.quoteDisplay(randomIndex);
+  // }
 
-  quoteDisplay = (index) => {
-    const quoteObj = quotes[index];
-    const quote = quoteObj.quote;
-    const author = quoteObj.author;
+  // quoteDisplay = (index) => {
+  //   const quoteObj = quotes[index];
+  //   const quote = quoteObj.quote;
+  //   const author = quoteObj.author;
 
-    this.setState ({ quote, author })
-  }
+  //   this.setState ({ quote, author })
+  // }
 
 
   renderContainer = () => {
     const route = this.props.location.pathname;
+    const events = mockData.events;
     if(route === "/") {
       return (
         <div>
-          <Link to="/register">Create Your Village</Link>  
+          <BigCalendar 
+            style={{height: '420px'}}    
+            events={events} 
+          />  
         </div>
       )
     } else if(route === "/register") {
@@ -48,8 +57,6 @@ class Splash extends Component {
   render() {
     return (
       <div>
-        <h3>{ this.state.quote }</h3>
-        <h4>{ this.state.author }</h4>
         { this.renderContainer()}
       </div>
     )
@@ -57,8 +64,6 @@ class Splash extends Component {
 }
 
 Splash.propTypes = {
-  randomNumber: Proptypes.func,
-  quoteDisplay: Proptypes.func,
   location: Proptypes.object.isRequired,
 }
 
