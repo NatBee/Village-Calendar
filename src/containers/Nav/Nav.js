@@ -70,7 +70,7 @@ class Nav extends Component {
   render() {
     return(
       <div>
-        <h1>VILLAGE</h1>
+        <h1>Village Calendar</h1>
         {this.buttonDisplay()}
       </div>
     )

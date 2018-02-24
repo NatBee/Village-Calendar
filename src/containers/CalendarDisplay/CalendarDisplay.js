@@ -73,7 +73,6 @@ class CalendarDisplay extends Component {
   render() {
     return (
       <div>
-        <h1>Calendar</h1>
         { this.display() }
       </div>
     )
