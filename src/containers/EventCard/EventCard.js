@@ -29,7 +29,7 @@ class EventCard extends Component {
     this.props.history.push('/calendar')
   }
 
-  goBack = () => {
+  cancel = () => {
     this.props.history.push('/calendar')
   }
 
@@ -58,7 +58,7 @@ class EventCard extends Component {
           />
           <button>Submit</button>
         </form>
-        <button onClick={this.goBack}>Cancel</button>
+        <button onClick={this.cancel}>Cancel</button>
       </div>
     )
   }
