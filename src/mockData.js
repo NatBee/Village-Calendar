@@ -30,14 +30,18 @@ export const mockData = {
     eventID: "7js6e24fo0kin4qcotoegu37hg",
     location: 'Mi Casa'
   },
-   addUserResult: {
-      kind: "calendar#aclRule", 
-      etag: "00001519430838224000", 
-      id: "user:nataliesbarron@gmail.com", 
-      scope: {
-        type: "user", 
-        value: "nataliesbarron@gmail.com"
-      }, 
-      role: "writer"
-    }
+  addUserResult: {
+    kind: "calendar#aclRule", 
+    etag: "00001519430838224000", 
+    id: "user:nataliesbarron@gmail.com", 
+    scope: {
+      type: "user", 
+      value: "nataliesbarron@gmail.com"
+    }, 
+    role: "writer"
+  },
+  newCalendarResult: {
+    id: "mi8gsoe0epv9k74l27q35u2rag@group.calendar.google.com", 
+    summary: "Village App Calendar"
+  }
 }
