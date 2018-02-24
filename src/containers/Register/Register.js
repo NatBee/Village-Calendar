@@ -12,13 +12,15 @@ class Register extends Component {
 
     this.state = {
       name: '',
-      email: ''
+      email: '',
+      newCalendar: false
     }
   }
 
   createCalendar = async () => {
     const newCalendarID = await createNewCalendar(this.props);
     await this.props.setCalendarID(newCalendarID);
+    this.setState({ newCalendar: true })
   }
 
   handleChange = (e) => {
@@ -39,25 +41,36 @@ class Register extends Component {
   goToCalendar = () => {
     this.props.history.push('/calendar')
   }
+  
+  optionDisplay = () => {
+    if(this.state.newCalendar === false) {
+      return (
+        <div>
+          <h2>Would you like to load an existing calendar or would you like to create a new calendar?</h2>
+          <button onClick={this.goToCalendar}>Existing</button>
+         <button onClick={this.createCalendar}>Create Calendar</button>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h2>Your new Village calendar has been created.</h2>
+          <h3>You can add users to share your new calendar or you can go to your calendar and start planning.</h3>
+          <form onSubmit={this.addUsers}>
+            <input type='text' placeholder='friend' ref={el => this.inputName = el} name='name' onChange={this.handleChange}/>
+            <input type='text' placeholder='friend@gmail.com' ref={el => this.inputEmail = el} name='email' onChange={this.handleChange}/>
+            <button>Add Users</button>
+          </form>
+          <button onClick={this.goToCalendar}>Go to Calendar</button>
+        </div>
+      )
+    }
+  }
 
   render() {
     return(
       <div>
-        <h1>Welcome to Village</h1>
-        <p>Follow these step to setup your calendar:</p>
-          <ol>
-            <li>Click the Google Log In Button above to login or create the google account you want attached to your Village Calendar</li>
-            <li>Create Village Calendar</li>
-            <button onClick={this.createCalendar}>Create Calendar</button>
-            <li>Add people to your village</li>
-              <form onSubmit={this.addUsers}>
-                <input type='text' placeholder='friend' ref={el => this.inputName = el} name='name' onChange={this.handleChange}/>
-                <input type='text' placeholder='friend@gmail.com' ref={el => this.inputEmail = el} name='email' onChange={this.handleChange}/>
-               <button>Add Users</button>
-              </form>
-            <li>Go to Calendar</li>
-            <button onClick={this.goToCalendar}>Calendar</button>
-          </ol>
+        {this.optionDisplay()}
       </div>
     )
   }
