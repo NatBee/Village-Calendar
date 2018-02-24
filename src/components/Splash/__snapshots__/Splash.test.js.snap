@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`splash should match snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Splash
+    location={
+      Object {
+        "pathname": "/",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          Light is the task where many share the toil.
+        </h3>,
+        <h4>
+          Homer
+        </h4>,
+        <div>
+          <Link
+            replace={false}
+            to="/register"
+          >
+            Create Your Village
+          </Link>
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Light is the task where many share the toil.",
+        },
+        "ref": null,
+        "rendered": "Light is the task where many share the toil.",
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Homer",
+        },
+        "ref": null,
+        "rendered": "Homer",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Link
+            replace={false}
+            to="/register"
+          >
+            Create Your Village
+          </Link>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Create Your Village",
+            "replace": false,
+            "to": "/register",
+          },
+          "ref": null,
+          "rendered": "Create Your Village",
+          "type": [Function],
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            Light is the task where many share the toil.
+          </h3>,
+          <h4>
+            Homer
+          </h4>,
+          <div>
+            <Link
+              replace={false}
+              to="/register"
+            >
+              Create Your Village
+            </Link>
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Light is the task where many share the toil.",
+          },
+          "ref": null,
+          "rendered": "Light is the task where many share the toil.",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Homer",
+          },
+          "ref": null,
+          "rendered": "Homer",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Link
+              replace={false}
+              to="/register"
+            >
+              Create Your Village
+            </Link>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Create Your Village",
+              "replace": false,
+              "to": "/register",
+            },
+            "ref": null,
+            "rendered": "Create Your Village",
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
