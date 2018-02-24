@@ -51,15 +51,15 @@ class Register extends Component {
          <button onClick={this.createCalendar}>Create Calendar</button>
         </div>
       )
-    } else {
+    } else if(this.state.newCalendar === true) {
       return (
         <div>
-          <h2>Your new Village calendar has been created.</h2>
-          <h3>You can add users to share your new calendar or you can go to your calendar and start planning.</h3>
+          <h4>Your new Village calendar has been created.</h4>
+          <h3>You can share your new calendar with friends or you can go to your calendar and start planning.</h3>
           <form onSubmit={this.addUsers}>
             <input type='text' placeholder='friend' ref={el => this.inputName = el} name='name' onChange={this.handleChange}/>
             <input type='text' placeholder='friend@gmail.com' ref={el => this.inputEmail = el} name='email' onChange={this.handleChange}/>
-            <button>Add Users</button>
+            <button>Add Friend</button>
           </form>
           <button onClick={this.goToCalendar}>Go to Calendar</button>
         </div>

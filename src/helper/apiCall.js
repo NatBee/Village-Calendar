@@ -44,7 +44,7 @@ export const createNewCalendar = async (props) => {
         method: 'POST',
         headers: headers,
         body: JSON.stringify({
-          summary: 'Village App Calendar',
+          summary: 'Village Calendar',
           id: ''
         })
       });
