@@ -85,7 +85,7 @@ export const addUsersToCalendar = async (props, state) => {
 
 export const addEventToCalendar = async (props, state) => {
   const token = props.token;
-  const fields = 'fields=email%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
+  const fields = 'fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
   const url = `${rootUrl}/${props.calendarID}/events?${fields}&access_token=${token}`;
   if(token) {
     try {

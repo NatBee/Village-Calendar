@@ -21,10 +21,6 @@ class Splash extends Component {
       return (
         <h1>Please log in to start planning!</h1>
       )
-    } else {
-      return (
-        <h1>Welcome to Village Calendar</h1>
-      )
     }
   }
 

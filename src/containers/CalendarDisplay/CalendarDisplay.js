@@ -33,14 +33,18 @@ class CalendarDisplay extends Component {
     this.setState({eventCard: 'edit'})
   }
 
-  addEventCard = (start, end) => {
-    this.props.history.push('/addevent')
+  setEventTime = async (start, end) => {
     const time = {  
       startTime: start,
       endTime: end    
     };
     this.props.setTimeAddEvent(time);
     this.setState({eventCard: 'add'})
+    await this.addEventCard();
+  }
+
+  addEventCard = () => {
+    this.props.history.push('/addevent')
   }
 
   display = () => {
@@ -56,7 +60,7 @@ class CalendarDisplay extends Component {
           }}
           defaultDate={new Date(Date.now())}
           onSelectEvent={event => this.editEvent(event)}
-          onSelectSlot={slotInfo => this.addEventCard(slotInfo.start.toISOString(), slotInfo.end.toISOString())}
+          onSelectSlot={slotInfo => this.setEventTime(slotInfo.start.toISOString(), slotInfo.end.toISOString())}
         />
       )
     } else if(this.state.eventCard === 'add') {
@@ -73,7 +77,6 @@ class CalendarDisplay extends Component {
   render() {
     return (
       <div>
-        <h1>Calendar</h1>
         { this.display() }
       </div>
     )

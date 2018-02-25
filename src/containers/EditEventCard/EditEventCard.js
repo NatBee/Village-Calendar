@@ -9,18 +9,12 @@ class EditEventCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: this.props.event.title,
+      start: this.props.event.start,
+      end: this.props.event.end,
+      description: this.props.event.description,
+      location: this.props.event.location
     }
-  }
-
-  componentDidMount = () => {
-    const title = this.props.event.title || '';
-    const start = this.props.event.start || '';
-    const end = this.props.event.end || '';
-    const description = this.props.event.description || '';
-    const location = this.props.event.location || '';
-    this.setState({
-      title, start, end, description, location
-    })
   }
 
   handleChange = (e) => {
