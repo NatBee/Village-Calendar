@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Splash.css';
-import PropTypes from 'prop-types';
 import BigCalendar from 'react-big-calendar';
 import { mockData } from '../../mockData';
 
@@ -44,12 +43,6 @@ class Splash extends Component {
       </div>
     )
   }
-}
-
-Splash.propTypes = {
-  clicked: PropTypes.string,
-  handleClick: PropTypes.func,
-  loginAlert: PropTypes.func,
 }
 
 export default Splash;
