@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 firebase.initializeApp(config);
 
-class Nav extends Component {
+export class Nav extends Component {
 
   componentDidMount = () => {
     const token = JSON.parse(localStorage.getItem('ouath2-access-token'));
@@ -113,7 +113,7 @@ Nav.propTypes = {
   buttonDisplay: PropTypes.func,
   logOut: PropTypes.func,
   history: PropTypes.object,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object,
 }  
 
 

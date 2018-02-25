@@ -5,7 +5,7 @@ import { deleteEventFromCalendar, editEventOnCalendar } from '../../helper/apiCa
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-class EditEventCard extends Component {
+export class EditEventCard extends Component {
   constructor(props) {
     super(props);
     this.state = {

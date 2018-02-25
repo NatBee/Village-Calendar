@@ -24,73 +24,73 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h3>
-          Light is the task where many share the toil.
-        </h3>,
-        <h4>
-          Homer
-        </h4>,
-        <div>
-          <Link
-            replace={false}
-            to="/register"
-          >
-            Create Your Village
-          </Link>
-        </div>,
+        undefined,
+        <Uncontrolled(Calendar)
+          defaultDate={2018-02-25T21:46:29.199Z}
+          events={
+            Array [
+              Object {
+                "description": "Fun with friends",
+                "end": "2018-02-09T10:00:00-07:00",
+                "eventID": "7js6e24fo0kin4qcotoegu37hg",
+                "location": "Mi Casa",
+                "start": "2018-02-09T09:00:00-07:00",
+                "title": "Super Fun Party",
+              },
+            ]
+          }
+          onNavigate={[Function]}
+          onSelectEvent={[Function]}
+          onSelectSlot={[Function]}
+          onView={[Function]}
+          style={
+            Object {
+              "height": "420px",
+            }
+          }
+          views={
+            Object {
+              "day": true,
+              "month": true,
+            }
+          }
+        />,
       ],
     },
     "ref": null,
     "rendered": Array [
+      undefined,
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
+        "nodeType": "class",
         "props": Object {
-          "children": "Light is the task where many share the toil.",
-        },
-        "ref": null,
-        "rendered": "Light is the task where many share the toil.",
-        "type": "h3",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Homer",
-        },
-        "ref": null,
-        "rendered": "Homer",
-        "type": "h4",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <Link
-            replace={false}
-            to="/register"
-          >
-            Create Your Village
-          </Link>,
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "Create Your Village",
-            "replace": false,
-            "to": "/register",
+          "defaultDate": 2018-02-25T21:46:29.199Z,
+          "events": Array [
+            Object {
+              "description": "Fun with friends",
+              "end": "2018-02-09T10:00:00-07:00",
+              "eventID": "7js6e24fo0kin4qcotoegu37hg",
+              "location": "Mi Casa",
+              "start": "2018-02-09T09:00:00-07:00",
+              "title": "Super Fun Party",
+            },
+          ],
+          "onNavigate": [Function],
+          "onSelectEvent": [Function],
+          "onSelectSlot": [Function],
+          "onView": [Function],
+          "style": Object {
+            "height": "420px",
           },
-          "ref": null,
-          "rendered": "Create Your Village",
-          "type": [Function],
+          "views": Object {
+            "day": true,
+            "month": true,
+          },
         },
-        "type": "div",
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -102,73 +102,73 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h3>
-            Light is the task where many share the toil.
-          </h3>,
-          <h4>
-            Homer
-          </h4>,
-          <div>
-            <Link
-              replace={false}
-              to="/register"
-            >
-              Create Your Village
-            </Link>
-          </div>,
+          undefined,
+          <Uncontrolled(Calendar)
+            defaultDate={2018-02-25T21:46:29.199Z}
+            events={
+              Array [
+                Object {
+                  "description": "Fun with friends",
+                  "end": "2018-02-09T10:00:00-07:00",
+                  "eventID": "7js6e24fo0kin4qcotoegu37hg",
+                  "location": "Mi Casa",
+                  "start": "2018-02-09T09:00:00-07:00",
+                  "title": "Super Fun Party",
+                },
+              ]
+            }
+            onNavigate={[Function]}
+            onSelectEvent={[Function]}
+            onSelectSlot={[Function]}
+            onView={[Function]}
+            style={
+              Object {
+                "height": "420px",
+              }
+            }
+            views={
+              Object {
+                "day": true,
+                "month": true,
+              }
+            }
+          />,
         ],
       },
       "ref": null,
       "rendered": Array [
+        undefined,
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
+          "nodeType": "class",
           "props": Object {
-            "children": "Light is the task where many share the toil.",
-          },
-          "ref": null,
-          "rendered": "Light is the task where many share the toil.",
-          "type": "h3",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Homer",
-          },
-          "ref": null,
-          "rendered": "Homer",
-          "type": "h4",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": <Link
-              replace={false}
-              to="/register"
-            >
-              Create Your Village
-            </Link>,
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {
-              "children": "Create Your Village",
-              "replace": false,
-              "to": "/register",
+            "defaultDate": 2018-02-25T21:46:29.199Z,
+            "events": Array [
+              Object {
+                "description": "Fun with friends",
+                "end": "2018-02-09T10:00:00-07:00",
+                "eventID": "7js6e24fo0kin4qcotoegu37hg",
+                "location": "Mi Casa",
+                "start": "2018-02-09T09:00:00-07:00",
+                "title": "Super Fun Party",
+              },
+            ],
+            "onNavigate": [Function],
+            "onSelectEvent": [Function],
+            "onSelectSlot": [Function],
+            "onView": [Function],
+            "style": Object {
+              "height": "420px",
             },
-            "ref": null,
-            "rendered": "Create Your Village",
-            "type": [Function],
+            "views": Object {
+              "day": true,
+              "month": true,
+            },
           },
-          "type": "div",
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
       ],
       "type": "div",

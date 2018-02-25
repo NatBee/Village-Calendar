@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class Register extends Component {
+export class Register extends Component {
   constructor(props) {
     super(props);
 
