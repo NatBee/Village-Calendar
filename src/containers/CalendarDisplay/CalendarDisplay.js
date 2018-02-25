@@ -13,7 +13,7 @@ import { withRouter } from 'react-router-dom';
 
 BigCalendar.momentLocalizer(moment);
 
-class CalendarDisplay extends Component {
+export class CalendarDisplay extends Component {
   constructor(props) {
     super(props);
 

@@ -87,7 +87,7 @@ describe('createNewCalendar', () => {
         'Authorization': 'token'
       },
       body: JSON.stringify({
-        summary: 'Village App Calendar',
+        summary: 'Village Calendar',
         id: ''
       })
     };
@@ -227,7 +227,7 @@ describe('addEventToCalendar', () => {
         }
       })
     };
-    expected = `${url}/${mockData.calendarID}/events?fields=email%2Cdescription%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${mockData.token}`;
+    expected = `${url}/${mockData.calendarID}/events?fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary&access_token=${mockData.token}`;
   })
 
   it('fetch is called with correct params', () => {

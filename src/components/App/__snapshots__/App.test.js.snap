@@ -34,6 +34,16 @@ ShallowWrapper {
           exact={true}
           path="/calendar"
         />,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/addevent"
+        />,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/editevent"
+        />,
       ],
       "className": "App",
     },
@@ -87,6 +97,32 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/addevent",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/editevent",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
     ],
     "type": "div",
   },
@@ -112,6 +148,16 @@ ShallowWrapper {
             component={[Function]}
             exact={true}
             path="/calendar"
+          />,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/addevent"
+          />,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/editevent"
           />,
         ],
         "className": "App",
@@ -161,6 +207,32 @@ ShallowWrapper {
             "component": [Function],
             "exact": true,
             "path": "/calendar",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/addevent",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/editevent",
           },
           "ref": null,
           "rendered": null,
