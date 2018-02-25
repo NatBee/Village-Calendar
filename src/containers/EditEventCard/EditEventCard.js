@@ -74,6 +74,7 @@ EditEventCard.propTypes = {
   editEvent: PropTypes.func,
   deleteEventFromCalendar: PropTypes.func,
   editEventOnCalendar: PropTypes.func,
+  cancel: PropTypes.func,
 }
 
 export default withRouter(connect(mapStateToProps)(EditEventCard));

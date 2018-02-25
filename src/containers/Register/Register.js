@@ -100,6 +100,7 @@ Register.propTypes = {
   addUsersToCalendar: PropTypes.func,
   goToCalendar: PropTypes.func,
   history: PropTypes.object,
+  optionDisplay: PropTypes.func,
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
