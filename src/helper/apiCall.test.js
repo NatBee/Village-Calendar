@@ -15,11 +15,8 @@ global.localStorage = {
 };
 
 describe('getUpcomingEvents', () => {
-  let url;
-  let init;
-  let expected;
-
-  beforeEach(() => {
+  //this is the test that is throwing an error 
+  it('fetch is called with the correct params', () => {
     localStorage.setItem('ouath2-access-token', mockData.token);
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       status: 200,
@@ -27,24 +24,21 @@ describe('getUpcomingEvents', () => {
         results: mockData.event
       })
     }));
-    url = 'https://www.googleapis.com/calendar/v3/calendars';
-    init = {
+    const url = 'https://www.googleapis.com/calendar/v3/calendars';
+    const init = {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'token'
       } 
     };
-    expected = `${url}/${mockData.calendarID}/events?access_token=${mockData.token}`;
-  })
-
-  it('fetch is called with the correct params', () => {
+    const expected = `${url}/${mockData.calendarID}/events?access_token=${mockData.token}`;
     const call = getUpcomingEvents(mockData.calendarID);
     expect(window.fetch).toHaveBeenCalled();
     expect(window.fetch).toHaveBeenCalledWith(expected, init);
   })
 
-  it.skip('should return events', async () => {
+  it('should return events', async () => {
     expect(await getUpcomingEvents(mockData.calendarID)).toEqual(mockData.events)
   })
 
@@ -100,9 +94,9 @@ describe('createNewCalendar', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected, init);
   })
 
-  it.skip('should return a calendar ID on successful creation', async () => {
+  it('should return a calendar ID on successful creation', async () => {
     const expected = 'mi8gsoe0epv9k74l27q35u2rag@group.calendar.google.com'
-    expect(await createNewCalendar(mockData.token)).toEqual({})
+    expect(await createNewCalendar(mockData.token)).toEqual(mockData.newCalendarResult)
   })
 
   it('should throw an error if fetch fails', () => {
