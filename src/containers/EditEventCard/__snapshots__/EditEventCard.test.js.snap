@@ -1,0 +1,502 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditEventCard should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EditEventCard
+    event={
+      Object {
+        "description": "Fun with friends",
+        "end": "2018-02-09T10:00:00-07:00",
+        "eventID": "7js6e24fo0kin4qcotoegu37hg",
+        "location": "Mi Casa",
+        "start": "2018-02-09T09:00:00-07:00",
+        "title": "Super Fun Party",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Edit Event
+        </h1>,
+        <form>
+          <input
+            name="title"
+            onChange={[Function]}
+            type="text"
+            value="Super Fun Party"
+          />
+          <input
+            name="start"
+            onChange={[Function]}
+            type="text"
+            value="2018-02-09T09:00:00-07:00"
+          />
+          <input
+            name="end"
+            onChange={[Function]}
+            type="text"
+            value="2018-02-09T10:00:00-07:00"
+          />
+          <input
+            name="description"
+            onChange={[Function]}
+            type="text"
+            value="Fun with friends"
+          />
+          <input
+            name="location"
+            onChange={[Function]}
+            type="text"
+            value="Mi Casa"
+          />
+          <button
+            onClick={[Function]}
+          >
+            Edit
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            Delete
+          </button>
+        </form>,
+        <button
+          onClick={[Function]}
+        >
+          Cancel
+        </button>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Edit Event",
+        },
+        "ref": null,
+        "rendered": "Edit Event",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              name="title"
+              onChange={[Function]}
+              type="text"
+              value="Super Fun Party"
+            />,
+            <input
+              name="start"
+              onChange={[Function]}
+              type="text"
+              value="2018-02-09T09:00:00-07:00"
+            />,
+            <input
+              name="end"
+              onChange={[Function]}
+              type="text"
+              value="2018-02-09T10:00:00-07:00"
+            />,
+            <input
+              name="description"
+              onChange={[Function]}
+              type="text"
+              value="Fun with friends"
+            />,
+            <input
+              name="location"
+              onChange={[Function]}
+              type="text"
+              value="Mi Casa"
+            />,
+            <button
+              onClick={[Function]}
+            >
+              Edit
+            </button>,
+            <button
+              onClick={[Function]}
+            >
+              Delete
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "title",
+              "onChange": [Function],
+              "type": "text",
+              "value": "Super Fun Party",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "start",
+              "onChange": [Function],
+              "type": "text",
+              "value": "2018-02-09T09:00:00-07:00",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "end",
+              "onChange": [Function],
+              "type": "text",
+              "value": "2018-02-09T10:00:00-07:00",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "description",
+              "onChange": [Function],
+              "type": "text",
+              "value": "Fun with friends",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "location",
+              "onChange": [Function],
+              "type": "text",
+              "value": "Mi Casa",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Edit",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Edit",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Delete",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Delete",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Cancel",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Cancel",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Edit Event
+          </h1>,
+          <form>
+            <input
+              name="title"
+              onChange={[Function]}
+              type="text"
+              value="Super Fun Party"
+            />
+            <input
+              name="start"
+              onChange={[Function]}
+              type="text"
+              value="2018-02-09T09:00:00-07:00"
+            />
+            <input
+              name="end"
+              onChange={[Function]}
+              type="text"
+              value="2018-02-09T10:00:00-07:00"
+            />
+            <input
+              name="description"
+              onChange={[Function]}
+              type="text"
+              value="Fun with friends"
+            />
+            <input
+              name="location"
+              onChange={[Function]}
+              type="text"
+              value="Mi Casa"
+            />
+            <button
+              onClick={[Function]}
+            >
+              Edit
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              Delete
+            </button>
+          </form>,
+          <button
+            onClick={[Function]}
+          >
+            Cancel
+          </button>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Edit Event",
+          },
+          "ref": null,
+          "rendered": "Edit Event",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                name="title"
+                onChange={[Function]}
+                type="text"
+                value="Super Fun Party"
+              />,
+              <input
+                name="start"
+                onChange={[Function]}
+                type="text"
+                value="2018-02-09T09:00:00-07:00"
+              />,
+              <input
+                name="end"
+                onChange={[Function]}
+                type="text"
+                value="2018-02-09T10:00:00-07:00"
+              />,
+              <input
+                name="description"
+                onChange={[Function]}
+                type="text"
+                value="Fun with friends"
+              />,
+              <input
+                name="location"
+                onChange={[Function]}
+                type="text"
+                value="Mi Casa"
+              />,
+              <button
+                onClick={[Function]}
+              >
+                Edit
+              </button>,
+              <button
+                onClick={[Function]}
+              >
+                Delete
+              </button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "title",
+                "onChange": [Function],
+                "type": "text",
+                "value": "Super Fun Party",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "start",
+                "onChange": [Function],
+                "type": "text",
+                "value": "2018-02-09T09:00:00-07:00",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "end",
+                "onChange": [Function],
+                "type": "text",
+                "value": "2018-02-09T10:00:00-07:00",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "description",
+                "onChange": [Function],
+                "type": "text",
+                "value": "Fun with friends",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "location",
+                "onChange": [Function],
+                "type": "text",
+                "value": "Mi Casa",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Edit",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Edit",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Delete",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Delete",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Cancel",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Cancel",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

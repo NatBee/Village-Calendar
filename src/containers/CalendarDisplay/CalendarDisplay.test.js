@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import { CalendarDisplay, mapStateToProps, mapDispatchToProps } from './CalendarDisplay';
@@ -60,7 +59,6 @@ describe('CalendarDisplay', () => {
     const mapped = mapDispatchToProps(mockDispatch);
     mapped.setEvent();
     expect(mockDispatch).toHaveBeenCalled();
-
   })  
 
   it('should call the dispatch function when using removeEvent function from mapDispatchToProps', () => {
@@ -70,4 +68,10 @@ describe('CalendarDisplay', () => {
     expect(mockDispatch).toHaveBeenCalled();
   })
 
+  it('should have a default state', () => {
+    const expected = {
+      eventCard: 'calendar'
+    }
+    expect(wrapper.state()).toEqual(expected);
+  })
 })

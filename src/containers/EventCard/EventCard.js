@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
-class EventCard extends Component {
+export class EventCard extends Component {
   constructor(props) {
     super(props);
 
