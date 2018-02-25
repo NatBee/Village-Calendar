@@ -79,6 +79,7 @@ EventCard.propTypes = {
   handleChange: PropTypes.func,
   addEvent: PropTypes.func,
   addEventToCalendar: PropTypes.func,
+  cancel: PropTypes.func,
 }
 
 export default withRouter(connect(mapStateToProps)(EventCard));

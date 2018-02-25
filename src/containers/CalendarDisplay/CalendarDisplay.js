@@ -111,8 +111,10 @@ CalendarDisplay.propTypes = {
   removeEvent: PropTypes.func,
   getUpcomingEvents: PropTypes.func,
   editEvent: PropTypes.func,
+  setTimeEvent: PropTypes.func,
   addEventCard: PropTypes.func,
   display: PropTypes.func,
+  history: PropTypes.object,
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CalendarDisplay));
