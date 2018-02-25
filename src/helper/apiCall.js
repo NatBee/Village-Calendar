@@ -106,7 +106,7 @@ export const addEventToCalendar = async (props, state) => {
             useDefault: false,
             overrides: [
               {method: 'email', 'minutes': 24 * 60},
-              {method: 'popup', 'minutes': 10}
+              {method: 'popup', 'minutes': 30}
             ]
           }
         })
@@ -159,7 +159,7 @@ export const editEventOnCalendar = async (props, state) => {
             useDefault: false,
             overrides: [
               {method: 'email', 'minutes': 24 * 60},
-              {method: 'popup', 'minutes': 10}
+              {method: 'popup', 'minutes': 30}
             ]
           }
         })
