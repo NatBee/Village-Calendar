@@ -6,7 +6,8 @@
   position: fixed;
   top: 0;
   width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  z-index: 1; }
 
 .nav h1 {
   margin: 0;
