@@ -4,7 +4,7 @@
   background-color: #A7B9AB;
   opacity: .85;
   padding: 50px 40px 36px 40px;
-  margin: 60px;
+  margin: 160px;
 }
 
 .add-event form {
@@ -13,14 +13,9 @@
   align-items: center;
 }
 
-h2 {
-  font-size: 1.25em;
-  padding: 0 30px;
-  margin: 0 0 45px;
-}
-
 h3 {
   margin: 0 0 20px;
+  color: #3E4D4E;
 }
 
 .add-event button { 
@@ -42,6 +37,7 @@ h3 {
   font-size: 1em;
   padding: 2px 6px;
   width: 275px;
+  color: #3E4D4E;
 }
 
 .add-event button {

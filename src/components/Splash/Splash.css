@@ -1,7 +1,8 @@
 .calendar {
   padding-bottom: 120px;
   text-align: -webkit-center;
-  font-family: 'Exo 2', sans-serif; }
+  font-family: 'Exo 2', sans-serif;
+  margin: 125px 0 0 0; }
 
 .intro {
   font-family: 'Exo', sans-serif;

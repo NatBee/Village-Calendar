@@ -49,35 +49,35 @@ export class EditEventCard extends Component {
             type='text' 
             name='title' 
             value={this.state.title}
-            placeholder='event title' 
+            placeholder='Event title' 
             onChange={this.handleChange} 
           />
           <input 
             type='text' 
             name='start' 
             value={this.state.start}
-            placeholder='start time' 
+            placeholder='Event start time' 
             onChange={this.handleChange} 
           />
           <input 
             type='text' 
             name='end' 
             value={this.state.end} 
-            placeholder='end time'
+            placeholder='Event end time'
             onChange={this.handleChange} 
           />
           <input 
             type='text' 
             name='description' 
             value={this.state.description} 
-            placeholder='description'
+            placeholder='Event description'
             onChange={this.handleChange} 
           />
           <input 
             type='text' 
             name='location' 
             value={this.state.location} 
-            placeholder='location'
+            placeholder='Event location'
             onChange={this.handleChange} 
           />
           <div className='edit-btns'>
