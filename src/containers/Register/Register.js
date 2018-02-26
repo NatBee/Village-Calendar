@@ -58,7 +58,6 @@ export class Register extends Component {
         <div className='new-calendar'>
           <h4>Your new Village calendar has been created.</h4>
           <h3>You can share your new calendar with friends or you can go to your calendar and start planning.</h3>
-          <button onClick={this.goToCalendar}>Go to Calendar</button>
           <form onSubmit={this.addUsers}>
             <input 
               type='text' 
@@ -73,7 +72,10 @@ export class Register extends Component {
               name='email' 
               onChange={this.handleChange}
             />
-            <button>Add Friend</button>
+            <div className='register-btn'>
+              <button className='go-calendar' onClick={this.goToCalendar}>Go to Calendar</button>
+              <button className='add-btn'>Add Friend</button>
+            </div>
           </form>
         </div>
       )

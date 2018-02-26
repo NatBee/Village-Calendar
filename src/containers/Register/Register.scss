@@ -13,9 +13,8 @@
   margin: 0 0 45px;
 }
 
-.btn {
-  display: flex;
-  justify-content: space-around;
+.register h3 {
+  margin: 25px 0 20px;
 }
 
 .register button { 
@@ -50,11 +49,19 @@
   width: 275px;
 }
 
-.new-calendar button {
+.new-calendar form button {
   width: 100px;
-  margin: 0px 0 6px;
 }
 
-.new-calendar form button {
-  margin: 15px 0 0;
+.new-calendar form .add-btn {
+  margin: 25px 0px 0 45px;
+}
+
+.new-calendar form .go-calendar {
+  margin: 25px 45px 0 0px;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-around;
 }

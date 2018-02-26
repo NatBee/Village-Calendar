@@ -19,10 +19,6 @@ h2 {
 h3 {
   margin: 0 0 20px; }
 
-.btn {
-  display: flex;
-  justify-content: space-around; }
-
 .add-event button {
   background-color: #3E4D4E;
   height: 30px;
@@ -42,11 +38,10 @@ h3 {
   width: 275px; }
 
 .add-event button {
-  width: 100px;
-  margin: 0px 0 6px; }
+  width: 100px; }
 
-.add-event form button {
-  margin: 20px 0 0; }
+.add-event form .cancel-btn {
+  margin: 25px 45px 0 0px; }
 
-.form-btn {
-  display: flex; }
+.add-event form .add-event-btn {
+  margin: 25px 0px 0 45px; }

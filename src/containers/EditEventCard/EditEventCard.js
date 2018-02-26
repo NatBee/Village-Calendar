@@ -42,18 +42,50 @@ export class EditEventCard extends Component {
 
   render() {
     return(
-      <div>
-        <h1>Edit Event</h1>
+      <div className='edit-card'>
+        <h2>Edit or Delete Event</h2>
         <form>
-          <input type='text' name='title' value={this.state.title} onChange={this.handleChange} />
-          <input type='text' name='start' value={this.state.start} onChange={this.handleChange} />
-          <input type='text' name='end' value={this.state.end} onChange={this.handleChange} />
-          <input type='text' name='description' value={this.state.description} onChange={this.handleChange} />
-          <input type='text' name='location' value={this.state.location} onChange={this.handleChange} />
-          <button onClick={this.editEvent}>Edit</button>
-          <button onClick={this.deleteEvent}>Delete</button>
+          <input 
+            type='text' 
+            name='title' 
+            value={this.state.title}
+            placeholder='event title' 
+            onChange={this.handleChange} 
+          />
+          <input 
+            type='text' 
+            name='start' 
+            value={this.state.start}
+            placeholder='start time' 
+            onChange={this.handleChange} 
+          />
+          <input 
+            type='text' 
+            name='end' 
+            value={this.state.end} 
+            placeholder='end time'
+            onChange={this.handleChange} 
+          />
+          <input 
+            type='text' 
+            name='description' 
+            value={this.state.description} 
+            placeholder='description'
+            onChange={this.handleChange} 
+          />
+          <input 
+            type='text' 
+            name='location' 
+            value={this.state.location} 
+            placeholder='location'
+            onChange={this.handleChange} 
+          />
+          <div className='edit-btns'>
+            <button className='edit-cancel-btn' onClick={this.cancel}>Cancel</button>
+            <button className='edit-btn-btn' onClick={this.editEvent}>Edit</button>
+           <button className='edit-delete-btn' onClick={this.deleteEvent}>Delete</button>
+          </div>
         </form>
-        <button onClick={this.cancel}>Cancel</button>
       </div>
     )
   }
