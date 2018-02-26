@@ -60,8 +60,19 @@ export class Register extends Component {
           <h3>You can share your new calendar with friends or you can go to your calendar and start planning.</h3>
           <button onClick={this.goToCalendar}>Go to Calendar</button>
           <form onSubmit={this.addUsers}>
-            <input type='text' placeholder='friend' ref={el => this.inputName = el} name='name' onChange={this.handleChange}/>
-            <input type='text' placeholder='friend@gmail.com' ref={el => this.inputEmail = el} name='email' onChange={this.handleChange}/>
+            <input 
+              type='text' 
+              placeholder='friend' 
+              ref={el => this.inputName = el} 
+              name='name' onChange={this.handleChange}
+            />
+            <input 
+              type='text' 
+              placeholder='friend@gmail.com' 
+              ref={el => this.inputEmail = el} 
+              name='email' 
+              onChange={this.handleChange}
+            />
             <button>Add Friend</button>
           </form>
         </div>
