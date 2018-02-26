@@ -37,7 +37,7 @@ class Splash extends Component {
         </div>    
         {this.loginAlert()}
         <BigCalendar 
-          style={ {height: '400px', width: '650px'} }    
+          style={ {height: '600px', width: '850px'} }    
           events={ mockData.events } 
           views={{
             month: true,

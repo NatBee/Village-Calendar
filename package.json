@@ -5,6 +5,7 @@
   "dependencies": {
     "firebaseui": "^2.6.0",
     "jest-cli": "^22.3.0",
+    "eslint": "^4.17.0",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
@@ -28,13 +29,15 @@
     "test": "react-scripts test --env=jsdom",
     "lint": "./node_modules/eslint/bin/eslint.js ./src/*/*/*.js",
     "test:debug": "react-scripts --inspect-brk test --runInBand --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "./node_modules/eslint/bin/eslint.js ./src/*.js"
   },
   "devDependencies": {
     "css-loader": "^0.28.9",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.7.0",
     "jest": "^22.3.0",
     "moment": "^2.20.1",
     "prop-types": "^15.6.0",
