@@ -18,7 +18,7 @@ class Splash extends Component {
   loginAlert = () => {
     if(this.state.clicked === true) {
       return (
-        <h1>Please log in to start planning!</h1>
+        <h2>Please log in to start planning!</h2>
       )
     }
   }
