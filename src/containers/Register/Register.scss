@@ -1,0 +1,60 @@
+.register {
+  width: 300px;
+  display: inline-block;
+  background-color: #A7B9AB;
+  opacity: .85;
+  padding: 50px 40px 36px 40px;
+  margin: 60px;
+}
+
+.register h2 {
+  font-size: 1.25em;
+  padding: 0 30px;
+  margin: 0 0 45px;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.register button { 
+  background-color: #3E4D4E;
+  height: 30px;
+  color: #DBE3D4;
+  font-family: 'Exo', sans-serif;
+  border: 2px solid #293435;
+  margin: 0 0 5px;
+  width: 70px;
+}
+
+.register button:hover {
+  background-color: #293435;
+}
+
+.new-calendar h4 {
+  margin: 0;
+  color: #3E4D4E;
+}
+
+.new-calendar form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-calendar form input {
+  margin: 10px 0 0px;
+  font-size: 1em;
+  padding: 2px 6px;
+  width: 275px;
+}
+
+.new-calendar button {
+  width: 100px;
+  margin: 0px 0 6px;
+}
+
+.new-calendar form button {
+  margin: 15px 0 0;
+}
