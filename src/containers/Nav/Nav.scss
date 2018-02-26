@@ -2,10 +2,23 @@
   font-family: 'Playfair Display', serif;
   background: #89988a;
   color: #DBE3D4;
-  display: flex;
   justify-content: center;
 }
 
 .nav h1 {
   margin: 0;
+  padding: 10px;
+}
+
+.nav button { 
+  background-color: #3E4D4E;
+  height: 30px;
+  color: #DBE3D4;
+  font-family: 'Exo', sans-serif;
+  border: 2px solid #293435;
+  margin: 0 0 5px;
+}
+
+.nav button:hover {
+  background-color: #293435;
 }
