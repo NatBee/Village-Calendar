@@ -46,22 +46,24 @@ export class Register extends Component {
     if(this.state.newCalendar === false) {
       return (
         <div>
-          <h2>Would you like to load an existing calendar or would you like to create a new calendar?</h2>
-          <button onClick={this.goToCalendar}>Existing</button>
-         <button onClick={this.createCalendar}>Create Calendar</button>
+          <h2>Would you like to load an existing calendar or create a new calendar?</h2>
+          <div className='btn'>
+            <button onClick={this.goToCalendar}>Existing</button>
+            <button onClick={this.createCalendar}>New</button>
+          </div>
         </div>
       )
     } else if(this.state.newCalendar === true) {
       return (
-        <div>
+        <div className='new-calendar'>
           <h4>Your new Village calendar has been created.</h4>
           <h3>You can share your new calendar with friends or you can go to your calendar and start planning.</h3>
+          <button onClick={this.goToCalendar}>Go to Calendar</button>
           <form onSubmit={this.addUsers}>
             <input type='text' placeholder='friend' ref={el => this.inputName = el} name='name' onChange={this.handleChange}/>
             <input type='text' placeholder='friend@gmail.com' ref={el => this.inputEmail = el} name='email' onChange={this.handleChange}/>
             <button>Add Friend</button>
           </form>
-          <button onClick={this.goToCalendar}>Go to Calendar</button>
         </div>
       )
     }
@@ -69,7 +71,7 @@ export class Register extends Component {
 
   render() {
     return(
-      <div>
+      <div className='register'>
         {this.optionDisplay()}
       </div>
     )

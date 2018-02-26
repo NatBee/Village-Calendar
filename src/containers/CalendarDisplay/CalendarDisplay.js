@@ -47,7 +47,7 @@ export class CalendarDisplay extends Component {
     if(this.state.eventCard === 'calendar') {
       return (
         <BigCalendar 
-          style={{height: '420px'}} 
+          style={{height: '400px', width: '650px'}} 
           events={this.props.events} 
           selectable
           views={{
@@ -72,7 +72,7 @@ export class CalendarDisplay extends Component {
 
   render() {
     return (
-      <div>
+      <div className='calendar-display'>
         { this.display() }
       </div>
     )
