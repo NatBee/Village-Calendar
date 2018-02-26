@@ -5,11 +5,11 @@ const headers = {
 }
 
 export const getUpcomingEvents = async (id) => {
-  const calendarId = id;
-  const token = JSON.parse(localStorage.getItem('ouath2-access-token'));
-  const url = `${rootUrl}/${calendarId}/events?access_token=${token}`;
-  if(token) {
-    try {
+  try {
+    const calendarId = id;
+    const token = JSON.parse(localStorage.getItem('ouath2-access-token'));
+    const url = `${rootUrl}/${calendarId}/events?access_token=${token}`;
+    if(token) {
       const response = await fetch(url, {
         method: 'GET',
         headers: headers
@@ -28,18 +28,18 @@ export const getUpcomingEvents = async (id) => {
         return events
       })
       return events;
-    } catch (error) {
-      throw Error;
+    } 
+  } catch (error) {
+    console.log(error);
+      throw error;
     }
-  }
 }
 
 export const createNewCalendar = async (props) => {
-  const token = props.token;
-  const url = `${rootUrl}?fields=id%2Csummary&access_token=${token}`;
-
-  if(token) {
-    try {
+  try {
+    const token = props.token;
+    const url = `${rootUrl}?fields=id%2Csummary&access_token=${token}`;
+    if(token) {
       const response = await fetch(url, {
         method: 'POST',
         headers: headers,
@@ -50,20 +50,19 @@ export const createNewCalendar = async (props) => {
       });
       const calendarResponse = await response.json();
       const calendarID = calendarResponse.id;
-      return calendarID
-    } catch (error) {
-      throw Error;
+      return calendarID;
+    } 
+  } catch (error) {
+      throw error;
     }
-  }
 }
 
 export const addUsersToCalendar = async (props, state) => {
-  const token = props.token;
-  const fields = 'fields=etag%2Cid%2Ckind%2Crole%2Cscope'
-  const url = `${rootUrl}/${props.calendarID}/acl?${fields}&access_token=${token}`;
-
-  if(token) {
-    try {
+  try {
+    const token = props.token;
+    const fields = 'fields=etag%2Cid%2Ckind%2Crole%2Cscope'
+    const url = `${rootUrl}/${props.calendarID}/acl?${fields}&access_token=${token}`;
+    if(token) {
       const response = await fetch(url, {
         method: 'POST',
         headers: headers,
@@ -77,18 +76,18 @@ export const addUsersToCalendar = async (props, state) => {
       });
       const result = await response.json();
       return result
-    } catch (error) {
-      throw Error;
+    } 
+  } catch (error) {
+      throw error;
     }
-  }
 }
 
 export const addEventToCalendar = async (props, state) => {
-  const token = props.token;
-  const fields = 'fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
-  const url = `${rootUrl}/${props.calendarID}/events?${fields}&access_token=${token}`;
-  if(token) {
-    try {
+  try {
+    const token = props.token;
+    const fields = 'fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
+    const url = `${rootUrl}/${props.calendarID}/events?${fields}&access_token=${token}`;
+    if(token) {
       const response = await fetch(url, {
         method: 'POST',
         headers: headers,
@@ -106,42 +105,42 @@ export const addEventToCalendar = async (props, state) => {
             useDefault: false,
             overrides: [
               {method: 'email', 'minutes': 24 * 60},
-              {method: 'popup', 'minutes': 30}
+              {method: 'popup', 'minutes': 10}
             ]
           }
         })
       });
       const result = await response.json();
       return result
-    } catch (error) {
-      throw Error;
+    } 
+  } catch (error) {
+      throw error;
     }
-  }
 } 
 
 
 export const deleteEventFromCalendar = async (props) => {
-  const token = props.token
-  const url = `${rootUrl}/${props.calendarID}/events/${props.event.eventID}?access_token=${token}`;
-  if(token) {
-    try {
+  try {
+    const token = props.token
+    const url = `${rootUrl}/${props.calendarID}/events/${props.event.eventID}?access_token=${token}`;
+    if(token) {
       const response = await fetch(url, {
         method: 'DELETE',
         headers: headers,
       });
       return response;
-    } catch (error) {
-      throw Error;
+    } 
+  } catch (error) {
+      throw error;
     }
-  }
 }
 
 export const editEventOnCalendar = async (props, state) => {
-  const token = props.token
-  const fields = 'fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
-  const url = `${rootUrl}/${props.calendarID}/events/${props.event.eventID}?${fields}&access_token=${token}`;
-  if(token) {
-    try {
+  try {
+    const token = props.token
+    const fields = 'fields=description%2Cend%2Clocation%2Creminders%2Cstart%2Csummary';
+    const url = `${rootUrl}/${props.calendarID}/events/${props.event.eventID}?${fields}&access_token=${token}`;
+    if(token) {
       const response = await fetch(url, {
         method: 'PUT',
         headers: headers,
@@ -159,15 +158,15 @@ export const editEventOnCalendar = async (props, state) => {
             useDefault: false,
             overrides: [
               {method: 'email', 'minutes': 24 * 60},
-              {method: 'popup', 'minutes': 30}
+              {method: 'popup', 'minutes': 10}
             ]
           }
         })
       });
       const result = await response.json();
       return result
-    } catch (error) {
-      throw Error;
+    } 
+  } catch (error) {
+      throw error;
     }
-  }
 }

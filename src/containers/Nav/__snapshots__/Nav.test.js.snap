@@ -39,6 +39,7 @@ ShallowWrapper {
           </button>
         </div>,
       ],
+      "className": "nav",
     },
     "ref": null,
     "rendered": Array [
@@ -100,6 +101,7 @@ ShallowWrapper {
             </button>
           </div>,
         ],
+        "className": "nav",
       },
       "ref": null,
       "rendered": Array [

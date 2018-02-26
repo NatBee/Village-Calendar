@@ -26,10 +26,18 @@ class Splash extends Component {
   render() {
     return (
       <div className='calendar'>
-        <h4>Welcome to Village Calendar, a calendar organization tool. Village app allows you to load an existing google calendar or create a new calendar. You can share your calendar with friends and family. Manage your calendar by adding, editing, and deleting events. You will also receive an email reminder 24 hours before an event and a google popup reminder 30 minutes before the event.</h4>
+        <div className='intro'>
+          <h3>Welcome to Village Calendar, a calendar organization tool that allows you to:</h3> 
+          <ul>
+            <li>Load an existing google calendar or create a new calendar.</li> 
+            <li>Share your calendar with friends and family.</li> 
+            <li>Manage your calendar by adding, editing, and deleting events.</li> 
+            <li>Receive email and google popup reminders 24 hours and 30 minutes before an event.</li> 
+          </ul>
+        </div>    
         {this.loginAlert()}
         <BigCalendar 
-          style={ {height: '450px', width: '650px'} }    
+          style={ {height: '400px', width: '650px'} }    
           events={ mockData.events } 
           views={{
             month: true,

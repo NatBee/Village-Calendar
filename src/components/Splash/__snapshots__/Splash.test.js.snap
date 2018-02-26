@@ -24,9 +24,30 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
+        <div
+          className="intro"
+        >
+          <h3>
+            Welcome to Village Calendar, a calendar organization tool that allows you to:
+          </h3>
+          <ul>
+            <li>
+              Load an existing google calendar or create a new calendar.
+            </li>
+            <li>
+              Share your calendar with friends and family.
+            </li>
+            <li>
+              Manage your calendar by adding, editing, and deleting events.
+            </li>
+            <li>
+              Receive email and google popup reminders 24 hours and 30 minutes before an event.
+            </li>
+          </ul>
+        </div>,
         undefined,
         <Uncontrolled(Calendar)
-          defaultDate={2018-02-25T21:46:29.199Z}
+          defaultDate={2018-02-26T03:47:05.944Z}
           events={
             Array [
               Object {
@@ -45,7 +66,8 @@ ShallowWrapper {
           onView={[Function]}
           style={
             Object {
-              "height": "420px",
+              "height": "400px",
+              "width": "650px",
             }
           }
           views={
@@ -56,16 +78,128 @@ ShallowWrapper {
           }
         />,
       ],
+      "className": "calendar",
     },
     "ref": null,
     "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Welcome to Village Calendar, a calendar organization tool that allows you to:
+            </h3>,
+            <ul>
+              <li>
+                Load an existing google calendar or create a new calendar.
+              </li>
+              <li>
+                Share your calendar with friends and family.
+              </li>
+              <li>
+                Manage your calendar by adding, editing, and deleting events.
+              </li>
+              <li>
+                Receive email and google popup reminders 24 hours and 30 minutes before an event.
+              </li>
+            </ul>,
+          ],
+          "className": "intro",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Welcome to Village Calendar, a calendar organization tool that allows you to:",
+            },
+            "ref": null,
+            "rendered": "Welcome to Village Calendar, a calendar organization tool that allows you to:",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <li>
+                  Load an existing google calendar or create a new calendar.
+                </li>,
+                <li>
+                  Share your calendar with friends and family.
+                </li>,
+                <li>
+                  Manage your calendar by adding, editing, and deleting events.
+                </li>,
+                <li>
+                  Receive email and google popup reminders 24 hours and 30 minutes before an event.
+                </li>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Load an existing google calendar or create a new calendar.",
+                },
+                "ref": null,
+                "rendered": "Load an existing google calendar or create a new calendar.",
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Share your calendar with friends and family.",
+                },
+                "ref": null,
+                "rendered": "Share your calendar with friends and family.",
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Manage your calendar by adding, editing, and deleting events.",
+                },
+                "ref": null,
+                "rendered": "Manage your calendar by adding, editing, and deleting events.",
+                "type": "li",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Receive email and google popup reminders 24 hours and 30 minutes before an event.",
+                },
+                "ref": null,
+                "rendered": "Receive email and google popup reminders 24 hours and 30 minutes before an event.",
+                "type": "li",
+              },
+            ],
+            "type": "ul",
+          },
+        ],
+        "type": "div",
+      },
       undefined,
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "defaultDate": 2018-02-25T21:46:29.199Z,
+          "defaultDate": 2018-02-26T03:47:05.944Z,
           "events": Array [
             Object {
               "description": "Fun with friends",
@@ -81,7 +215,8 @@ ShallowWrapper {
           "onSelectSlot": [Function],
           "onView": [Function],
           "style": Object {
-            "height": "420px",
+            "height": "400px",
+            "width": "650px",
           },
           "views": Object {
             "day": true,
@@ -102,9 +237,30 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
+          <div
+            className="intro"
+          >
+            <h3>
+              Welcome to Village Calendar, a calendar organization tool that allows you to:
+            </h3>
+            <ul>
+              <li>
+                Load an existing google calendar or create a new calendar.
+              </li>
+              <li>
+                Share your calendar with friends and family.
+              </li>
+              <li>
+                Manage your calendar by adding, editing, and deleting events.
+              </li>
+              <li>
+                Receive email and google popup reminders 24 hours and 30 minutes before an event.
+              </li>
+            </ul>
+          </div>,
           undefined,
           <Uncontrolled(Calendar)
-            defaultDate={2018-02-25T21:46:29.199Z}
+            defaultDate={2018-02-26T03:47:05.944Z}
             events={
               Array [
                 Object {
@@ -123,7 +279,8 @@ ShallowWrapper {
             onView={[Function]}
             style={
               Object {
-                "height": "420px",
+                "height": "400px",
+                "width": "650px",
               }
             }
             views={
@@ -134,16 +291,128 @@ ShallowWrapper {
             }
           />,
         ],
+        "className": "calendar",
       },
       "ref": null,
       "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h3>
+                Welcome to Village Calendar, a calendar organization tool that allows you to:
+              </h3>,
+              <ul>
+                <li>
+                  Load an existing google calendar or create a new calendar.
+                </li>
+                <li>
+                  Share your calendar with friends and family.
+                </li>
+                <li>
+                  Manage your calendar by adding, editing, and deleting events.
+                </li>
+                <li>
+                  Receive email and google popup reminders 24 hours and 30 minutes before an event.
+                </li>
+              </ul>,
+            ],
+            "className": "intro",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Welcome to Village Calendar, a calendar organization tool that allows you to:",
+              },
+              "ref": null,
+              "rendered": "Welcome to Village Calendar, a calendar organization tool that allows you to:",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <li>
+                    Load an existing google calendar or create a new calendar.
+                  </li>,
+                  <li>
+                    Share your calendar with friends and family.
+                  </li>,
+                  <li>
+                    Manage your calendar by adding, editing, and deleting events.
+                  </li>,
+                  <li>
+                    Receive email and google popup reminders 24 hours and 30 minutes before an event.
+                  </li>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Load an existing google calendar or create a new calendar.",
+                  },
+                  "ref": null,
+                  "rendered": "Load an existing google calendar or create a new calendar.",
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Share your calendar with friends and family.",
+                  },
+                  "ref": null,
+                  "rendered": "Share your calendar with friends and family.",
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Manage your calendar by adding, editing, and deleting events.",
+                  },
+                  "ref": null,
+                  "rendered": "Manage your calendar by adding, editing, and deleting events.",
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Receive email and google popup reminders 24 hours and 30 minutes before an event.",
+                  },
+                  "ref": null,
+                  "rendered": "Receive email and google popup reminders 24 hours and 30 minutes before an event.",
+                  "type": "li",
+                },
+              ],
+              "type": "ul",
+            },
+          ],
+          "type": "div",
+        },
         undefined,
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "defaultDate": 2018-02-25T21:46:29.199Z,
+            "defaultDate": 2018-02-26T03:47:05.944Z,
             "events": Array [
               Object {
                 "description": "Fun with friends",
@@ -159,7 +428,8 @@ ShallowWrapper {
             "onSelectSlot": [Function],
             "onView": [Function],
             "style": Object {
-              "height": "420px",
+              "height": "400px",
+              "width": "650px",
             },
             "views": Object {
               "day": true,

@@ -1,4 +1,14 @@
 .calendar {
   padding-bottom: 120px;
   text-align: -webkit-center;
-  background-image: url("../../assets/desk.jpg"); }
+  background-image: url("../../assets/desk.jpg");
+  font-family: 'Exo 2', sans-serif; }
+
+.intro {
+  font-family: 'Exo', sans-serif;
+  width: 515px;
+  padding: 10px 0 20px;
+  font-size: .75em; }
+
+.intro li {
+  text-align: justify; }

@@ -69,7 +69,7 @@ export class Nav extends Component {
 
   render() {
     return(
-      <div>
+      <div className='nav'>
         <h1>Village Calendar</h1>
         {this.buttonDisplay()}
       </div>
