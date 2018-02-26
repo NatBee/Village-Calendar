@@ -57,8 +57,8 @@ export class EventCard extends Component {
             onChange={this.handleChange} 
           />
           <div className='form-btn'>
-            <button>Submit</button>
             <button onClick={this.cancel}>Cancel</button>
+            <button>Submit</button>
           </div>  
         </form>
       </div>

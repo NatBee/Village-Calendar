@@ -16,6 +16,9 @@ h2 {
   padding: 0 30px;
   margin: 0 0 45px; }
 
+h3 {
+  margin: 0 0 20px; }
+
 .btn {
   display: flex;
   justify-content: space-around; }
