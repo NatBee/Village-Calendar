@@ -2,7 +2,8 @@
   padding-bottom: 120px;
   text-align: -webkit-center;
   font-family: 'Exo 2', sans-serif;
-  margin: 125px 0 0 0; }
+  margin: 125px 0 0 0;
+  z-index: -1; }
 
 .intro {
   font-family: 'Exo', sans-serif;
