@@ -35,8 +35,8 @@ export class EventCard extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Event</h1>
+      <div className='add-event'>
+        <h3>Add Event</h3>
         <form onSubmit={this.addEvent}>
           <input 
             type='text' 
@@ -56,9 +56,11 @@ export class EventCard extends Component {
             placeholder='Event Description' 
             onChange={this.handleChange} 
           />
-          <button>Submit</button>
+          <div className='form-btn'>
+            <button>Submit</button>
+            <button onClick={this.cancel}>Cancel</button>
+          </div>  
         </form>
-        <button onClick={this.cancel}>Cancel</button>
       </div>
     )
   }
