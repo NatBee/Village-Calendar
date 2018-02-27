@@ -19,12 +19,11 @@ describe('all actions', () => {
     expect(actions.logInUser(user)).toEqual(expected);
   })
 
-  it('should return a type of LOG_OUT_USER, with a user', () => {
+  it('should return a type of LOG_OUT_USER', () => {
     const expected = {
-      type: 'LOG_OUT_USER',
-      user
+      type: 'LOG_OUT_USER'
     }
-    expect(actions.logOutUser(user)).toEqual(expected);
+    expect(actions.logOutUser()).toEqual(expected);
   })
 
   it('should return a type of LOAD_EVENTS, with events', () => {
@@ -35,12 +34,11 @@ describe('all actions', () => {
     expect(actions.loadUpcomingEvents(events)).toEqual(expected);
   })
 
-  it('should return a type of REMOVE_EVENTS, with events', () => {
+  it('should return a type of REMOVE_EVENTS', () => {
     const expected = {
-      type: 'REMOVE_EVENTS',
-      events
+      type: 'REMOVE_EVENTS'
     }
-    expect(actions.removeAllEvents(events)).toEqual(expected);
+    expect(actions.removeAllEvents()).toEqual(expected);
   })
 
   it('should return a type of SET_TOKEN, with token', () => {
@@ -51,12 +49,11 @@ describe('all actions', () => {
     expect(actions.setToken(token)).toEqual(expected);
   })
 
-  it('should return a type of REMOVE_TOKEN, with token', () => {
+  it('should return a type of REMOVE_TOKEN', () => {
     const expected = {
-      type: 'REMOVE_TOKEN',
-      token
+      type: 'REMOVE_TOKEN'
     }
-    expect(actions.removeToken(token)).toEqual(expected);
+    expect(actions.removeToken()).toEqual(expected);
   })
 
   it('should return a type of SET_CALENDAR_ID, with a calendarID', () => {
@@ -67,12 +64,11 @@ describe('all actions', () => {
     expect(actions.setCalendarID(calendarID)).toEqual(expected);
   })
 
-  it('should return a type of REMOVE_CALENDAR_ID, with a calendarID', () => {
+  it('should return a type of REMOVE_CALENDAR_ID', () => {
     const expected = {
-      type: 'REMOVE_CALENDAR_ID',
-      calendarID
+      type: 'REMOVE_CALENDAR_ID'
     }
-    expect(actions.removeCalendarID(calendarID)).toEqual(expected);
+    expect(actions.removeCalendarID()).toEqual(expected);
   })
 
   it('should return a type of ADD_PEOPLE_TO_VILLAGE, with a village', () => {
@@ -83,12 +79,11 @@ describe('all actions', () => {
     expect(actions.addPeopleToVillage(village)).toEqual(expected);
   })
 
-  it('should return a type of REMOVE_VILLAGE_LIST, with a village', () => {
+  it('should return a type of REMOVE_VILLAGE_LIST', () => {
     const expected = {
-      type: 'REMOVE_VILLAGE_LIST',
-      village
+      type: 'REMOVE_VILLAGE_LIST'
     }
-    expect(actions.removeVillageList(village)).toEqual(expected);
+    expect(actions.removeVillageList()).toEqual(expected);
   })
 
   it('should return a type of SET_TIME, with a time', () => {
@@ -107,11 +102,10 @@ describe('all actions', () => {
     expect(actions.setEvent(event)).toEqual(expected);
   })
 
-  it('should return a type of REMOVE_EVENT, with an event', () => {
+  it('should return a type of REMOVE_EVENT', () => {
     const expected = {
-      type: 'REMOVE_EVENT',
-      event
+      type: 'REMOVE_EVENT'
     }
-    expect(actions.removeEvent(event)).toEqual(expected)
+    expect(actions.removeEvent()).toEqual(expected)
   })
 })

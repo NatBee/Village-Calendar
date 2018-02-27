@@ -19,19 +19,24 @@ ShallowWrapper {
     "props": Object {
       "children": <div>
         <h2>
-          Would you like to load an existing calendar or would you like to create a new calendar?
+          Would you like to load an existing calendar or create a new calendar?
         </h2>
-        <button
-          onClick={[Function]}
+        <div
+          className="btn"
         >
-          Existing
-        </button>
-        <button
-          onClick={[Function]}
-        >
-          Create Calendar
-        </button>
+          <button
+            onClick={[Function]}
+          >
+            Existing
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            New
+          </button>
+        </div>
       </div>,
+      "className": "register",
     },
     "ref": null,
     "rendered": Object {
@@ -41,18 +46,22 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h2>
-            Would you like to load an existing calendar or would you like to create a new calendar?
+            Would you like to load an existing calendar or create a new calendar?
           </h2>,
-          <button
-            onClick={[Function]}
+          <div
+            className="btn"
           >
-            Existing
-          </button>,
-          <button
-            onClick={[Function]}
-          >
-            Create Calendar
-          </button>,
+            <button
+              onClick={[Function]}
+            >
+              Existing
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              New
+            </button>
+          </div>,
         ],
       },
       "ref": null,
@@ -62,10 +71,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Would you like to load an existing calendar or would you like to create a new calendar?",
+            "children": "Would you like to load an existing calendar or create a new calendar?",
           },
           "ref": null,
-          "rendered": "Would you like to load an existing calendar or would you like to create a new calendar?",
+          "rendered": "Would you like to load an existing calendar or create a new calendar?",
           "type": "h2",
         },
         Object {
@@ -73,24 +82,48 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Existing",
-            "onClick": [Function],
+            "children": Array [
+              <button
+                onClick={[Function]}
+              >
+                Existing
+              </button>,
+              <button
+                onClick={[Function]}
+              >
+                New
+              </button>,
+            ],
+            "className": "btn",
           },
           "ref": null,
-          "rendered": "Existing",
-          "type": "button",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Create Calendar",
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": "Create Calendar",
-          "type": "button",
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Existing",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Existing",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "New",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "New",
+              "type": "button",
+            },
+          ],
+          "type": "div",
         },
       ],
       "type": "div",
@@ -105,19 +138,24 @@ ShallowWrapper {
       "props": Object {
         "children": <div>
           <h2>
-            Would you like to load an existing calendar or would you like to create a new calendar?
+            Would you like to load an existing calendar or create a new calendar?
           </h2>
-          <button
-            onClick={[Function]}
+          <div
+            className="btn"
           >
-            Existing
-          </button>
-          <button
-            onClick={[Function]}
-          >
-            Create Calendar
-          </button>
+            <button
+              onClick={[Function]}
+            >
+              Existing
+            </button>
+            <button
+              onClick={[Function]}
+            >
+              New
+            </button>
+          </div>
         </div>,
+        "className": "register",
       },
       "ref": null,
       "rendered": Object {
@@ -127,18 +165,22 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h2>
-              Would you like to load an existing calendar or would you like to create a new calendar?
+              Would you like to load an existing calendar or create a new calendar?
             </h2>,
-            <button
-              onClick={[Function]}
+            <div
+              className="btn"
             >
-              Existing
-            </button>,
-            <button
-              onClick={[Function]}
-            >
-              Create Calendar
-            </button>,
+              <button
+                onClick={[Function]}
+              >
+                Existing
+              </button>
+              <button
+                onClick={[Function]}
+              >
+                New
+              </button>
+            </div>,
           ],
         },
         "ref": null,
@@ -148,10 +190,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Would you like to load an existing calendar or would you like to create a new calendar?",
+              "children": "Would you like to load an existing calendar or create a new calendar?",
             },
             "ref": null,
-            "rendered": "Would you like to load an existing calendar or would you like to create a new calendar?",
+            "rendered": "Would you like to load an existing calendar or create a new calendar?",
             "type": "h2",
           },
           Object {
@@ -159,24 +201,48 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Existing",
-              "onClick": [Function],
+              "children": Array [
+                <button
+                  onClick={[Function]}
+                >
+                  Existing
+                </button>,
+                <button
+                  onClick={[Function]}
+                >
+                  New
+                </button>,
+              ],
+              "className": "btn",
             },
             "ref": null,
-            "rendered": "Existing",
-            "type": "button",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Create Calendar",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": "Create Calendar",
-            "type": "button",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Existing",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Existing",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "New",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "New",
+                "type": "button",
+              },
+            ],
+            "type": "div",
           },
         ],
         "type": "div",

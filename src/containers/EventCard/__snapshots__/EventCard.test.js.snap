@@ -29,9 +29,9 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h1>
-          Event
-        </h1>,
+        <h3>
+          Add Event
+        </h3>,
         <form
           onSubmit={[Function]}
         >
@@ -53,16 +53,24 @@ ShallowWrapper {
             placeholder="Event Description"
             type="text"
           />
-          <button>
-            Submit
-          </button>
+          <div
+            className="form-btn"
+          >
+            <button
+              className="cancel-btn"
+              onClick={[Function]}
+            >
+              Cancel
+            </button>
+            <button
+              className="add-event-btn"
+            >
+              Submit
+            </button>
+          </div>
         </form>,
-        <button
-          onClick={[Function]}
-        >
-          Cancel
-        </button>,
       ],
+      "className": "add-event",
     },
     "ref": null,
     "rendered": Array [
@@ -71,11 +79,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Event",
+          "children": "Add Event",
         },
         "ref": null,
-        "rendered": "Event",
-        "type": "h1",
+        "rendered": "Add Event",
+        "type": "h3",
       },
       Object {
         "instance": null,
@@ -101,9 +109,21 @@ ShallowWrapper {
               placeholder="Event Description"
               type="text"
             />,
-            <button>
-              Submit
-            </button>,
+            <div
+              className="form-btn"
+            >
+              <button
+                className="cancel-btn"
+                onClick={[Function]}
+              >
+                Cancel
+              </button>
+              <button
+                className="add-event-btn"
+              >
+                Submit
+              </button>
+            </div>,
           ],
           "onSubmit": [Function],
         },
@@ -156,26 +176,53 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Submit",
+              "children": Array [
+                <button
+                  className="cancel-btn"
+                  onClick={[Function]}
+                >
+                  Cancel
+                </button>,
+                <button
+                  className="add-event-btn"
+                >
+                  Submit
+                </button>,
+              ],
+              "className": "form-btn",
             },
             "ref": null,
-            "rendered": "Submit",
-            "type": "button",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Cancel",
+                  "className": "cancel-btn",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Cancel",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Submit",
+                  "className": "add-event-btn",
+                },
+                "ref": null,
+                "rendered": "Submit",
+                "type": "button",
+              },
+            ],
+            "type": "div",
           },
         ],
         "type": "form",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Cancel",
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": "Cancel",
-        "type": "button",
       },
     ],
     "type": "div",
@@ -187,9 +234,9 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h1>
-            Event
-          </h1>,
+          <h3>
+            Add Event
+          </h3>,
           <form
             onSubmit={[Function]}
           >
@@ -211,16 +258,24 @@ ShallowWrapper {
               placeholder="Event Description"
               type="text"
             />
-            <button>
-              Submit
-            </button>
+            <div
+              className="form-btn"
+            >
+              <button
+                className="cancel-btn"
+                onClick={[Function]}
+              >
+                Cancel
+              </button>
+              <button
+                className="add-event-btn"
+              >
+                Submit
+              </button>
+            </div>
           </form>,
-          <button
-            onClick={[Function]}
-          >
-            Cancel
-          </button>,
         ],
+        "className": "add-event",
       },
       "ref": null,
       "rendered": Array [
@@ -229,11 +284,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Event",
+            "children": "Add Event",
           },
           "ref": null,
-          "rendered": "Event",
-          "type": "h1",
+          "rendered": "Add Event",
+          "type": "h3",
         },
         Object {
           "instance": null,
@@ -259,9 +314,21 @@ ShallowWrapper {
                 placeholder="Event Description"
                 type="text"
               />,
-              <button>
-                Submit
-              </button>,
+              <div
+                className="form-btn"
+              >
+                <button
+                  className="cancel-btn"
+                  onClick={[Function]}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="add-event-btn"
+                >
+                  Submit
+                </button>
+              </div>,
             ],
             "onSubmit": [Function],
           },
@@ -314,26 +381,53 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Submit",
+                "children": Array [
+                  <button
+                    className="cancel-btn"
+                    onClick={[Function]}
+                  >
+                    Cancel
+                  </button>,
+                  <button
+                    className="add-event-btn"
+                  >
+                    Submit
+                  </button>,
+                ],
+                "className": "form-btn",
               },
               "ref": null,
-              "rendered": "Submit",
-              "type": "button",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Cancel",
+                    "className": "cancel-btn",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Cancel",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Submit",
+                    "className": "add-event-btn",
+                  },
+                  "ref": null,
+                  "rendered": "Submit",
+                  "type": "button",
+                },
+              ],
+              "type": "div",
             },
           ],
           "type": "form",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Cancel",
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": "Cancel",
-          "type": "button",
         },
       ],
       "type": "div",

@@ -29,57 +29,70 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h1>
-          Edit Event
-        </h1>,
+        <h2>
+          Edit or Delete Event
+        </h2>,
         <form>
           <input
             name="title"
             onChange={[Function]}
+            placeholder="Event title"
             type="text"
             value="Super Fun Party"
           />
           <input
             name="start"
             onChange={[Function]}
+            placeholder="Event start time"
             type="text"
             value="2018-02-09T09:00:00-07:00"
           />
           <input
             name="end"
             onChange={[Function]}
+            placeholder="Event end time"
             type="text"
             value="2018-02-09T10:00:00-07:00"
           />
           <input
             name="description"
             onChange={[Function]}
+            placeholder="Event description"
             type="text"
             value="Fun with friends"
           />
           <input
             name="location"
             onChange={[Function]}
+            placeholder="Event location"
             type="text"
             value="Mi Casa"
           />
-          <button
-            onClick={[Function]}
+          <div
+            className="edit-btns"
           >
-            Edit
-          </button>
-          <button
-            onClick={[Function]}
-          >
-            Delete
-          </button>
+            <button
+              className="edit-cancel-btn"
+              onClick={[Function]}
+            >
+              Cancel
+            </button>
+            <button
+              className="edit-btn-btn"
+              onClick={[Function]}
+            >
+              Edit
+            </button>
+            <button
+              className="edit-delete-btn"
+              onClick={[Function]}
+            >
+              Delete
+            </button>
+          </div>
         </form>,
-        <button
-          onClick={[Function]}
-        >
-          Cancel
-        </button>,
       ],
+      "className": "edit-card",
     },
     "ref": null,
     "rendered": Array [
@@ -88,11 +101,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Edit Event",
+          "children": "Edit or Delete Event",
         },
         "ref": null,
-        "rendered": "Edit Event",
-        "type": "h1",
+        "rendered": "Edit or Delete Event",
+        "type": "h2",
       },
       Object {
         "instance": null,
@@ -103,43 +116,60 @@ ShallowWrapper {
             <input
               name="title"
               onChange={[Function]}
+              placeholder="Event title"
               type="text"
               value="Super Fun Party"
             />,
             <input
               name="start"
               onChange={[Function]}
+              placeholder="Event start time"
               type="text"
               value="2018-02-09T09:00:00-07:00"
             />,
             <input
               name="end"
               onChange={[Function]}
+              placeholder="Event end time"
               type="text"
               value="2018-02-09T10:00:00-07:00"
             />,
             <input
               name="description"
               onChange={[Function]}
+              placeholder="Event description"
               type="text"
               value="Fun with friends"
             />,
             <input
               name="location"
               onChange={[Function]}
+              placeholder="Event location"
               type="text"
               value="Mi Casa"
             />,
-            <button
-              onClick={[Function]}
+            <div
+              className="edit-btns"
             >
-              Edit
-            </button>,
-            <button
-              onClick={[Function]}
-            >
-              Delete
-            </button>,
+              <button
+                className="edit-cancel-btn"
+                onClick={[Function]}
+              >
+                Cancel
+              </button>
+              <button
+                className="edit-btn-btn"
+                onClick={[Function]}
+              >
+                Edit
+              </button>
+              <button
+                className="edit-delete-btn"
+                onClick={[Function]}
+              >
+                Delete
+              </button>
+            </div>,
           ],
         },
         "ref": null,
@@ -151,6 +181,7 @@ ShallowWrapper {
             "props": Object {
               "name": "title",
               "onChange": [Function],
+              "placeholder": "Event title",
               "type": "text",
               "value": "Super Fun Party",
             },
@@ -165,6 +196,7 @@ ShallowWrapper {
             "props": Object {
               "name": "start",
               "onChange": [Function],
+              "placeholder": "Event start time",
               "type": "text",
               "value": "2018-02-09T09:00:00-07:00",
             },
@@ -179,6 +211,7 @@ ShallowWrapper {
             "props": Object {
               "name": "end",
               "onChange": [Function],
+              "placeholder": "Event end time",
               "type": "text",
               "value": "2018-02-09T10:00:00-07:00",
             },
@@ -193,6 +226,7 @@ ShallowWrapper {
             "props": Object {
               "name": "description",
               "onChange": [Function],
+              "placeholder": "Event description",
               "type": "text",
               "value": "Fun with friends",
             },
@@ -207,6 +241,7 @@ ShallowWrapper {
             "props": Object {
               "name": "location",
               "onChange": [Function],
+              "placeholder": "Event location",
               "type": "text",
               "value": "Mi Casa",
             },
@@ -219,39 +254,74 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Edit",
-              "onClick": [Function],
+              "children": Array [
+                <button
+                  className="edit-cancel-btn"
+                  onClick={[Function]}
+                >
+                  Cancel
+                </button>,
+                <button
+                  className="edit-btn-btn"
+                  onClick={[Function]}
+                >
+                  Edit
+                </button>,
+                <button
+                  className="edit-delete-btn"
+                  onClick={[Function]}
+                >
+                  Delete
+                </button>,
+              ],
+              "className": "edit-btns",
             },
             "ref": null,
-            "rendered": "Edit",
-            "type": "button",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Delete",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": "Delete",
-            "type": "button",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Cancel",
+                  "className": "edit-cancel-btn",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Cancel",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Edit",
+                  "className": "edit-btn-btn",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Edit",
+                "type": "button",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Delete",
+                  "className": "edit-delete-btn",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "Delete",
+                "type": "button",
+              },
+            ],
+            "type": "div",
           },
         ],
         "type": "form",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Cancel",
-          "onClick": [Function],
-        },
-        "ref": null,
-        "rendered": "Cancel",
-        "type": "button",
       },
     ],
     "type": "div",
@@ -263,57 +333,70 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h1>
-            Edit Event
-          </h1>,
+          <h2>
+            Edit or Delete Event
+          </h2>,
           <form>
             <input
               name="title"
               onChange={[Function]}
+              placeholder="Event title"
               type="text"
               value="Super Fun Party"
             />
             <input
               name="start"
               onChange={[Function]}
+              placeholder="Event start time"
               type="text"
               value="2018-02-09T09:00:00-07:00"
             />
             <input
               name="end"
               onChange={[Function]}
+              placeholder="Event end time"
               type="text"
               value="2018-02-09T10:00:00-07:00"
             />
             <input
               name="description"
               onChange={[Function]}
+              placeholder="Event description"
               type="text"
               value="Fun with friends"
             />
             <input
               name="location"
               onChange={[Function]}
+              placeholder="Event location"
               type="text"
               value="Mi Casa"
             />
-            <button
-              onClick={[Function]}
+            <div
+              className="edit-btns"
             >
-              Edit
-            </button>
-            <button
-              onClick={[Function]}
-            >
-              Delete
-            </button>
+              <button
+                className="edit-cancel-btn"
+                onClick={[Function]}
+              >
+                Cancel
+              </button>
+              <button
+                className="edit-btn-btn"
+                onClick={[Function]}
+              >
+                Edit
+              </button>
+              <button
+                className="edit-delete-btn"
+                onClick={[Function]}
+              >
+                Delete
+              </button>
+            </div>
           </form>,
-          <button
-            onClick={[Function]}
-          >
-            Cancel
-          </button>,
         ],
+        "className": "edit-card",
       },
       "ref": null,
       "rendered": Array [
@@ -322,11 +405,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Edit Event",
+            "children": "Edit or Delete Event",
           },
           "ref": null,
-          "rendered": "Edit Event",
-          "type": "h1",
+          "rendered": "Edit or Delete Event",
+          "type": "h2",
         },
         Object {
           "instance": null,
@@ -337,43 +420,60 @@ ShallowWrapper {
               <input
                 name="title"
                 onChange={[Function]}
+                placeholder="Event title"
                 type="text"
                 value="Super Fun Party"
               />,
               <input
                 name="start"
                 onChange={[Function]}
+                placeholder="Event start time"
                 type="text"
                 value="2018-02-09T09:00:00-07:00"
               />,
               <input
                 name="end"
                 onChange={[Function]}
+                placeholder="Event end time"
                 type="text"
                 value="2018-02-09T10:00:00-07:00"
               />,
               <input
                 name="description"
                 onChange={[Function]}
+                placeholder="Event description"
                 type="text"
                 value="Fun with friends"
               />,
               <input
                 name="location"
                 onChange={[Function]}
+                placeholder="Event location"
                 type="text"
                 value="Mi Casa"
               />,
-              <button
-                onClick={[Function]}
+              <div
+                className="edit-btns"
               >
-                Edit
-              </button>,
-              <button
-                onClick={[Function]}
-              >
-                Delete
-              </button>,
+                <button
+                  className="edit-cancel-btn"
+                  onClick={[Function]}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="edit-btn-btn"
+                  onClick={[Function]}
+                >
+                  Edit
+                </button>
+                <button
+                  className="edit-delete-btn"
+                  onClick={[Function]}
+                >
+                  Delete
+                </button>
+              </div>,
             ],
           },
           "ref": null,
@@ -385,6 +485,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "title",
                 "onChange": [Function],
+                "placeholder": "Event title",
                 "type": "text",
                 "value": "Super Fun Party",
               },
@@ -399,6 +500,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "start",
                 "onChange": [Function],
+                "placeholder": "Event start time",
                 "type": "text",
                 "value": "2018-02-09T09:00:00-07:00",
               },
@@ -413,6 +515,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "end",
                 "onChange": [Function],
+                "placeholder": "Event end time",
                 "type": "text",
                 "value": "2018-02-09T10:00:00-07:00",
               },
@@ -427,6 +530,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "description",
                 "onChange": [Function],
+                "placeholder": "Event description",
                 "type": "text",
                 "value": "Fun with friends",
               },
@@ -441,6 +545,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "location",
                 "onChange": [Function],
+                "placeholder": "Event location",
                 "type": "text",
                 "value": "Mi Casa",
               },
@@ -453,39 +558,74 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Edit",
-                "onClick": [Function],
+                "children": Array [
+                  <button
+                    className="edit-cancel-btn"
+                    onClick={[Function]}
+                  >
+                    Cancel
+                  </button>,
+                  <button
+                    className="edit-btn-btn"
+                    onClick={[Function]}
+                  >
+                    Edit
+                  </button>,
+                  <button
+                    className="edit-delete-btn"
+                    onClick={[Function]}
+                  >
+                    Delete
+                  </button>,
+                ],
+                "className": "edit-btns",
               },
               "ref": null,
-              "rendered": "Edit",
-              "type": "button",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Delete",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Delete",
-              "type": "button",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Cancel",
+                    "className": "edit-cancel-btn",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Cancel",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Edit",
+                    "className": "edit-btn-btn",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Edit",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Delete",
+                    "className": "edit-delete-btn",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "Delete",
+                  "type": "button",
+                },
+              ],
+              "type": "div",
             },
           ],
           "type": "form",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Cancel",
-            "onClick": [Function],
-          },
-          "ref": null,
-          "rendered": "Cancel",
-          "type": "button",
         },
       ],
       "type": "div",
