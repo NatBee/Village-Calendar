@@ -47,7 +47,7 @@ ShallowWrapper {
         </div>,
         undefined,
         <Uncontrolled(Calendar)
-          defaultDate={2018-02-26T03:47:05.944Z}
+          defaultDate={2016-01-01T00:00:00.000Z}
           events={
             Array [
               Object {
@@ -66,8 +66,8 @@ ShallowWrapper {
           onView={[Function]}
           style={
             Object {
-              "height": "400px",
-              "width": "650px",
+              "height": "600px",
+              "width": "850px",
             }
           }
           views={
@@ -199,7 +199,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "defaultDate": 2018-02-26T03:47:05.944Z,
+          "defaultDate": 2016-01-01T00:00:00.000Z,
           "events": Array [
             Object {
               "description": "Fun with friends",
@@ -215,8 +215,8 @@ ShallowWrapper {
           "onSelectSlot": [Function],
           "onView": [Function],
           "style": Object {
-            "height": "400px",
-            "width": "650px",
+            "height": "600px",
+            "width": "850px",
           },
           "views": Object {
             "day": true,
@@ -260,7 +260,7 @@ ShallowWrapper {
           </div>,
           undefined,
           <Uncontrolled(Calendar)
-            defaultDate={2018-02-26T03:47:05.944Z}
+            defaultDate={2016-01-01T00:00:00.000Z}
             events={
               Array [
                 Object {
@@ -279,8 +279,8 @@ ShallowWrapper {
             onView={[Function]}
             style={
               Object {
-                "height": "400px",
-                "width": "650px",
+                "height": "600px",
+                "width": "850px",
               }
             }
             views={
@@ -412,7 +412,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "defaultDate": 2018-02-26T03:47:05.944Z,
+            "defaultDate": 2016-01-01T00:00:00.000Z,
             "events": Array [
               Object {
                 "description": "Fun with friends",
@@ -428,8 +428,8 @@ ShallowWrapper {
             "onSelectSlot": [Function],
             "onView": [Function],
             "style": Object {
-              "height": "400px",
-              "width": "650px",
+              "height": "600px",
+              "width": "850px",
             },
             "views": Object {
               "day": true,

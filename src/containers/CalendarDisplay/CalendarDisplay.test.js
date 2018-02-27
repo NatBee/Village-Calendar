@@ -18,6 +18,12 @@ global.localStorage = {
 
 describe('CalendarDisplay', () => {
   let wrapper;
+  const DATE_TO_USE = new Date('2016');
+  const _Date = Date;
+  global.Date = jest.fn(() => DATE_TO_USE);
+  global.Date.UTC = _Date.UTC;
+  global.Date.parse = _Date.parse;
+  global.Date.now = _Date.now;
 
   beforeEach(() => {
     localStorage.setItem('ouath2-access-token', mockData.token);
@@ -25,6 +31,7 @@ describe('CalendarDisplay', () => {
   })
 
   it('should match snapshot', () => {
+    
     expect(wrapper).toMatchSnapshot();
   })
 

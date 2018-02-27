@@ -3,9 +3,8 @@ export const logInUser = (user) => ({
   user
 });
 
-export const logOutUser = (user) => ({
-  type: 'LOG_OUT_USER',
-  user
+export const logOutUser = () => ({
+  type: 'LOG_OUT_USER'
 });
 
 export const loadUpcomingEvents = (events) => ({
@@ -13,9 +12,8 @@ export const loadUpcomingEvents = (events) => ({
   events
 });
 
-export const removeAllEvents = (events) => ({
-  type: 'REMOVE_EVENTS',
-  events
+export const removeAllEvents = () => ({
+  type: 'REMOVE_EVENTS'
 })
 
 export const setToken = (token) => ({
@@ -23,9 +21,8 @@ export const setToken = (token) => ({
   token
 })
 
-export const removeToken = (token) => ({
-  type: 'REMOVE_TOKEN',
-  token
+export const removeToken = () => ({
+  type: 'REMOVE_TOKEN'
 })
 
 export const setCalendarID = (calendarID) => ({
@@ -33,9 +30,8 @@ export const setCalendarID = (calendarID) => ({
   calendarID
 })
 
-export const removeCalendarID = (calendarID) => ({
-  type: 'REMOVE_CALENDAR_ID',
-  calendarID
+export const removeCalendarID = () => ({
+  type: 'REMOVE_CALENDAR_ID'
 })
 
 export const addPeopleToVillage = (village) => ({
@@ -43,9 +39,8 @@ export const addPeopleToVillage = (village) => ({
   village
 })
 
-export const removeVillageList = (village) => ({
-  type: 'REMOVE_VILLAGE_LIST',
-  village
+export const removeVillageList = () => ({
+  type: 'REMOVE_VILLAGE_LIST'
 })
 
 export const setTimeAddEvent = (time) => ({
@@ -58,7 +53,6 @@ export const setEvent = (event) => ({
   event
 })
 
-export const removeEvent = (event) => ({
-  type: 'REMOVE_EVENT',
-  event
+export const removeEvent = () => ({
+  type: 'REMOVE_EVENT'
 })
