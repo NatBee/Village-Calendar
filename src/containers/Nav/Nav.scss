@@ -8,11 +8,13 @@
   width: 100%;
   overflow: hidden;
   z-index: 1;
+  display: flex;
+  justify-content: space-between;
 }
 
 .nav h1 {
   margin: 0;
-  padding: 10px;
+  padding: 35px 0px 8px 25px;
 }
 
 .nav button { 
@@ -21,9 +23,21 @@
   color: #DBE3D4;
   font-family: 'Exo', sans-serif;
   border: 2px solid #293435;
-  margin: 0 0 5px;
+  width: 100px;
 }
 
 .nav button:hover {
   background-color: #293435;
+}
+
+.display-name {
+  padding: 10px 20px 5px;
+}
+
+.login {
+  margin: 40px 20px 0;
+}
+
+.logout-btn {
+  margin: 5px 0 15px 90px;
 }
