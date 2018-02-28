@@ -47,7 +47,7 @@ ShallowWrapper {
         </div>,
         undefined,
         <Uncontrolled(Calendar)
-          defaultDate={2016-01-01T00:00:00.000Z}
+          defaultDate={2018-02-28T18:04:06.342Z}
           events={
             Array [
               Object {
@@ -199,7 +199,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "defaultDate": 2016-01-01T00:00:00.000Z,
+          "defaultDate": 2018-02-28T18:04:06.342Z,
           "events": Array [
             Object {
               "description": "Fun with friends",
@@ -260,7 +260,7 @@ ShallowWrapper {
           </div>,
           undefined,
           <Uncontrolled(Calendar)
-            defaultDate={2016-01-01T00:00:00.000Z}
+            defaultDate={2018-02-28T18:04:06.342Z}
             events={
               Array [
                 Object {
@@ -412,7 +412,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "defaultDate": 2016-01-01T00:00:00.000Z,
+            "defaultDate": 2018-02-28T18:04:06.342Z,
             "events": Array [
               Object {
                 "description": "Fun with friends",

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './Splash.css';
 import BigCalendar from 'react-big-calendar';
 import { mockData } from '../../mockData';
+import moment from 'moment';
+
+BigCalendar.momentLocalizer(moment);
 
 class Splash extends Component {
   constructor(props) {
@@ -18,7 +21,7 @@ class Splash extends Component {
   loginAlert = () => {
     if(this.state.clicked === true) {
       return (
-        <h2>Please log in to start planning!</h2>
+        <h2 className='message'>Please log in to start planning!</h2>
       )
     }
   }
@@ -48,7 +51,7 @@ class Splash extends Component {
           onSelectSlot={ this.handleClick }
           onView={ this.handleClick }
           onNavigate={ this.handleClick }
-        /> 
+        />      
       </div>
     )
   }
