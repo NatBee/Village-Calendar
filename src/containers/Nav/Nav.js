@@ -26,7 +26,9 @@ export class Nav extends Component {
     const authentication = await auth.signInWithPopup(provider);
     this.props.logInUser(authentication);
     const token = authentication.credential.accessToken;
+    const userName = this.props.user.user.displayName;
     localStorage.setItem('ouath2-access-token', JSON.stringify(token));
+    localStorage.setItem('userName', JSON.stringify(userName));
     this.props.setToken(token);
     this.pageDirect();
   } 
@@ -47,9 +49,11 @@ export class Nav extends Component {
         <button className="login" onClick={this.logIn}>Google Log In</button>
       )
     } else {
+      const displayName = JSON.parse(localStorage.getItem('userName'));
       return(
-        <div>
-          <button onClick={this.logOut}>Log Out</button>
+        <div className='logout-box'>
+          <h4 className='display-name'>Welcome, {displayName}</h4>
+          <button className='logout-btn' onClick={this.logOut}>Log Out</button>
         </div>
       )
     }
